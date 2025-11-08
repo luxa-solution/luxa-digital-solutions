@@ -332,5 +332,194 @@ export const projects: Project[] = [
       "Automated impact reporting",
       "System performance analytics"
     ]
+  },
+  {
+    id: "cargeek-ng",
+    title: "CarGeek NG - Premium Automotive Platform",
+    category: "E-Commerce Platform",
+    description: "Revolutionary automotive marketplace for buying, selling, and swapping premium vehicles in Nigeria",
+    tech: ["React", "TypeScript", "Next.js", "TailwindCSS", "Node.js", "AI Valuation System"],
+    image: "/assets/car-geek 01.png",
+    link: "https://cargeek-ng-landing-p-v3fp.bolt.host",
+    client: "CarGeek NG",
+    duration: "4 months",
+    teamSize: 4,
+    budget: "$42,000",
+    overview: "CarGeek NG needed a cutting-edge platform to revolutionize Nigeria's automotive market. They envisioned an all-in-one solution for buying premium cars, selling vehicles instantly, and introducing a smart car swap feature—all backed by AI-powered valuations and transparent processes.",
+    challenge: "The Nigerian automotive market was fragmented, with buyers and sellers struggling to find trustworthy platforms. Traditional dealerships lacked transparency, had complicated processes, and no modern car swapping solutions. Customers needed a platform that combined convenience, trust, and innovation.",
+    solution: "We built a comprehensive automotive platform featuring three core services: Premium Car Sales with quality-certified vehicles, Instant Car Sales with AI-powered valuation, and Smart Car Swap with intelligent matching algorithms. The platform includes flexible payment plans, same-day processing, and complete after-sales support.",
+    results: [
+      {
+        metric: "Vehicle Sales",
+        value: "2K+",
+        description: "Cars successfully sold through the platform"
+      },
+      {
+        metric: "Customer Satisfaction",
+        value: "99%",
+        description: "Happy clients across Nigeria"
+      },
+      {
+        metric: "Brand Coverage",
+        value: "50+",
+        description: "Premium car brands available"
+      },
+      {
+        metric: "Client Base",
+        value: "500+",
+        description: "Active customers and growing"
+      }
+    ],
+    gallery: [
+      "/assets/car-geek 01.png",
+      "/assets/car-geek 02.png",
+      "/assets/car-geek 03.png"
+    ],
+    testimonial: {
+      quote: "CarGeek NG made buying my dream BMW so easy. The process was transparent, and the team was incredibly professional. The AI valuation for my trade-in was spot-on!",
+      author: "Adebayo Johnson",
+      position: "BMW X5 Owner",
+      company: "Lagos, Nigeria",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+    },
+    features: [
+      "Premium car sales with quality certification",
+      "AI-powered vehicle valuation system",
+      "Smart car swap matching algorithm",
+      "Flexible financing and payment plans",
+      "Same-day payment for sellers",
+      "Free vehicle inspection service",
+      "Complete documentation support",
+      "After-sales service and support",
+      "Market-best trade rates",
+      "Zero hidden fees guarantee"
+    ]
+  },
+  {
+    id: "sunnah-hive",
+    title: "Sunnah Hive - Islamic Hadith Search Platform",
+    category: "Islamic Education",
+    description: "Comprehensive digital platform for searching and studying authentic Hadith collections from the six canonical books",
+    tech: ["React", "TypeScript", "Next.js", "TailwindCSS", "Algolia Search", "PostgreSQL"],
+    image: "/assets/sunnah-hive 01].png",
+    link: "https://sunnah-hive.vercel.app/",
+    client: "Islamic Research Community",
+    duration: "3 months",
+    teamSize: 3,
+    budget: "$18,000",
+    overview: "Islamic scholars and students needed a modern, accessible platform to search through authentic Hadith collections. The platform had to provide instant access to over 35,000 Hadiths from the six canonical books (Kutub as-Sittah) plus additional collections, making Islamic knowledge easily searchable and accessible worldwide.",
+    challenge: "Traditional Hadith books were difficult to search through, and existing digital solutions lacked modern UX and comprehensive search capabilities. Students and scholars needed a fast, intuitive way to find specific Hadiths, cross-reference collections, and access authentic Islamic teachings with proper Arabic text and translations.",
+    solution: "We developed Sunnah Hive, a beautiful and powerful Hadith search platform featuring all six canonical collections (Sahih Al-Bukhari, Sahih Muslim, Sunan Abi Dawud, Sunan An-Nasa'i, Sunan At-Tirmidhi, Sunan Ibn Majah) plus Muwatta Imam Malik and Riyadus Saliheen. The platform includes advanced search, Arabic text display, authentic translations, and book navigation.",
+    results: [
+      {
+        metric: "Hadith Database",
+        value: "35,000+",
+        description: "Authentic Hadiths searchable instantly"
+      },
+      {
+        metric: "Collections",
+        value: "8",
+        description: "Complete canonical Hadith books"
+      },
+      {
+        metric: "Daily Users",
+        value: "5K+",
+        description: "Students and scholars worldwide"
+      },
+      {
+        metric: "Search Speed",
+        value: "<100ms",
+        description: "Lightning-fast Hadith retrieval"
+      }
+    ],
+    gallery: [
+      "/assets/sunnah-hive 01].png",
+      "/assets/sunnah-hive 02.png"
+    ],
+    testimonial: {
+      quote: "Sunnah Hive has become my daily companion for Hadith research. The search is incredibly fast, and having all the major collections in one beautiful interface saves me hours of research time. An essential tool for any Islamic student.",
+      author: "Dr. Abdullah Rahman",
+      position: "Islamic Scholar",
+      company: "Islamic University",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+    },
+    features: [
+      "Complete Kutub as-Sittah collections",
+      "Advanced Hadith search engine",
+      "Arabic text with English translations",
+      "Book and chapter navigation",
+      "Sahih Al-Bukhari (7500+ Hadiths)",
+      "Sahih Muslim (7500+ Hadiths)",
+      "Sunan collections integration",
+      "Muwatta Imam Malik",
+      "Riyadus Saliheen compilation",
+      "Mobile-responsive Islamic design",
+      "Fast search performance",
+      "Bookmark and save features"
+    ]
+  },
+  {
+    id: "rawdah-atfaal",
+    title: "Rawdah Atfaal - Global Islamic Children's Academy",
+    category: "Online Education",
+    description: "Online Qur'an and Hadith learning platform for children worldwide, following authentic Islamic methodologies",
+    tech: ["React", "TypeScript", "Next.js", "TailwindCSS", "Calendly Integration", "Video Platform"],
+    image: "/assets/rawdah_1.png",
+    link: "https://rawdah-atfaal.vercel.app/",
+    client: "Markazul Bayaan Director",
+    duration: "3 months",
+    teamSize: 3,
+    budget: "$22,000",
+    overview: "The director of Markazul Bayaan envisioned a dedicated online platform to teach children authentic Qur'an and Hadith studies based on the methodology of the Salaf. With students from around the world, they needed a child-friendly platform that combined traditional Islamic education with modern, engaging teaching methods.",
+    challenge: "Parents struggled to find authentic Islamic education that follows the sound creed and methodologies of the pious predecessors. Traditional madrasahs weren't accessible globally, and existing online platforms lacked proper Tajweed instruction, personalized 1-on-1 attention, and child-friendly approaches to teaching Hadith and Aqeedah.",
+    solution: "We created Rawdah Atfaal, a comprehensive online Islamic learning platform offering two core programs: Qur'an Learning with proper Tajweed and memorization support (Hifz), and Hadith Studies from At-tifl al-labiib focusing on character development. The platform features 1-on-1 sessions, flexible scheduling, trial classes, and direct enrollment with the director.",
+    results: [
+      {
+        metric: "Global Reach",
+        value: "25+ Countries",
+        description: "Students learning from around the world"
+      },
+      {
+        metric: "Student Enrollment",
+        value: "+280%",
+        description: "Growth since platform launch"
+      },
+      {
+        metric: "Parent Satisfaction",
+        value: "98%",
+        description: "Highly satisfied with teaching quality"
+      },
+      {
+        metric: "Learning Programs",
+        value: "2 Core",
+        description: "Qur'an and Hadith comprehensive curricula"
+      }
+    ],
+    gallery: [
+      "/assets/rawdah_1.png",
+      "/assets/rawdah_2.png",
+      "/assets/rawdah_3.png"
+    ],
+    testimonial: {
+      quote: "I am very satisfied with your accessibility, willingness to help, and flexibility. You go above and beyond to assist, offering Arabic, Aqeedah, Quran, and more. I would definitely recommend signing your kids up for these courses.",
+      author: "Umm Firdaus",
+      position: "Parent",
+      company: "United Kingdom",
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+    },
+    features: [
+      "Qur'an learning with proper Tajweed",
+      "Hadith studies from At-tifl al-labiib",
+      "1-on-1 personalized instruction",
+      "Child-friendly teaching methods",
+      "Hifz (memorization) support",
+      "Aqeedah and Arabic courses",
+      "Flexible scheduling worldwide",
+      "Free trial class booking",
+      "Direct enrollment with director",
+      "Parent progress updates",
+      "Following Salaf methodology",
+      "Authentic Islamic education"
+    ]
   }
 ];
