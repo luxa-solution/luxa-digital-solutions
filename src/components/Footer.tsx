@@ -142,7 +142,9 @@ const Footer = () => {
           <div className="md:col-span-1">
             <div className="flex h-full flex-col items-start justify-between gap-8 md:items-end">
               <div className="w-full max-w-md md:text-right">
-                <h4 className="mb-4 text-sm font-semibold text-white">Connect</h4>
+                <h4 className="mb-4 text-sm font-semibold text-white">
+                  Connect
+                </h4>
                 <div className="flex flex-wrap items-center gap-4 md:justify-end">
                   {socialLinks.map((social) => {
                     const Icon = social.icon;
@@ -168,7 +170,8 @@ const Footer = () => {
         {/* Bottom legal bar */}
         <div className="mt-12 flex flex-col-reverse items-start justify-between gap-4 border-t border-white/10 pt-6 text-sm text-muted-foreground md:flex-row md:items-center">
           <div>
-            © {new Date().getFullYear()} LUXA Digital Solutions. All rights reserved.
+            © {new Date().getFullYear()} LUXA Digital Solutions. All rights
+            reserved.
           </div>
           <div className="flex items-center gap-6">
             <a className="hover:text-white">Privacy Policy</a>
