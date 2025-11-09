@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import {
-  ArrowUp,
-  Facebook,
-  Instagram,
-  Linkedin,
-  MessageCircle,
-} from "lucide-react";
+  FaLinkedin,
+  FaFacebook,
+  FaInstagram,
+  FaWhatsapp,
+} from "react-icons/fa";
+import { FiArrowUp } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
@@ -51,22 +51,22 @@ const Footer = () => {
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/company/luxa-digital-solutions/",
-      icon: Linkedin,
+      icon: FaLinkedin,
     },
     {
       name: "Facebook",
       href: "https://www.facebook.com/share/16yU24EfZE/",
-      icon: Facebook,
+      icon: FaFacebook,
     },
     {
       name: "Instagram",
       href: "https://www.instagram.com/luxa__agency?igsh=MWFtY25paWFpdzZheQ==",
-      icon: Instagram,
+      icon: FaInstagram,
     },
     {
       name: "WhatsApp",
       href: "https://whatsapp.com/channel/0029Vb6lnPZ17EmpPBfjY60N",
-      icon: MessageCircle,
+      icon: FaWhatsapp,
     },
   ];
 
@@ -77,9 +77,41 @@ const Footer = () => {
         <div className="absolute left-8 top-12 h-24 w-24 rounded-full bg-brand-gold/5 blur-3xl"></div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 py-20">
-        {/* Main three-column layout: Left (brand), Center (dotted art), Right (links) */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
+      <div className="container relative z-10 mx-auto px-6 py-28">
+        {/* Top CTA band */}
+        <div className="mb-12 md:mb-16">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-teal/20 via-brand-teal/10 to-transparent ring-1 ring-white/10">
+            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-brand-teal/20 blur-3xl"></div>
+            <div className="flex flex-col items-start justify-between gap-6 px-6 py-10 md:flex-row md:items-center md:gap-10 md:px-12 md:py-14">
+              <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-white/60">
+                  Let’s build something bold
+                </p>
+                <h3 className="text-2xl font-extrabold leading-tight md:text-3xl lg:text-4xl">
+                  Ready to craft award‑winning experiences?
+                </h3>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <Button
+                  onClick={() => navigate("/contact")}
+                  className="rounded-full bg-brand-teal px-6 py-6 text-base font-semibold text-black hover:bg-brand-teal/90"
+                >
+                  Start Your Project
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => navigate("/all-projects")}
+                  className="rounded-full border-white/20 px-6 py-6 text-base text-white hover:bg-white/10"
+                >
+                  View Our Work
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main two-column layout: Left (brand), Right (socials) */}
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-8">
           {/* Left: Big Brand / Description */}
           <div className="flex flex-col justify-between md:col-span-1">
             <div>
@@ -106,107 +138,41 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Center: Dotted artwork with central white dot */}
-          <div className="relative flex items-center justify-center md:col-span-1">
-            <div
-              className="h-72 w-full max-w-[420px] rounded-xl"
-              style={{
-                backgroundImage:
-                  "radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)",
-                backgroundSize: "18px 18px",
-              }}
-            >
-              <div className="relative h-full w-full">
-                <div className="absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-lg"></div>
+          {/* Right: Socials only, prominent */}
+          <div className="md:col-span-1">
+            <div className="flex h-full flex-col items-start justify-between gap-8 md:items-end">
+              <div className="w-full max-w-md md:text-right">
+                <h4 className="mb-4 text-sm font-semibold text-white">Connect</h4>
+                <div className="flex flex-wrap items-center gap-4 md:justify-end">
+                  {socialLinks.map((social) => {
+                    const Icon = social.icon;
+                    return (
+                      <a
+                        key={social.name}
+                        href={social.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-brand-teal hover:bg-brand-teal hover:text-white"
+                        aria-label={social.name}
+                      >
+                        <Icon className="h-5 w-5" />
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
+        </div>
 
-          {/* Right: Links, Expertise, Socials, Newsletter, Contact, Legal */}
-          <div className="md:col-span-1">
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
-              <div>
-                <h4 className="mb-4 text-sm font-semibold text-white">Links</h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  {quickLinks.map((link) => (
-                    <li key={link.name}>
-                      <a
-                        href={link.href}
-                        onClick={() => handleQuickLinkClick(link)}
-                        className="hover:text-white"
-                      >
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="mb-4 text-sm font-semibold text-white">
-                  Expertise
-                </h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  {services.slice(0, 4).map((s) => (
-                    <li key={s} className="hover:text-white">
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="mb-4 text-sm font-semibold text-white">
-                  Socials
-                </h4>
-                <ul className="space-y-2 text-sm text-muted-foreground">
-                  {socialLinks.map((s) => (
-                    <li key={s.name}>
-                      <a
-                        href={s.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="hover:text-white"
-                      >
-                        {s.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="mt-8">
-              <h4 className="mb-3 text-sm font-semibold text-white">
-                Newsletter
-              </h4>
-              <div className="relative max-w-md">
-                <input
-                  placeholder="Enter your email"
-                  className="w-full border-0 border-b border-border/20 bg-transparent py-2 pr-4 text-sm text-muted-foreground placeholder:text-muted-foreground focus:outline-none"
-                />
-              </div>
-            </div>
-
-            <div className="mt-8 border-t border-border/20 pt-6 text-sm text-muted-foreground">
-              <div className="mb-4">
-                <h5 className="mb-2 text-sm font-semibold text-white">
-                  Contact
-                </h5>
-                <div>
-                  Acre Santa,
-                  <br />
-                  Ilorin, Kwara State,
-                  <br />
-                  Nigeria
-                </div>
-              </div>
-
-              <div className="flex items-center gap-6">
-                <a className="hover:text-white">Privacy Policy</a>
-                <a className="hover:text-white">Terms of Service</a>
-              </div>
-            </div>
+        {/* Bottom legal bar */}
+        <div className="mt-12 flex flex-col-reverse items-start justify-between gap-4 border-t border-white/10 pt-6 text-sm text-muted-foreground md:flex-row md:items-center">
+          <div>
+            © {new Date().getFullYear()} LUXA Digital Solutions. All rights reserved.
+          </div>
+          <div className="flex items-center gap-6">
+            <a className="hover:text-white">Privacy Policy</a>
+            <a className="hover:text-white">Terms of Service</a>
           </div>
         </div>
       </div>
@@ -217,7 +183,7 @@ const Footer = () => {
           onClick={scrollToTop}
           className="shadow-elegant hover:shadow-cyan transition-all-spring hover-lift group fixed bottom-6 right-6 z-40 h-12 w-12 rounded-full bg-brand-teal/90 text-black hover:bg-brand-teal sm:bottom-8 sm:right-8 sm:h-14 sm:w-14"
         >
-          <ArrowUp className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 sm:h-6 sm:w-6" />
+          <FiArrowUp className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 sm:h-6 sm:w-6" />
         </Button>
       </div>
     </footer>
