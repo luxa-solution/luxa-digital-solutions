@@ -74,11 +74,11 @@ export const projects: Project[] = [
       "/assets/al-muwaheed4.0.png"
     ],
     testimonial: {
-      quote: "LUXA created a stunning portfolio website that perfectly captures my creative vision. The professional presentation has helped me attract high-quality clients and establish credibility in the industry.",
-      author: "Muwahhid",
-      position: "Creative Director",
-      company: "Muwahhid Graphics Studio",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+      quote: "It has been phenomenal working with LUXA Digital Solutions. As a graphic designer brand, it was decided that a landing page is needed to communicate my creative identity in the modern and professional lens. And of course, considering trust, effective communication and technical expertise, LUXA Digital Solutions stood next to none in my choose. And the team listened carefully to what I wanted, gave helpful suggestions, and delivered everything without hassle. The page looks clean, loads fast, and truly represents my work. I truly appreciate their commitment to excellence and highly recommend LUXA Digital Solutions to anyone looking for reliable and top-quality web development services.",
+      author: "Al-Muwahhid Concept",
+      position: "Graphic Designer",
+      company: "Al-Muwahhid Concept",
+      avatar: "/assets/muwahid_testimonial.jpg"
     },
     features: [
       "Responsive portfolio gallery",
