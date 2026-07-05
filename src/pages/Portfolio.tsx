@@ -54,9 +54,9 @@ const Portfolio = () => {
             </h1>
 
             <p className="animate-fade-in-up mx-auto max-w-2xl text-lg text-muted-foreground delay-200 sm:text-xl md:text-2xl">
-              Explore our collection of digital experiences crafted with
-              passion, precision, and purpose. Each project tells a unique story
-              of innovation and excellence.
+              Each project reflects a practical challenge, a clear system
+              design, and a measurable outcome. These are examples of how Luxa
+              turns scattered processes into structured digital experiences.
             </p>
 
             {/* Stats */}
@@ -230,15 +230,15 @@ const Portfolio = () => {
         <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="mb-6 text-4xl font-bold sm:text-5xl md:text-6xl">
-              Ready to Start Your{" "}
+              Ready to Build a
               <span className="bg-gradient-to-r from-brand-teal to-cyan-500 bg-clip-text text-transparent">
-                Next Project?
+                Better System?
               </span>
             </h2>
 
             <p className="mb-10 text-lg text-muted-foreground sm:text-xl">
-              Let's create something extraordinary together. Get in touch and
-              let's discuss how we can bring your vision to life.
+              If your business is growing faster than your tools can support, we
+              can help you turn that complexity into a clear, scalable platform.
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -247,7 +247,7 @@ const Portfolio = () => {
                 onClick={() => navigate("/get-quote")}
                 className="group rounded-full bg-brand-teal px-8 py-6 text-lg font-semibold text-white shadow-xl shadow-brand-teal/25 transition-all hover:scale-105 hover:bg-brand-teal/90 hover:shadow-2xl hover:shadow-brand-teal/40"
               >
-                Start Your Project
+                Book a Consultation
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
 
@@ -257,7 +257,7 @@ const Portfolio = () => {
                 onClick={() => navigate("/contact")}
                 className="rounded-full border-2 border-brand-teal/40 px-8 py-6 text-lg font-semibold text-foreground transition-all hover:scale-105 hover:border-brand-teal/60 hover:bg-brand-teal/10"
               >
-                Get in Touch
+                Request a System Review
               </Button>
             </div>
           </div>

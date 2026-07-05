@@ -85,8 +85,8 @@ const Contact = () => {
           </h1>
 
           <p className="mx-auto mt-8 max-w-2xl text-xl text-white/90">
-            Experience growth through innovative digital marketing designed to
-            deliver results.
+            Tell us about the system you need, the problem you are solving, and
+            the kind of growth you are planning for.
           </p>
         </div>
 
@@ -174,12 +174,13 @@ const Contact = () => {
                   // Contact
                 </p>
                 <h3 className="text-4xl font-extrabold leading-tight text-foreground md:text-5xl">
-                  The best ideas don't wait for the perfect timing and neither
-                  should you.
+                  The right system can turn messy operations into a clear path
+                  for growth.
                 </h3>
                 <p className="mt-6 text-lg text-muted-foreground">
-                  Bring it to us, we'll help you shape it into something the
-                  world won't forget.
+                  Share what you are building, what is slowing you down, and
+                  what your team needs next. We will help you shape it into
+                  something practical, scalable, and useful.
                 </p>
               </div>
 
@@ -237,7 +238,7 @@ const Contact = () => {
                 Get In Touch
               </p>
               <h2 className="text-3xl font-extrabold text-foreground">
-                Start your project with us
+                Start a conversation with Luxa
               </h2>
             </div>
 
@@ -247,11 +248,11 @@ const Contact = () => {
                   htmlFor="fullName"
                   className="text-sm font-medium text-foreground"
                 >
-                  Your Name
+                  Name
                 </Label>
                 <Input
                   id="fullName"
-                  placeholder="Full Name"
+                  placeholder="Your full name"
                   className="mt-3 rounded-md border border-border/20 bg-background/50 px-4 py-3 placeholder:text-muted-foreground focus:border-brand-teal focus:ring-2 focus:ring-brand-teal"
                 />
               </div>
@@ -261,12 +262,12 @@ const Contact = () => {
                   htmlFor="emailForm"
                   className="text-sm font-medium text-foreground"
                 >
-                  Your Email
+                  Email
                 </Label>
                 <Input
                   id="emailForm"
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="you@company.com"
                   className="mt-3 rounded-md border border-border/20 bg-background/50 px-4 py-3 placeholder:text-muted-foreground focus:border-brand-teal focus:ring-2 focus:ring-brand-teal"
                 />
               </div>
@@ -300,11 +301,11 @@ const Contact = () => {
                   htmlFor="company"
                   className="text-sm font-medium text-foreground"
                 >
-                  Your Company
+                  Company
                 </Label>
                 <Input
                   id="company"
-                  placeholder="Company"
+                  placeholder="Your company name"
                   className="mt-3 rounded-md border border-border/20 bg-background/50 px-4 py-3 placeholder:text-muted-foreground focus:border-brand-teal focus:ring-2 focus:ring-brand-teal"
                 />
               </div>
@@ -318,20 +319,22 @@ const Contact = () => {
                 </Label>
                 <Select>
                   <SelectTrigger className="mt-3 rounded-md border border-border/20 bg-background/50 px-3 py-3 placeholder:text-muted-foreground focus:border-brand-teal focus:ring-2 focus:ring-brand-teal">
-                    <SelectValue placeholder="Select..." />
+                    <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
                   <SelectContent>
+                    <SelectItem value="dashboard">
+                      Custom Dashboard & Internal Systems
+                    </SelectItem>
+                    <SelectItem value="lms">LMS & Learning Platform</SelectItem>
+                    <SelectItem value="mobile">
+                      Mobile App Development
+                    </SelectItem>
                     <SelectItem value="web">
-                      Websites & Landing Pages
+                      Web Platform Development
                     </SelectItem>
-                    <SelectItem value="apps">Mobile Applications</SelectItem>
-                    <SelectItem value="software">
-                      Software Development
+                    <SelectItem value="design">
+                      Branding & UI/UX Design
                     </SelectItem>
-                    <SelectItem value="seo">
-                      Search Engine Optimization
-                    </SelectItem>
-                    <SelectItem value="content">Content Marketing</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -341,17 +344,16 @@ const Contact = () => {
                   htmlFor="budget"
                   className="text-sm font-medium text-foreground"
                 >
-                  Your Budget
+                  Budget Range
                 </Label>
                 <Select>
                   <SelectTrigger className="mt-3 rounded-md border border-border/20 bg-background/50 px-3 py-3 placeholder:text-muted-foreground focus:border-brand-teal focus:ring-2 focus:ring-brand-teal">
-                    <SelectValue placeholder="Select your budget" />
+                    <SelectValue placeholder="Select a budget range" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="<5k">Under $5,000</SelectItem>
-                    <SelectItem value="5k-15k">$5,000 - $15,000</SelectItem>
-                    <SelectItem value="15k-50k">$15,000 - $50,000</SelectItem>
-                    <SelectItem value=">50k">$50,000+</SelectItem>
+                    <SelectItem value="3k-8k">$3,000 - $8,000</SelectItem>
+                    <SelectItem value="8k-20k">$8,000 - $20,000</SelectItem>
+                    <SelectItem value="20k+">$20,000+</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -361,11 +363,11 @@ const Contact = () => {
                   htmlFor="projectDetails"
                   className="text-sm font-medium text-foreground"
                 >
-                  The Project
+                  What do you need?
                 </Label>
                 <Textarea
                   id="projectDetails"
-                  placeholder="Spill the details. The more we know, the better..."
+                  placeholder="Tell us about your current setup and what you are trying to achieve."
                   rows={6}
                   className="mt-3 resize-none rounded-md border border-border/20 bg-background/50 px-4 py-6 placeholder:text-muted-foreground focus:border-brand-teal focus:ring-2 focus:ring-brand-teal"
                 />

@@ -88,7 +88,7 @@ const Footer = () => {
                   Let’s build something bold
                 </p>
                 <h3 className="text-2xl font-extrabold leading-tight md:text-3xl lg:text-4xl">
-                  Ready to craft award‑winning experiences?
+                  Ready to build a digital system that fits your business?
                 </h3>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row">
@@ -96,7 +96,7 @@ const Footer = () => {
                   onClick={() => navigate("/contact")}
                   className="rounded-full bg-brand-teal px-6 py-6 text-base font-semibold text-black hover:bg-brand-teal/90"
                 >
-                  Start Your Project
+                  Book a Consultation
                 </Button>
                 <Button
                   variant="outline"

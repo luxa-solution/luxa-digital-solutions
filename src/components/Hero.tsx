@@ -63,20 +63,13 @@ const Hero = () => {
             <div className="flex items-end pb-24 lg:pb-32">
               <div className="animate-slide-up space-y-6 lg:space-y-8">
                 <h1 className="text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-                  <span className="text-white dark:text-white">Crafting </span>
-                  <span className="">
-                    <span className="relative text-brand-gold dark:text-yellow-400">
-                      Award{" "}
-                      <span className="text-2xl sm:-right-10 sm:text-3xl lg:-right-12 lg:text-5xl">
-                        🏆
-                      </span>
-                    </span>
-                    <span className="text-brand-gold dark:text-yellow-400">
-                      Winning {""}
-                    </span>
+                  <span className="text-white dark:text-white">We build </span>
+                  <span className="relative text-brand-gold dark:text-yellow-400">
+                    digital systems
                   </span>
-                  <span className="mt-2 text-white dark:text-white">
-                    Experiences for the World's Most Influential Brands.
+                  <span className="mt-2 block text-white dark:text-white">
+                    that help businesses operate with clarity, control, and
+                    scale.
                   </span>
                 </h1>
               </div>
@@ -91,9 +84,9 @@ const Hero = () => {
                 {/* Descriptive Text - Top Right */}
                 <div className="mb-8 ml-auto max-w-sm lg:mb-12">
                   <p className="text-right text-sm leading-relaxed text-gray-400 dark:text-gray-300 lg:text-base">
-                    For nearly two decades, we've helped forward-thinking brands
-                    bring their most original ideas to life. Leaving a mark the
-                    world won't forget.
+                    From custom dashboards and LMS platforms to internal tools
+                    and mobile apps, we design solutions around how your
+                    business actually works.
                   </p>
                 </div>
               </div>
@@ -234,9 +227,9 @@ const Hero = () => {
               </div>
 
               <blockquote className="max-w-lg text-base leading-relaxed text-gray-300 dark:text-gray-300 sm:text-lg lg:text-xl">
-                LUXA replaced the typical agency runaround with clarity, speed
-                and top-tier creatives. No fluff, just world-class work that
-                delivered real impact.
+                Luxa helped us turn scattered processes into one structured
+                system. The result was better visibility, faster decisions, and
+                a platform our team could actually rely on every day.
               </blockquote>
 
               <div className="flex items-center gap-4 pt-2">
@@ -277,8 +270,9 @@ const Hero = () => {
               </div>
 
               <p className="max-w-md pt-2 text-sm text-gray-400 dark:text-gray-400 lg:text-base">
-                Yup! That's 1,825+ days of timeless ideas, crafted one day at a
-                time.
+                We bring together product thinking, workflow design, and
+                software delivery so your business can scale without adding
+                confusion.
               </p>
             </div>
 
@@ -306,16 +300,17 @@ const Hero = () => {
               </div>
 
               <h3 className="max-w-xl text-2xl font-bold leading-tight text-white dark:text-white sm:text-3xl lg:text-4xl xl:text-5xl">
-                look-alikes, only bold ideas cut through the clutter.
+                When operations become messy, the right system makes everything
+                clearer.
               </h3>
 
               <div className="h-px max-w-lg bg-gradient-to-r from-gray-700 via-gray-600 to-transparent dark:from-gray-700 dark:via-gray-600"></div>
 
               <p className="max-w-xl text-base leading-relaxed text-gray-300 dark:text-gray-400 lg:text-lg">
-                We help businesses turn bold ideas into beautifully crafted
-                digital experiences. From brand strategy to final execution, we
-                work closely with our clients, designing with purpose, moving
-                with precision, and delivering meaningful impact at every stage.
+                We help businesses move from scattered tools and manual
+                processes to structured digital systems that support growth.
+                Every platform we build is designed around how your team
+                actually works.
               </p>
 
               {/* CTA Buttons */}
@@ -325,7 +320,7 @@ const Hero = () => {
                   onClick={() => navigate("/pricing")}
                   className="rounded-full bg-brand-teal px-8 py-6 text-base font-semibold text-white shadow-lg transition-all hover:scale-105 hover:bg-brand-teal/90 hover:shadow-xl hover:shadow-brand-teal/20 dark:bg-brand-teal dark:hover:bg-brand-teal/90 lg:text-lg"
                 >
-                  Start Your Project
+                  Book a Consultation
                 </Button>
 
                 <Button

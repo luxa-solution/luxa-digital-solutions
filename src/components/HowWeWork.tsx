@@ -4,84 +4,79 @@ import React, { useState } from "react";
 const steps = [
   {
     id: 1,
-    title: "Discovery & Strategy",
+    title: "Discovery & Diagnosis",
     description:
-      "We begin by getting to know your brand, industry, and audience. By understanding your challenges, goals, and unique value, we lay the foundation for a successful digital solution.",
-    duration: "2-3 Weeks",
-    bgGradient: "linear-gradient(135deg, #ff6b61 0%, #ff5449 100%)", // Coral/Red
+      "We begin by understanding your operations, your bottlenecks, and your goals so we can diagnose the real problem before we design a solution.",
+    duration: "1-2 Weeks",
+    bgGradient: "linear-gradient(135deg, #ff6b61 0%, #ff5449 100%)",
     bgSolid: "#ff6b61",
     cards: [
       {
-        title: "Brand Analysis",
+        title: "Business Review",
         duration: "Week 1",
-        tags: ["Brand Audit", "Competitor Research", "Market Analysis", "SWOT"],
+        tags: ["Workflow Mapping", "Pain Points", "Goals", "Current Tools"],
       },
       {
-        title: "User Research",
+        title: "System Audit",
         duration: "Week 2",
-        tags: ["User Interviews", "Personas", "User Journey", "Pain Points"],
+        tags: ["Process Review", "Data Flow", "Users", "Constraints"],
       },
       {
-        title: "Strategy Planning",
-        duration: "Week 3",
-        tags: ["Goals Definition", "KPI Setting", "Roadmap", "Timeline"],
+        title: "Roadmap",
+        duration: "Week 2",
+        tags: ["Scope", "Priority", "Timeline", "Success Metrics"],
       },
     ],
   },
   {
     id: 2,
-    title: "Design & Development",
+    title: "System Design & Build",
     description:
-      "We translate strategy into stunning visuals and robust code. Our team creates intuitive interfaces and develops scalable solutions that bring your vision to life.",
-    duration: "4-6 Weeks",
-    bgGradient: "linear-gradient(135deg, #c4ff0d 0%, #b5eb00 100%)", // Lime/Yellow-Green
+      "We turn the findings into a thoughtful product structure, interface, and technical build that fits how your team actually works.",
+    duration: "4-8 Weeks",
+    bgGradient: "linear-gradient(135deg, #c4ff0d 0%, #b5eb00 100%)",
     bgSolid: "#c4ff0d",
     cards: [
       {
-        title: "UI/UX Design",
+        title: "Flow & UX Design",
         duration: "Week 1-2",
-        tags: ["Wireframes", "Prototypes", "Visual Design", "Design System"],
+        tags: ["Wireframes", "User Journey", "Interfaces", "Design System"],
       },
       {
         title: "Development",
-        duration: "Week 3-5",
-        tags: ["Frontend", "Backend", "Integration", "Testing"],
+        duration: "Week 3-6",
+        tags: ["Frontend", "Backend", "Integrations", "Automation"],
       },
       {
-        title: "Quality Assurance",
-        duration: "Week 6",
-        tags: ["Bug Testing", "Performance", "Security", "Optimization"],
+        title: "Testing",
+        duration: "Week 7-8",
+        tags: ["Validation", "Performance", "Security", "Refinement"],
       },
     ],
   },
   {
     id: 3,
-    title: "Launch & Growth",
+    title: "Launch & Ongoing Support",
     description:
-      "We ensure a smooth launch and provide ongoing support to help your digital product thrive. Our team monitors performance and implements improvements for continuous growth.",
-    duration: "2-4 Weeks",
-    bgGradient: "linear-gradient(135deg, #FF8A3C 0%, #FF7420 100%)", // Orange
+      "We support your launch, train your team, and stay involved to ensure the system keeps improving as your business grows.",
+    duration: "Ongoing",
+    bgGradient: "linear-gradient(135deg, #FF8A3C 0%, #FF7420 100%)",
     bgSolid: "#FF8A3C",
     cards: [
       {
         title: "Deployment",
         duration: "Week 1",
-        tags: ["Server Setup", "DNS Config", "SSL", "Go Live"],
+        tags: ["Go Live", "Setup", "Training", "Documentation"],
       },
       {
-        title: "Training & Handover",
+        title: "Adoption",
         duration: "Week 2",
-        tags: [
-          "Documentation",
-          "Team Training",
-          "Knowledge Transfer",
-          "Best Practices",
-        ],
+        tags: ["Team Handover", "Feedback", "Optimization", "Support"],
       },
       {
-        title: "Support & Maintenance",
+        title: "Growth Support",
         duration: "Ongoing",
-        tags: ["Monitoring", "Updates", "Improvements", "Analytics"],
+        tags: ["Updates", "Enhancements", "Monitoring", "Scaling"],
       },
     ],
   },

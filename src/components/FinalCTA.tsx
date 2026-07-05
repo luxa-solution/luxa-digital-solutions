@@ -6,7 +6,7 @@ const FinalCTA = () => {
       <div className="container mx-auto px-6">
         <div className="relative overflow-hidden rounded-3xl bg-[#071a29] p-20 text-white">
           <h2 className="mx-auto max-w-4xl text-center text-4xl font-extrabold leading-tight md:text-6xl">
-            READY TO PARTNER WITH LUXA & UNLOCK THE FULL POTENTIAL?
+            READY TO TURN YOUR OPERATIONS INTO A STRONGER DIGITAL SYSTEM?
           </h2>
 
           {/* decorative pills / stickers */}
@@ -24,7 +24,7 @@ const FinalCTA = () => {
 
           <div className="mt-12 flex justify-center">
             <Button className="rounded-full bg-white px-12 py-4 text-[#071a29]">
-              GET IN TOUCH
+              Book a Consultation
             </Button>
           </div>
 

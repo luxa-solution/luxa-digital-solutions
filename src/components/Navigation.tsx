@@ -155,7 +155,7 @@ const Navigation = () => {
                 onClick={() => navigate("/pricing")}
                 className="text-brand-teal-foreground rounded-full bg-brand-teal px-6 py-2 text-sm font-medium hover:bg-brand-teal/90"
               >
-                Get Quote
+                Book a Consultation
               </Button>
             </div>
 
@@ -242,7 +242,7 @@ const Navigation = () => {
                     }}
                     className="text-brand-teal-foreground w-full rounded-full bg-brand-teal px-6 py-2 text-sm font-medium hover:bg-brand-teal/90"
                   >
-                    Get Quote
+                    Book a Consultation
                   </Button>
                 </div>
               </div>

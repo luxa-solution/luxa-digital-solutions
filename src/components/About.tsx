@@ -36,8 +36,9 @@ const About = () => {
           </h1>
 
           <p className="mx-auto mt-8 max-w-2xl text-xl text-white/90">
-            Passionate creators crafting meaningful digital experiences that
-            drive growth and delight users.
+            Luxa Digital Solutions builds custom digital systems for businesses
+            that need more than templates, more than disconnected tools, and
+            more than quick fixes.
           </p>
         </div>
 
@@ -125,56 +126,50 @@ const About = () => {
             {/* Right content */}
             <div className="lg:col-span-8">
               <h2 className="mb-6 max-w-4xl text-5xl font-extrabold leading-tight tracking-tight text-foreground">
-                We work with founders who don’t wait for permission. The ones
-                building the next big thing fearlessly, with design that speaks
-                louder than words.
+                We work with businesses that have outgrown scattered tools and
+                need a clearer way to operate.
               </h2>
 
               <div className="prose max-w-none text-lg text-muted-foreground">
                 <p>
-                  We don’t just create visuals, we shape identities. Our work
-                  helps brands stand out, stay true and speak directly to the
-                  people they serve. The kind that sparks curiosity and creates
-                  genuine connections, because great branding isn’t just what
-                  you say, it’s how you make people feel.
+                  Luxa was built around a simple idea: most businesses do not
+                  need more apps, they need a better system. We help teams bring
+                  dashboards, workflows, data, and user experience together so
+                  daily operations feel more structured and more manageable.
                 </p>
 
                 <p>
-                  It’s the wink in your logo, the rhythm in your website, the
-                  pause after a line that lands smoother than your favorite
-                  espresso. We are obsessed over the tiny details, because
-                  that’s where the magic hides (and where most people forget to
-                  look).
+                  Our founder works closely on product structure, workflow
+                  design, and system architecture, making sure every solution is
+                  shaped around the realities of the business rather than a
+                  generic template.
                 </p>
 
                 <p>
-                  Whether you're launching from scratch or leveling up, we build
-                  brands people actually want to be part of. No guesswork, no
-                  fluff, just sharp thinking, smart design, and a whole lot of
-                  heart.
+                  Whether the need is a learning platform, a business dashboard,
+                  a mobile app, or a full internal operating system, we focus on
+                  clarity, function, and long-term value over quick fixes.
                 </p>
               </div>
 
               {/* Stats row */}
               <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
                 <div className="text-center">
-                  <div className="text-4xl font-black text-foreground">20+</div>
+                  <div className="text-4xl font-black text-foreground">5+</div>
                   <div className="mt-2 text-sm text-muted-foreground">
                     Years of Experience
                   </div>
                 </div>
 
                 <div className="text-center">
-                  <div className="text-4xl font-black text-foreground">
-                    400+
-                  </div>
+                  <div className="text-4xl font-black text-foreground">10+</div>
                   <div className="mt-2 text-sm text-muted-foreground">
                     Projects Delivered
                   </div>
                 </div>
 
                 <div className="text-center">
-                  <div className="text-4xl font-black text-foreground">99%</div>
+                  <div className="text-4xl font-black text-foreground">95%</div>
                   <div className="mt-2 text-sm text-muted-foreground">
                     Customer Satisfaction
                   </div>
@@ -213,7 +208,7 @@ const About = () => {
                 {/* Card 1 */}
                 <div className="relative overflow-hidden rounded-3xl bg-orange-500 p-10 text-white">
                   <div className="mb-6 text-6xl font-black leading-none">
-                    300+
+                    10+
                   </div>
                   <div className="mb-4 text-lg font-semibold">
                     Successful Campaigns
@@ -244,7 +239,7 @@ const About = () => {
                 {/* Card 3 */}
                 <div className="relative overflow-hidden rounded-3xl bg-violet-300 p-10 text-white">
                   <div className="mb-6 text-6xl font-black leading-none">
-                    10M+
+                    80K+
                   </div>
                   <div className="mb-4 text-lg font-semibold">
                     Impressions generated
@@ -275,8 +270,8 @@ const About = () => {
 
                 <div className="lg:col-span-5">
                   <p className="mt-4 text-lg text-muted-foreground">
-                    Experience growth through innovative digital marketing
-                    designed to reach, inspire, and deliver results.
+                    Our philosophy is simple: build systems that bring order to
+                    complexity and create room for growth.
                   </p>
                 </div>
               </div>
@@ -289,10 +284,11 @@ const About = () => {
                     </div>
                     <div>
                       <h4 className="mb-2 text-xl font-extrabold tracking-wider text-[#071a29]">
-                        INNOVATION
+                        SYSTEMS OVER TOOLS
                       </h4>
                       <p className="text-muted-foreground">
-                        Staying ahead with cutting-edge strategies.
+                        We design around the workflow, not around the latest
+                        trend.
                       </p>
                     </div>
                   </div>
@@ -305,10 +301,11 @@ const About = () => {
                     </div>
                     <div>
                       <h4 className="mb-2 text-xl font-extrabold tracking-wider text-[#071a29]">
-                        TRANSPARENCY
+                        CLARITY OVER COMPLEXITY
                       </h4>
                       <p className="text-muted-foreground">
-                        Building trust through open communication.
+                        Clear flows, clean interfaces, and practical outcomes
+                        matter more than noise.
                       </p>
                     </div>
                   </div>

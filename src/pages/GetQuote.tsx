@@ -31,46 +31,39 @@ const GetQuote = () => {
 
   const pricingTiers = [
     {
-      name: "Starter",
-      price: "$5,000 - $15,000",
-      description: "Perfect for small businesses and startups",
+      name: "Small Systems",
+      price: "$3,000 - $8,000",
+      description: "For focused dashboards, portals, or lightweight platforms",
       features: [
-        "Basic website or web application",
-        "Responsive design",
-        "SEO optimization",
-        "Basic analytics setup",
-        "2 weeks delivery",
-        "30 days support",
+        "Custom dashboard or internal tool",
+        "Straightforward workflow design",
+        "Clear user experience",
+        "Practical launch plan",
       ],
       popular: false,
     },
     {
-      name: "Professional",
-      price: "$15,000 - $50,000",
-      description: "Ideal for growing businesses",
+      name: "Medium Systems",
+      price: "$8,000 - $20,000",
+      description:
+        "For growing teams that need a more complete operating platform",
       features: [
-        "Custom web application",
-        "Advanced UI/UX design",
-        "Database integration",
-        "API development",
-        "Performance optimization",
-        "4-6 weeks delivery",
-        "90 days support",
+        "Custom web platform or LMS",
+        "Workflow automation and integrations",
+        "Structured admin experience",
+        "Ongoing support planning",
       ],
       popular: true,
     },
     {
-      name: "Enterprise",
-      price: "$50,000+",
-      description: "For large-scale business solutions",
+      name: "Large Platforms",
+      price: "$20,000+",
+      description: "For ambitious products and complex operational systems",
       features: [
-        "Complex enterprise application",
-        "Multi-platform solution",
-        "Advanced security features",
         "Scalable architecture",
-        "Custom integrations",
-        "8-12 weeks delivery",
-        "1 year support",
+        "Advanced integrations",
+        "Multi-user workflows",
+        "Longer-term product support",
       ],
       popular: false,
     },
@@ -91,54 +84,55 @@ const GetQuote = () => {
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-24 px-6 bg-gradient-dark relative overflow-hidden">
+        <section className="bg-gradient-dark relative overflow-hidden px-6 py-24">
           <div className="absolute inset-0">
-            <div className="absolute top-20 right-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 left-20 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+            <div className="absolute right-20 top-20 h-40 w-40 rounded-full bg-primary/5 blur-3xl"></div>
+            <div className="absolute bottom-20 left-20 h-32 w-32 rounded-full bg-primary/5 blur-3xl"></div>
           </div>
 
-          <div className="container mx-auto relative z-10">
+          <div className="container relative z-10 mx-auto">
             <div className="mb-8">
               <Button
                 variant="ghost"
                 onClick={() => navigate("/")}
-                className="text-muted-foreground hover:text-primary mb-6 group transition-all-spring hover-lift"
+                className="transition-all-spring hover-lift group mb-6 text-muted-foreground hover:text-primary"
               >
-                <ArrowLeft className="mr-3 w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
+                <ArrowLeft className="mr-3 h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" />
                 Back to Home
               </Button>
             </div>
 
-            <div className="text-center max-w-4xl mx-auto">
+            <div className="mx-auto max-w-4xl text-center">
               <Badge
                 variant="secondary"
-                className="bg-primary/10 text-primary border-primary/20 mb-6 px-4 py-2 text-sm font-semibold"
+                className="mb-6 border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary"
               >
                 Get Your Quote
               </Badge>
 
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Let's Build Something{" "}
+              <h1 className="mb-6 text-4xl font-bold md:text-6xl">
+                Let's Design a
                 <span className="relative inline-block">
-                  <span className="relative z-10 text-white font-bold px-4 py-2">
-                    Amazing
+                  <span className="relative z-10 px-4 py-2 font-bold text-white">
+                    Better System
                   </span>
-                  <div className="absolute inset-0 bg-brand-teal rounded-lg transform -skew-x-12"></div>
+                  <div className="absolute inset-0 -skew-x-12 transform rounded-lg bg-brand-teal"></div>
                 </span>
               </h1>
 
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Get a personalized quote for your project. Our team will analyze
-                your requirements and provide you with a detailed proposal.
+              <p className="mb-8 text-xl leading-relaxed text-muted-foreground">
+                Tell us about your current setup, the challenge you are solving,
+                and the kind of platform you need. We will help you shape a
+                clear path forward.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <div className="flex items-center text-muted-foreground">
-                  <Clock className="w-5 h-5 mr-2" />
+                  <Clock className="mr-2 h-5 w-5" />
                   <span>Response within 24 hours</span>
                 </div>
                 <div className="flex items-center text-muted-foreground">
-                  <CheckCircle className="w-5 h-5 mr-2" />
+                  <CheckCircle className="mr-2 h-5 w-5" />
                   <span>Free consultation included</span>
                 </div>
               </div>
@@ -147,52 +141,52 @@ const GetQuote = () => {
         </section>
 
         {/* Pricing Tiers */}
-        <section className="py-24 px-6 bg-background">
+        <section className="bg-background px-6 py-24">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-6">
-                Transparent{" "}
+            <div className="mb-16 text-center">
+              <h2 className="mb-6 text-4xl font-bold">
+                Clear
                 <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                  Pricing
+                  Project Ranges
                 </span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Understand our pricing structure to make an informed decision
-                about your project.
+              <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
+                We price based on scope, complexity, integrations, and the
+                business outcome you want to achieve.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               {pricingTiers.map((tier, index) => (
                 <Card
                   key={tier.name}
-                  className={`p-8 relative overflow-hidden group hover-lift transition-all-spring ${
+                  className={`hover-lift transition-all-spring group relative overflow-hidden p-8 ${
                     tier.popular
-                      ? "border-primary/40 bg-gradient-accent"
+                      ? "bg-gradient-accent border-primary/40"
                       : "border-border/30 bg-card/30"
                   }`}
                 >
                   {tier.popular && (
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                      <Badge className="bg-primary text-black font-semibold px-4 py-2">
+                    <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 transform">
+                      <Badge className="bg-primary px-4 py-2 font-semibold text-black">
                         Most Popular
                       </Badge>
                     </div>
                   )}
 
                   <div className="text-center">
-                    <h3 className="text-2xl font-bold mb-4">{tier.name}</h3>
-                    <div className="text-3xl font-bold text-primary mb-2">
+                    <h3 className="mb-4 text-2xl font-bold">{tier.name}</h3>
+                    <div className="mb-2 text-3xl font-bold text-primary">
                       {tier.price}
                     </div>
-                    <p className="text-muted-foreground mb-6">
+                    <p className="mb-6 text-muted-foreground">
                       {tier.description}
                     </p>
 
-                    <ul className="space-y-3 text-left mb-8">
+                    <ul className="mb-8 space-y-3 text-left">
                       {tier.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-center">
-                          <CheckCircle className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
+                          <CheckCircle className="mr-3 h-5 w-5 flex-shrink-0 text-primary" />
                           <span className="text-sm">{feature}</span>
                         </li>
                       ))}
@@ -202,7 +196,7 @@ const GetQuote = () => {
                       className={`w-full ${
                         tier.popular
                           ? "bg-gradient-primary hover:shadow-cyan"
-                          : "bg-primary/10 hover:bg-primary/20 text-primary border-primary/30"
+                          : "border-primary/30 bg-primary/10 text-primary hover:bg-primary/20"
                       } transition-all-spring hover-lift`}
                     >
                       Choose {tier.name}
@@ -215,25 +209,25 @@ const GetQuote = () => {
         </section>
 
         {/* Quote Form */}
-        <section className="py-24 px-6 bg-gradient-to-b from-background to-card/20">
+        <section className="bg-gradient-to-b from-background to-card/20 px-6 py-24">
           <div className="container mx-auto">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold mb-6">
+            <div className="mx-auto max-w-4xl">
+              <div className="mb-16 text-center">
+                <h2 className="mb-6 text-4xl font-bold">
                   Get Your{" "}
                   <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                     Custom Quote
                   </span>
                 </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
                   Fill out the form below and we'll provide you with a detailed
                   quote for your project.
                 </p>
               </div>
 
-              <Card className="p-8 lg:p-12 bg-card/30 border-border/30 backdrop-blur-sm">
+              <Card className="border-border/30 bg-card/30 p-8 backdrop-blur-sm lg:p-12">
                 <form className="space-y-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div className="space-y-2">
                       <Label
                         htmlFor="firstName"
@@ -245,7 +239,7 @@ const GetQuote = () => {
                         id="firstName"
                         placeholder="John"
                         required
-                        className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring"
+                        className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary"
                       />
                     </div>
                     <div className="space-y-2">
@@ -259,12 +253,12 @@ const GetQuote = () => {
                         id="lastName"
                         placeholder="Doe"
                         required
-                        className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring"
+                        className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div className="space-y-2">
                       <Label
                         htmlFor="email"
@@ -277,7 +271,7 @@ const GetQuote = () => {
                         type="email"
                         placeholder="john@example.com"
                         required
-                        className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring"
+                        className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary"
                       />
                     </div>
                     <div className="space-y-2">
@@ -290,7 +284,7 @@ const GetQuote = () => {
                       <Input
                         id="phone"
                         placeholder="+2347047494586"
-                        className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring"
+                        className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary"
                       />
                     </div>
                   </div>
@@ -305,11 +299,11 @@ const GetQuote = () => {
                     <Input
                       id="company"
                       placeholder="Your Company"
-                      className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring"
+                      className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary"
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div className="space-y-2">
                       <Label
                         htmlFor="service"
@@ -318,7 +312,7 @@ const GetQuote = () => {
                         Primary Service *
                       </Label>
                       <Select>
-                        <SelectTrigger className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring">
+                        <SelectTrigger className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
                         <SelectContent>
@@ -341,7 +335,7 @@ const GetQuote = () => {
                         Budget Range *
                       </Label>
                       <Select>
-                        <SelectTrigger className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring">
+                        <SelectTrigger className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary">
                           <SelectValue placeholder="Select budget range" />
                         </SelectTrigger>
                         <SelectContent>
@@ -368,7 +362,7 @@ const GetQuote = () => {
                       Project Timeline
                     </Label>
                     <Select>
-                      <SelectTrigger className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring">
+                      <SelectTrigger className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary">
                         <SelectValue placeholder="Select timeline" />
                       </SelectTrigger>
                       <SelectContent>
@@ -394,7 +388,7 @@ const GetQuote = () => {
                       placeholder="Describe your project requirements, goals, and any specific features you need..."
                       rows={6}
                       required
-                      className="border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring resize-none"
+                      className="transition-all-spring resize-none border-border/50 hover:border-primary/40 focus:border-primary"
                     />
                   </div>
 
@@ -409,18 +403,18 @@ const GetQuote = () => {
                       id="additional"
                       placeholder="Any additional information, questions, or special requirements..."
                       rows={4}
-                      className="border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring resize-none"
+                      className="transition-all-spring resize-none border-border/50 hover:border-primary/40 focus:border-primary"
                     />
                   </div>
 
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-primary hover:shadow-cyan transition-all-spring hover-lift py-6 text-xl font-semibold group relative overflow-hidden"
+                    className="bg-gradient-primary hover:shadow-cyan transition-all-spring hover-lift group relative w-full overflow-hidden py-6 text-xl font-semibold"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                     <span className="relative z-10 flex items-center justify-center">
                       Get My Quote
-                      <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
+                      <ArrowRight className="ml-3 h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
                     </span>
                   </Button>
                 </form>
@@ -430,27 +424,27 @@ const GetQuote = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-24 px-6 bg-background">
+        <section className="bg-background px-6 py-24">
           <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-6">
+            <div className="mb-16 text-center">
+              <h2 className="mb-6 text-4xl font-bold">
                 Why Choose{" "}
                 <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                   LUXA?
                 </span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
                 We deliver exceptional results with transparent pricing and
                 unmatched quality.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <div className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-accent flex items-center justify-center mx-auto mb-6">
-                  <Calculator className="w-8 h-8 text-primary" />
+                <div className="bg-gradient-accent mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl">
+                  <Calculator className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Transparent Pricing</h3>
+                <h3 className="mb-4 text-xl font-bold">Transparent Pricing</h3>
                 <p className="text-muted-foreground">
                   No hidden costs. Get a detailed breakdown of your project
                   costs upfront.
@@ -458,10 +452,10 @@ const GetQuote = () => {
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-accent flex items-center justify-center mx-auto mb-6">
-                  <Clock className="w-8 h-8 text-primary" />
+                <div className="bg-gradient-accent mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl">
+                  <Clock className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Fast Response</h3>
+                <h3 className="mb-4 text-xl font-bold">Fast Response</h3>
                 <p className="text-muted-foreground">
                   Receive your custom quote within 24 hours of submitting your
                   request.
@@ -469,10 +463,10 @@ const GetQuote = () => {
               </div>
 
               <div className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-accent flex items-center justify-center mx-auto mb-6">
-                  <Star className="w-8 h-8 text-primary" />
+                <div className="bg-gradient-accent mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl">
+                  <Star className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Quality Guarantee</h3>
+                <h3 className="mb-4 text-xl font-bold">Quality Guarantee</h3>
                 <p className="text-muted-foreground">
                   We stand behind our work with quality guarantees and ongoing
                   support.

@@ -9,20 +9,20 @@ const Pricing = () => {
 
   const faqItems = [
     {
-      q: "Which services are included in your plans?",
-      a: "Our offerings match the Services section on the home page: Websites & Landing Pages, Custom Dashboards, Software Development, Mobile Apps, Search Engine Optimization, and Content Marketing. Plans bundle these capabilities depending on scope and goals.",
+      q: "How do you price projects?",
+      a: "Every engagement is scoped differently. We look at the complexity of the system, the number of features, and the integrations needed so the estimate reflects the actual work involved.",
     },
     {
-      q: "Can you build mobile apps and custom software?",
-      a: "Yes — we build native and cross-platform mobile apps and full-stack custom software, including APIs, integrations, and dashboards to manage your business data.",
+      q: "What kinds of systems do you build?",
+      a: "We build custom dashboards, internal business tools, LMS platforms, mobile apps, web platforms, and product experiences designed around real operations.",
     },
     {
-      q: "Do you provide SEO and content strategy?",
-      a: "Absolutely — we deliver technical SEO, on-page optimization, keyword research, and content marketing to attract and retain organic traffic and improve conversions.",
+      q: "Do you work with growing businesses?",
+      a: "Yes. We often work with companies that have outgrown spreadsheets, manual workflows, or disconnected tools and need a more structured way to run their business.",
     },
     {
       q: "How long does a typical project take?",
-      a: "Timelines vary by scope: websites & landing pages typically take 2–6 weeks; dashboards and complex web apps 6–12 weeks; mobile apps and enterprise software 8+ weeks. We provide a detailed estimate after discovery.",
+      a: "Timelines depend on the scope. Small systems often take a few weeks, while larger platforms may require several months. We typically confirm the timeline during discovery.",
     },
   ];
 
@@ -44,8 +44,8 @@ const Pricing = () => {
             PRICING PLANS
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/90">
-            Experience growth through innovative digital marketing designed to
-            deliver results.
+            We price each project around the scope, complexity, and business
+            outcome you need to achieve.
           </p>
         </div>
 
@@ -73,10 +73,14 @@ const Pricing = () => {
       <section className="py-20">
         <div className="container mx-auto px-6 text-center">
           <h2 className="mx-auto max-w-5xl text-5xl font-extrabold leading-tight text-[#071a29]">
-            AFFORDABLE PRICING PLANS FOR{" "}
-            <span className="text-gray-400">ALL YOUR</span>
-            <br /> DIGITAL MARKETING SERVICES
+            HOW WE PRICE
+            <span className="text-gray-400"> DIGITAL SYSTEMS</span>
           </h2>
+          <p className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground">
+            Every engagement is different. We tailor the scope, timeline, and
+            delivery approach to the system you need and the goals you are
+            trying to reach.
+          </p>
         </div>
       </section>
 
@@ -84,100 +88,102 @@ const Pricing = () => {
       <section className="pb-28">
         <div className="container mx-auto space-y-12 px-6">
           <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-1">
-            {/* Starter Plan */}
             <div className="relative overflow-hidden rounded-3xl bg-[#9f7aea] p-12 text-white">
               <div className="absolute -left-6 bottom-8 h-24 w-24 rotate-12 transform rounded-full bg-white/20" />
               <div className="flex flex-col items-stretch gap-8 lg:flex-row lg:items-center">
                 <div className="lg:w-1/3">
-                  <h3 className="text-5xl font-extrabold">STARTER PLAN</h3>
+                  <h3 className="text-5xl font-extrabold">SMALL SYSTEMS</h3>
                   <p className="mt-6 text-lg text-white/90">
-                    Launch your digital presence quickly — ideal for early-stage
-                    businesses.
+                    Best for focused tools such as dashboards, portals, or
+                    lightweight web platforms.
                   </p>
                 </div>
 
                 <div className="lg:w-1/3">
-                  <h4 className="mb-4 text-lg font-semibold">Includes</h4>
+                  <h4 className="mb-4 text-lg font-semibold">Typical range</h4>
                   <ul className="space-y-3 text-white/90">
-                    <li>Websites & Landing Pages (conversion-focused)</li>
-                    <li>Basic SEO setup & analytics</li>
-                    <li>Starter content package (pages + blog)</li>
-                    <li>Monthly performance report</li>
+                    <li>$3k–$8k depending on features and complexity</li>
+                    <li>Clear scope and a practical launch plan</li>
+                    <li>Ideal for early automation and visibility needs</li>
                   </ul>
                 </div>
 
                 <div className="ml-auto flex flex-col items-end lg:w-1/3">
-                  <div className="text-4xl font-extrabold">$499/MONTH</div>
+                  <div className="text-4xl font-extrabold">$3k–$8k</div>
                   <Button className="mt-6 rounded-full bg-white px-8 py-3 text-[#071a29]">
-                    GET IN TOUCH
+                    Book a Consultation
                   </Button>
                 </div>
               </div>
             </div>
 
-            {/* Growth Plan */}
             <div className="relative overflow-hidden rounded-3xl bg-[#f7ff66] p-12 text-[#071a29]">
               <div className="absolute -right-6 top-8 h-24 w-24 -rotate-12 transform rounded-full bg-white/20" />
               <div className="flex flex-col items-stretch gap-8 lg:flex-row lg:items-center">
                 <div className="relative lg:w-1/3">
-                  <span className="absolute -top-4 left-0 inline-block rounded-full bg-[#ff8a42] px-4 py-1 text-xs font-semibold text-white">
-                    Most Popular
-                  </span>
-                  <h3 className="text-5xl font-extrabold">GROWTH PLAN</h3>
+                  <h3 className="text-5xl font-extrabold">MEDIUM SYSTEMS</h3>
                   <p className="mt-6 text-lg text-[#071a29]/80">
-                    Scale with product features, mobile presence and data-driven
-                    insights.
+                    Designed for growing teams that need a more complete
+                    operational platform.
                   </p>
                 </div>
 
                 <div className="lg:w-1/3">
-                  <h4 className="mb-4 text-lg font-semibold">Includes</h4>
+                  <h4 className="mb-4 text-lg font-semibold">Typical range</h4>
                   <ul className="space-y-3">
-                    <li>Mobile Apps (MVP) or advanced Websites</li>
-                    <li>Custom Dashboards & BI integrations</li>
-                    <li>Advanced SEO & content marketing</li>
-                    <li>Bi-weekly performance reviews</li>
-                  </ul>
-                </div>
-
-                <div className="ml-auto flex flex-col items-end lg:w-1/3">
-                  <div className="text-4xl font-extrabold">$699/MONTH</div>
-                  <Button className="mt-6 rounded-full bg-[#071a29] px-8 py-3 text-white">
-                    GET IN TOUCH
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Premium Plan */}
-            <div className="relative overflow-hidden rounded-3xl bg-[#06b6d4] p-12 text-white">
-              <div className="absolute -left-6 top-8 h-24 w-24 rotate-6 transform rounded-full bg-white/20" />
-              <div className="flex flex-col items-stretch gap-8 lg:flex-row lg:items-center">
-                <div className="lg:w-1/3">
-                  <h3 className="text-5xl font-extrabold">PREMIUM PLAN</h3>
-                  <p className="mt-6 text-lg text-white/90">
-                    Enterprise-grade delivery and ongoing optimization for
-                    market leaders.
-                  </p>
-                </div>
-
-                <div className="lg:w-1/3">
-                  <h4 className="mb-4 text-lg font-semibold">Includes</h4>
-                  <ul className="space-y-3 text-white/90">
-                    <li>Full Software Development & scalable architecture</li>
-                    <li>Enterprise Mobile Apps (iOS & Android)</li>
-                    <li>Comprehensive SEO + Content Strategy</li>
+                    <li>$8k–$20k for multi-feature solutions</li>
                     <li>
-                      Custom Dashboards, Dedicated account manager, Ongoing
-                      optimization
+                      Includes workflow design, data handling, and integration
+                      planning
+                    </li>
+                    <li>
+                      Great for education, operations, and service-driven
+                      businesses
                     </li>
                   </ul>
                 </div>
 
                 <div className="ml-auto flex flex-col items-end lg:w-1/3">
-                  <div className="text-4xl font-extrabold">$999/MONTH</div>
+                  <div className="text-4xl font-extrabold">$8k–$20k</div>
+                  <Button className="mt-6 rounded-full bg-[#071a29] px-8 py-3 text-white">
+                    Book a Consultation
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-3xl bg-[#06b6d4] p-12 text-white">
+              <div className="absolute -left-6 top-8 h-24 w-24 rotate-6 transform rounded-full bg-white/20" />
+              <div className="flex flex-col items-stretch gap-8 lg:flex-row lg:items-center">
+                <div className="lg:w-1/3">
+                  <h3 className="text-5xl font-extrabold">LARGE PLATFORMS</h3>
+                  <p className="mt-6 text-lg text-white/90">
+                    Built for businesses that need a scalable platform with
+                    deeper workflows and integrations.
+                  </p>
+                </div>
+
+                <div className="lg:w-1/3">
+                  <h4 className="mb-4 text-lg font-semibold">Typical range</h4>
+                  <ul className="space-y-3 text-white/90">
+                    <li>
+                      $20k+ for comprehensive systems and advanced product
+                      architecture
+                    </li>
+                    <li>
+                      Flexible scope for growth, automation, and ongoing support
+                    </li>
+                    <li>
+                      Best suited to ambitious operations and multi-user
+                      platforms
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="ml-auto flex flex-col items-end lg:w-1/3">
+                  <div className="text-4xl font-extrabold">$20k+</div>
                   <Button className="mt-6 rounded-full bg-white px-8 py-3 text-[#071a29]">
-                    GET IN TOUCH
+                    Book a Consultation
                   </Button>
                 </div>
               </div>
@@ -201,8 +207,8 @@ const Pricing = () => {
 
             <div className="lg:col-span-5">
               <p className="mt-4 text-lg text-muted-foreground">
-                Experience growth through innovative digital marketing designed
-                to reach, inspire, and deliver results.
+                Our approach is grounded in clarity, practicality, and long-term
+                value for the businesses we support.
               </p>
             </div>
           </div>
@@ -215,10 +221,11 @@ const Pricing = () => {
                 </div>
                 <div>
                   <h4 className="mb-2 text-xl font-extrabold tracking-wider text-[#071a29]">
-                    INNOVATION
+                    SYSTEMS OVER TOOLS
                   </h4>
                   <p className="text-muted-foreground">
-                    Staying ahead with cutting-edge strategies.
+                    We design around the workflow rather than just the feature
+                    list.
                   </p>
                 </div>
               </div>
@@ -231,10 +238,11 @@ const Pricing = () => {
                 </div>
                 <div>
                   <h4 className="mb-2 text-xl font-extrabold tracking-wider text-[#071a29]">
-                    TRANSPARENCY
+                    CLARITY OVER COMPLEXITY
                   </h4>
                   <p className="text-muted-foreground">
-                    Building trust through open communication.
+                    We keep each system practical, understandable, and useful to
+                    the people using it.
                   </p>
                 </div>
               </div>
@@ -247,10 +255,11 @@ const Pricing = () => {
                 </div>
                 <div>
                   <h4 className="mb-2 text-xl font-extrabold tracking-wider text-[#071a29]">
-                    RESULTS-DRIVEN
+                    FUNCTION OVER TRENDS
                   </h4>
                   <p className="text-muted-foreground">
-                    Focusing on measurable outcomes that matter.
+                    We build products that work well for the business and the
+                    people behind it.
                   </p>
                 </div>
               </div>
@@ -263,10 +272,11 @@ const Pricing = () => {
                 </div>
                 <div>
                   <h4 className="mb-2 text-xl font-extrabold tracking-wider text-[#071a29]">
-                    COLLABORATION
+                    LONG-TERM THINKING
                   </h4>
                   <p className="text-muted-foreground">
-                    Partnering with clients for shared success.
+                    Every solution is designed to support growth, adaptation,
+                    and future change.
                   </p>
                 </div>
               </div>
@@ -385,7 +395,7 @@ const Pricing = () => {
         <div className="container mx-auto px-6">
           <div className="relative overflow-hidden rounded-3xl bg-[#071a29] p-20 text-white">
             <h2 className="mx-auto max-w-4xl text-center text-4xl font-extrabold leading-tight md:text-6xl">
-              READY TO PARTNER WITH LUXA & UNLOCK THE FULL POTENTIAL?
+              READY TO DISCUSS A DIGITAL SYSTEM THAT FITS YOUR BUSINESS?
             </h2>
 
             {/* decorative pills / stickers */}
@@ -403,7 +413,7 @@ const Pricing = () => {
 
             <div className="mt-12 flex justify-center">
               <Button className="rounded-full bg-white px-12 py-4 text-[#071a29]">
-                GET IN TOUCH
+                Book a Consultation
               </Button>
             </div>
 
