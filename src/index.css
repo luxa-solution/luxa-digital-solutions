@@ -357,3 +357,13 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(172 90% 53% / 0.8);
 }
+
+.parallax-main {
+  transform: translateY(var(--parallax-main, 0px));
+  will-change: transform;
+}
+
+.parallax-reverse {
+  transform: translateY(var(--parallax-reverse, 0px));
+  will-change: transform;
+}
