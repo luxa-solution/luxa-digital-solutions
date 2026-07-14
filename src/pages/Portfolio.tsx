@@ -4,17 +4,51 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
 import { ArrowRight, ExternalLink, Sparkles } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Portfolio = () => {
   const navigate = useNavigate();
   const [filter, setFilter] = useState<string>("all");
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    // Reset visible cards when filter changes
+    setVisibleCards(new Set());
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(
+              entry.target.getAttribute("data-index") || "0",
+            );
+            setVisibleCards((prev) => {
+              const next = new Set(prev);
+              next.add(index);
+              return next;
+            });
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+    );
+
+    // Observe cards after render timeout
+    const timer = setTimeout(() => {
+      const cards = document.querySelectorAll(".portfolio-card");
+      cards.forEach((card) => observer.observe(card));
+    }, 50);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [filter]);
 
   const categories = [
     "all",
@@ -28,8 +62,8 @@ const Portfolio = () => {
     <div className="min-h-screen bg-brand-dark text-white dark:bg-black">
       <Navigation />
 
-      {/* Hero Section with Animated Background */}
-      <section className="relative overflow-hidden bg-brand-dark pt-32 pb-20 dark:bg-black">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden bg-brand-dark pt-36 pb-20 dark:bg-black">
         {/* Animated gradient orbs */}
         <div className="absolute inset-0 overflow-hidden opacity-10">
           <div className="absolute -left-40 top-0 h-[500px] w-[500px] animate-pulse rounded-full bg-brand-teal/20 blur-[100px]"></div>
@@ -62,7 +96,7 @@ const Portfolio = () => {
                 <div className="text-3xl font-black text-brand-teal sm:text-4xl">
                   {projects.length}+
                 </div>
-                <div className="mt-2 text-xs text-gray-500 uppercase tracking-widest">
+                <div className="mt-2 text-[10px] text-gray-500 uppercase tracking-widest font-mono">
                   Systems Deployed
                 </div>
               </div>
@@ -70,7 +104,7 @@ const Portfolio = () => {
                 <div className="text-3xl font-black text-brand-gold sm:text-4xl">
                   98%
                 </div>
-                <div className="mt-2 text-xs text-gray-500 uppercase tracking-widest">
+                <div className="mt-2 text-[10px] text-gray-500 uppercase tracking-widest font-mono">
                   Satisfaction Rate
                 </div>
               </div>
@@ -78,7 +112,7 @@ const Portfolio = () => {
                 <div className="text-3xl font-black text-brand-coral sm:text-4xl">
                   5+
                 </div>
-                <div className="mt-2 text-xs text-gray-500 uppercase tracking-widest">
+                <div className="mt-2 text-[10px] text-gray-500 uppercase tracking-widest font-mono">
                   Years of Launching
                 </div>
               </div>
@@ -116,19 +150,39 @@ const Portfolio = () => {
       {/* Projects Grid */}
       <section className="bg-brand-dark py-20 dark:bg-black">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12">
-            {filteredProjects.map((project, index) => (
-              <div
-                key={project.id}
-                className="group relative cursor-pointer"
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
-                onClick={() => navigate(`/project/${project.id}`)}
-              >
-                {/* Project Card */}
-                <div className="relative overflow-hidden rounded-[30px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent shadow-xl transition-all duration-500 hover:border-white/10 hover:shadow-2xl">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-16">
+            {filteredProjects.map((project, index) => {
+              const isVisible = visibleCards.has(index);
+
+              // Alternating asymmetrical spans and vertical offsets
+              let gridSpan = "";
+              let verticalOffset = "";
+
+              if (index % 4 === 0) {
+                gridSpan = "md:col-span-7";
+                verticalOffset = "";
+              } else if (index % 4 === 1) {
+                gridSpan = "md:col-span-5";
+                verticalOffset = "md:mt-24";
+              } else if (index % 4 === 2) {
+                gridSpan = "md:col-span-5";
+                verticalOffset = "";
+              } else {
+                gridSpan = "md:col-span-7";
+                verticalOffset = "md:mt-24";
+              }
+
+              return (
+                <div
+                  key={project.id}
+                  data-index={index}
+                  className={`portfolio-card group relative cursor-pointer rounded-[40px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent shadow-xl transition-all duration-1000 ease-out hover:border-white/10 hover:shadow-2xl ${gridSpan} ${verticalOffset} ${
+                    isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
+                  }`}
+                  onClick={() => navigate(`/project/${project.id}`)}
+                >
                   {/* Image Container */}
-                  <div className="relative aspect-[4/3] w-full overflow-hidden bg-white/[0.01]">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-[40px] bg-white/[0.01]">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -151,63 +205,52 @@ const Portfolio = () => {
                         <ExternalLink className="h-5 w-5" />
                       </div>
                     </div>
+                  </div>
 
-                    {/* Details container inside card */}
-                    <div className="absolute bottom-0 left-0 right-0 z-10 translate-y-8 p-8 transition-all duration-500 ease-out group-hover:translate-y-0">
-                      {/* Project Index */}
-                      <div className="mb-4 flex items-center gap-3 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                        <span className="text-4xl font-extrabold text-white/20">
-                          {String(index + 1).padStart(2, "0")}
+                  {/* Details Area */}
+                  <div className="p-8 sm:p-10">
+                    <div className="mb-4 flex items-center gap-3 text-xs font-mono tracking-widest text-brand-teal uppercase">
+                      <span className="font-semibold text-brand-teal">{project.client}</span>
+                      <span>•</span>
+                      <span>{project.duration}</span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="mb-3 text-2xl font-bold text-white transition-colors duration-300 group-hover:text-brand-teal sm:text-3xl">
+                      {project.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="mb-6 text-sm text-gray-400 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    {/* Tech stack badges */}
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.slice(0, 4).map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-full bg-white/5 border border-white/10 px-3.5 py-1 text-xs font-semibold text-gray-300"
+                        >
+                          {tech}
                         </span>
-                        <div className="h-px flex-1 bg-white/10"></div>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="mb-3 text-2xl font-bold text-white transition-colors duration-300 group-hover:text-brand-teal sm:text-3xl">
-                        {project.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="mb-5 line-clamp-2 text-sm text-gray-300 opacity-0 transition-opacity duration-500 group-hover:opacity-100 sm:text-base leading-relaxed">
-                        {project.description}
-                      </p>
-
-                      {/* Client */}
-                      <div className="mb-4 flex items-center gap-3 text-xs text-gray-400 opacity-0 transition-opacity duration-500 group-hover:opacity-100 uppercase tracking-widest font-mono">
-                        <span className="font-semibold text-brand-teal">{project.client}</span>
-                        <span>•</span>
-                        <span>{project.duration}</span>
-                      </div>
-
-                      {/* Tech stack badges */}
-                      <div className="flex flex-wrap gap-2 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                        {project.tech.slice(0, 4).map((tech) => (
-                          <span
-                            key={tech}
-                            className="rounded-full bg-white/5 border border-white/10 px-3.5 py-1 text-xs font-semibold text-gray-300 backdrop-blur-sm"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                        {project.tech.length > 4 && (
-                          <span className="rounded-full bg-white/5 border border-white/10 px-3.5 py-1 text-xs font-semibold text-gray-400 backdrop-blur-sm">
-                            +{project.tech.length - 4}
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Case study CTA link */}
-                      <div className="mt-6 flex items-center gap-2 text-brand-teal opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                        <span className="text-sm font-bold uppercase tracking-wider">
-                          View Case Study
+                      ))}
+                      {project.tech.length > 4 && (
+                        <span className="rounded-full bg-white/5 border border-white/10 px-3.5 py-1 text-xs font-semibold text-gray-400">
+                          +{project.tech.length - 4}
                         </span>
-                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                      </div>
+                      )}
+                    </div>
+
+                    {/* Case study CTA link */}
+                    <div className="mt-8 flex items-center gap-2 text-brand-teal font-semibold uppercase tracking-wider text-xs">
+                      <span>View Case Study</span>
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

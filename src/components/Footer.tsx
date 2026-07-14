@@ -16,35 +16,22 @@ const Footer = () => {
   };
 
   const quickLinks = [
-    { name: "Home", href: "#home", action: "scroll" },
-    { name: "Services", href: "#services", action: "scroll" },
-    { name: "Portfolio", href: "#portfolio", action: "scroll" },
-    { name: "Blog", href: "/blog", action: "navigate" },
-    { name: "About", href: "/about", action: "navigate" },
-    { name: "Contact", href: "/contact", action: "navigate" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: "Journal/Blog", href: "/blog" },
+    { name: "System Pricing", href: "/pricing" },
+    { name: "Testimonials", href: "/testimonials" },
+    { name: "Get Quote", href: "/get-quote" },
   ];
 
-  const handleQuickLinkClick = (link: { href: string; action: string }) => {
-    if (link.action === "navigate") {
-      navigate(link.href);
-    } else {
-      const element = document.querySelector(link.href);
-      if (element) {
-        element.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    }
-  };
-
   const services = [
-    "Web Development",
+    "Custom Dashboards",
+    "LMS & Learning Portals",
     "Mobile Applications",
-    "UI/UX Design",
-    "Digital Consulting",
-    "Performance Optimization",
-    "Security & Compliance",
+    "SaaS Business Tools",
+    "Branding & UI/UX Design",
+    "System Architecture Design",
   ];
 
   const socialLinks = [
@@ -71,37 +58,38 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative overflow-hidden bg-brand-dark text-white">
-      {/* Background decorative elements (subtle) */}
-      <div className="pointer-events-none absolute inset-0 opacity-20">
-        <div className="absolute left-8 top-12 h-24 w-24 rounded-full bg-brand-gold/5 blur-3xl"></div>
+    <footer className="relative overflow-hidden bg-brand-dark text-white dark:bg-black border-t border-white/5">
+      {/* Background ambient lighting */}
+      <div className="pointer-events-none absolute inset-0 opacity-10">
+        <div className="absolute left-8 top-12 h-[300px] w-[300px] rounded-full bg-brand-teal/10 blur-[100px]"></div>
+        <div className="absolute right-8 bottom-12 h-[300px] w-[300px] rounded-full bg-brand-gold/10 blur-[100px]"></div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 py-28">
-        {/* Top CTA band */}
-        <div className="mb-12 md:mb-16">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-teal/20 via-brand-teal/10 to-transparent ring-1 ring-white/10">
-            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-brand-teal/20 blur-3xl"></div>
-            <div className="flex flex-col items-start justify-between gap-6 px-6 py-10 md:flex-row md:items-center md:gap-10 md:px-12 md:py-14">
+      <div className="container relative z-10 mx-auto px-6 py-24 lg:px-8">
+        {/* Top CTA Banner */}
+        <div className="mb-20">
+          <div className="relative overflow-hidden rounded-[30px] border border-white/5 bg-gradient-to-br from-white/[0.02] to-transparent p-10 md:p-14 shadow-2xl backdrop-blur-md">
+            <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-brand-teal/10 blur-3xl"></div>
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-white/60">
-                  Let’s build something bold
+                <p className="mb-2 text-xs font-mono tracking-widest text-brand-teal uppercase">
+                  // Start a Partnership
                 </p>
-                <h3 className="text-2xl font-extrabold leading-tight md:text-3xl lg:text-4xl">
+                <h3 className="text-2xl font-extrabold leading-tight uppercase tracking-tight sm:text-3xl lg:text-4xl max-w-2xl">
                   Ready to build a digital system that fits your business?
                 </h3>
               </div>
-              <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                 <Button
                   onClick={() => navigate("/contact")}
-                  className="rounded-full bg-brand-teal px-6 py-6 text-base font-semibold text-black hover:bg-brand-teal/90"
+                  className="rounded-full bg-brand-teal text-black font-semibold hover:bg-brand-teal/90 shadow-md shadow-brand-teal/20 transition-transform hover:scale-105 px-8 py-6 w-full sm:w-auto"
                 >
                   Book a Consultation
                 </Button>
                 <Button
                   variant="outline"
                   onClick={() => navigate("/all-projects")}
-                  className="rounded-full border-white/20 px-6 py-6 text-base text-white hover:bg-white/10"
+                  className="rounded-full border-white/15 px-8 py-6 text-white hover:bg-white/10 transition-transform hover:scale-105 w-full sm:w-auto"
                 >
                   View Our Work
                 </Button>
@@ -110,81 +98,124 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Main two-column layout: Left (brand), Right (socials) */}
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-8">
-          {/* Left: Big Brand / Description */}
-          <div className="flex flex-col justify-between md:col-span-1">
-            <div>
-              <div className="flex items-center gap-4">
-                <img
-                  src="/luxa.png"
-                  alt="LUXA Digital Solutions"
-                  className="h-12 w-auto"
-                />
-                <span className="ml-2 text-2xl font-extrabold">
-                  LUXA Digital Solutions
-                </span>
-              </div>
-
-              <p className="mt-10 max-w-md text-lg leading-relaxed text-muted-foreground">
-                LUXA Digital Solutions helps ambitious brands refine their
-                vision, grow their digital presence, and drive measurable
-                results.
-              </p>
+        {/* 4-Column Main Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 border-b border-white/5 pb-16">
+          {/* Column 1: Brand Info (4 cols) */}
+          <div className="lg:col-span-4 space-y-6">
+            <div
+              className="flex items-center gap-1.5 cursor-pointer select-none group"
+              onClick={() => navigate("/")}
+            >
+              <span className="text-3xl font-black uppercase tracking-wider text-gradient-teal-gold font-sans">
+                luxa
+              </span>
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-coral opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-coral"></span>
+              </span>
             </div>
 
-            <div className="mt-12 text-sm text-muted-foreground">
-              Powered by LUXA
+            <p className="text-sm leading-relaxed text-gray-400 max-w-sm">
+              We design and engineer bespoke software systems, automation pipelines, and custom web portals to help scaling companies clear manual bottlenecks.
+            </p>
+
+            {/* Social Grid */}
+            <div className="flex items-center gap-3">
+              {socialLinks.map((social) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-400 transition-all duration-300 hover:-translate-y-1 hover:border-brand-teal hover:bg-brand-teal hover:text-black shadow-lg"
+                    aria-label={social.name}
+                  >
+                    <Icon className="h-4.5 w-4.5" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
-          {/* Right: Socials only, prominent */}
-          <div className="md:col-span-1">
-            <div className="flex h-full flex-col items-start justify-between gap-8 md:items-end">
-              <div className="w-full max-w-md md:text-right">
-                <h4 className="mb-4 text-sm font-semibold text-white">
-                  Connect
-                </h4>
-                <div className="flex flex-wrap items-center gap-4 md:justify-end">
-                  {socialLinks.map((social) => {
-                    const Icon = social.icon;
-                    return (
-                      <a
-                        key={social.name}
-                        href={social.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-brand-teal hover:bg-brand-teal hover:text-white"
-                        aria-label={social.name}
-                      >
-                        <Icon className="h-5 w-5" />
-                      </a>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
+          {/* Column 2: Quick Links (2 cols) */}
+          <div className="lg:col-span-2 space-y-4">
+            <h4 className="text-xs font-mono tracking-widest text-gray-500 uppercase">
+              // Navigation
+            </h4>
+            <ul className="space-y-2.5">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(link.href);
+                    }}
+                    className="text-sm text-gray-400 hover:text-brand-teal transition-colors font-semibold"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Capabilities (3 cols) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="text-xs font-mono tracking-widest text-gray-500 uppercase">
+              // Capabilities
+            </h4>
+            <ul className="space-y-2.5">
+              {services.map((service) => (
+                <li key={service} className="text-sm text-gray-400 hover:text-brand-teal transition-colors select-none font-semibold">
+                  {service}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 4: Connect Contact Info (3 cols) */}
+          <div className="lg:col-span-3 space-y-4">
+            <h4 className="text-xs font-mono tracking-widest text-gray-500 uppercase">
+              // Direct Line
+            </h4>
+            <ul className="space-y-3.5 text-sm text-gray-400">
+              <li>
+                <span className="block text-[10px] uppercase font-mono tracking-widest text-gray-500">Phone lines</span>
+                <a href="tel:+2348089287065" className="hover:text-brand-teal transition-colors font-semibold">
+                  +234 808 928 7065
+                </a>
+                <span className="block text-xs text-gray-500">Kwara Office Support</span>
+              </li>
+              <li>
+                <span className="block text-[10px] uppercase font-mono tracking-widest text-gray-500">Direct Email</span>
+                <a href="mailto:info@luxasolution.com" className="hover:text-brand-teal transition-colors font-semibold">
+                  info@luxasolution.com
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
-        {/* Bottom legal bar */}
-        <div className="mt-12 flex flex-col-reverse items-start justify-between gap-4 border-t border-white/10 pt-6 text-sm text-muted-foreground md:flex-row md:items-center">
+        {/* Bottom Legal bar */}
+        <div className="mt-12 flex flex-col-reverse items-start justify-between gap-6 text-xs text-gray-500 font-mono uppercase tracking-widest md:flex-row md:items-center">
           <div>
-            © {new Date().getFullYear()} LUXA Digital Solutions. All rights
-            reserved.
+            © {new Date().getFullYear()} LUXA Digital Solutions. All rights reserved.
           </div>
           <div className="flex items-center gap-6">
-            <a className="hover:text-white">Privacy Policy</a>
-            <a className="hover:text-white">Terms of Service</a>
+            <a className="hover:text-brand-teal transition-colors cursor-pointer">Privacy Policy</a>
+            <a className="hover:text-brand-teal transition-colors cursor-pointer">Terms of Service</a>
           </div>
         </div>
       </div>
 
-      {/* Scroll to Top Button - keep existing style */}
+      {/* Floating Scroll to Top button */}
       <div className="fixed bottom-6 right-6 z-40">
         <Button
           onClick={scrollToTop}
-          className="shadow-elegant hover:shadow-cyan transition-all-spring hover-lift group fixed bottom-6 right-6 z-40 h-12 w-12 rounded-full bg-brand-teal/90 text-black hover:bg-brand-teal sm:bottom-8 sm:right-8 sm:h-14 sm:w-14"
+          className="shadow-xl transition-all duration-300 hover:scale-110 group h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-brand-teal text-black hover:bg-brand-teal hover:shadow-brand-teal/20"
         >
           <FiArrowUp className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 sm:h-6 sm:w-6" />
         </Button>

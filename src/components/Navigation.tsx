@@ -2,17 +2,12 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ThemeToggle } from "./theme-toggle";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-
-  // Pages that use a dark hero/header and should show a dark navbar initially
-  const darkHeroRoutes = ["/about", "/contact", "/case-studies", "/pricing"];
-  const isHeroRoute = darkHeroRoutes.includes(location.pathname);
 
   // Handle scroll effect for navigation
   useEffect(() => {
@@ -52,9 +47,10 @@ const Navigation = () => {
   const navItems = [
     { name: "About", href: "/about", action: "navigate" },
     { name: "Portfolio", href: "portfolio", action: "scroll" },
-    { name: "Services", href: "#services", action: "scroll" },
+    { name: "Services", href: "services", action: "scroll" },
     { name: "Blog", href: "/blog", action: "navigate" },
     { name: "Pricing", href: "/pricing", action: "navigate" },
+    { name: "Reviews", href: "/testimonials", action: "navigate" },
     { name: "Contact", href: "/contact", action: "navigate" },
   ];
 
@@ -69,8 +65,7 @@ const Navigation = () => {
         location.pathname === "/" || location.pathname === "/index";
 
       if (isHomePage) {
-        // We're on homepage, scroll directly
-        const element = document.querySelector(item.href);
+        const element = document.getElementById(item.href);
         if (element) {
           element.scrollIntoView({
             behavior: "smooth",
@@ -78,61 +73,38 @@ const Navigation = () => {
           });
         }
       } else {
-        // We're on a different page, navigate to homepage with hash
-        navigate(`/${item.href}`, { replace: false });
+        // Navigate home and then scroll
+        navigate(`/#${item.href}`);
       }
     }
   };
 
-  // Dynamic class helpers
-  const navBgClass = scrolled
-    ? "border-b border-border/10 bg-background/85 backdrop-blur-md text-foreground shadow-sm"
-    : isHeroRoute
-      ? "bg-[#071a29]/95 backdrop-blur-md text-white shadow-md shadow-black/10"
-      : "bg-transparent";
-
-  const linkTextClass =
-    scrolled || !isHeroRoute
-      ? "text-muted-foreground hover:text-foreground"
-      : "text-white/90 hover:text-white hover:scale-105 transition-transform";
-
-  const iconButtonText =
-    scrolled || !isHeroRoute ? "text-foreground" : "text-white";
-
   return (
     <>
-      {/* Modern Navigation Bar */}
-      <nav
-        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-200 ${navBgClass}`}
-      >
-        <div className="container mx-auto my-2 px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between sm:h-20">
-            <div className="flex items-center justify-start">
-              {/* Modern Logo */}
-              <div
-                className="group relative cursor-pointer"
-                onClick={() => navigate("/")}
-              >
-                <div
-                  className={`relative overflow-hidden rounded-full border border-brand-coral/20 ${isHeroRoute && !scrolled ? "bg-transparent" : "bg-black"} p-2 backdrop-blur-sm transition-all duration-500 hover:border-brand-coral/40 hover:shadow-lg hover:shadow-brand-coral/20 sm:p-4`}
-                >
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-coral/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
-                  <img
-                    src="/luxa.png"
-                    alt="LUXA"
-                    className={`relative z-10 h-8 w-auto drop-shadow-sm filter transition-all duration-500 group-hover:scale-110 group-hover:drop-shadow-md sm:h-10 ${isHeroRoute && !scrolled ? "invert-[0.98]" : ""}`}
-                  />
-                  <div className="absolute -right-1 -top-1 h-3 w-3 animate-pulse rounded-full bg-brand-coral/30"></div>
-                  <div
-                    className="absolute -bottom-1 -left-1 h-2 w-2 animate-pulse rounded-full bg-brand-gold/20"
-                    style={{ animationDelay: "0.5s" }}
-                  ></div>
-                </div>
-              </div>
+      {/* Floating Pill Navigation Bar */}
+      <nav className="fixed left-0 right-0 top-0 z-50 w-full transition-all duration-300">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-4 sm:mt-6">
+          <div
+            className={`w-full rounded-full border border-white/10 bg-black/60 text-white shadow-2xl backdrop-blur-xl transition-all duration-300 px-6 sm:px-8 py-3.5 flex items-center justify-between ${
+              scrolled ? "shadow-brand-teal/5 bg-black/80 py-3" : ""
+            }`}
+          >
+            {/* Beautiful Text-Based Logo */}
+            <div
+              className="flex items-center gap-1.5 cursor-pointer select-none group"
+              onClick={() => navigate("/")}
+            >
+              <span className="text-2xl font-black uppercase tracking-wider text-gradient-teal-gold font-sans transition-all duration-300 group-hover:scale-105">
+                luxa
+              </span>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-coral opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-coral"></span>
+              </span>
             </div>
 
-            {/* Desktop Navigation - Centered */}
-            <div className="hidden items-center justify-center lg:flex">
+            {/* Desktop Navigation Links */}
+            <div className="hidden items-center justify-center gap-1 lg:flex">
               {navItems.map((item) => (
                 <a
                   key={item.name}
@@ -141,114 +113,99 @@ const Navigation = () => {
                     e.preventDefault();
                     handleNavClick(item);
                   }}
-                  className={`${linkTextClass} px-5 py-2 text-lg font-medium transition-colors`}
+                  className="px-4.5 py-2 text-sm font-semibold uppercase tracking-wider text-gray-300 hover:text-brand-teal transition-all duration-300 hover:scale-105"
                 >
                   {item.name}
                 </a>
               ))}
             </div>
 
-            {/* Desktop CTA Button and Theme Toggle */}
+            {/* Desktop Action button */}
             <div className="hidden items-center gap-4 lg:flex">
-              {/* <ThemeToggle /> */}
               <Button
                 onClick={() => navigate("/pricing")}
-                className="text-brand-teal-foreground pulse-glow rounded-full bg-brand-teal px-6 py-2.5 text-sm font-semibold transition-all hover:scale-105 hover:bg-brand-teal/90 shadow-md shadow-brand-teal/20"
+                className="text-brand-teal-foreground pulse-glow rounded-full bg-brand-teal px-6 py-2.5 text-xs uppercase tracking-widest font-black transition-all hover:scale-105 hover:bg-brand-teal/90 shadow-md shadow-brand-teal/20"
               >
-                Book a Consultation
+                Get Quote
               </Button>
             </div>
 
-            {/* Mobile menu button */}
-            <div className="mobile-toggle ml-4 lg:hidden">
-              <Button
-                variant="ghost"
-                size="sm"
+            {/* Mobile Toggle Button */}
+            <div className="mobile-toggle lg:hidden">
+              <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`p-1 transition-colors hover:text-brand-coral ${iconButtonText}`}
+                className="p-1 text-gray-300 hover:text-brand-teal transition-colors"
+                aria-label="Toggle Menu"
               >
-                {isOpen ? (
-                  <X className="h-6 w-6" />
-                ) : (
-                  <Menu className="h-6 w-6" />
-                )}
-              </Button>
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Navigation Overlay */}
+      {/* Floating Mobile Drawer */}
       <div
-        className={`fixed inset-0 z-40 transform transition-all duration-300 lg:hidden ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-y-4 right-4 z-40 w-72 rounded-[30px] border border-white/10 bg-black/90 p-6 shadow-2xl backdrop-blur-xl transition-all duration-300 lg:hidden flex flex-col justify-between mobile-menu ${
+          isOpen ? "translate-x-0 opacity-100" : "translate-x-[120%] opacity-0"
         }`}
       >
-        <div
-          className="absolute inset-0 bg-background/80 backdrop-blur-sm"
-          onClick={() => setIsOpen(false)}
-        />
-        <nav className="relative ml-auto h-full w-full max-w-xs border-l border-border/30 bg-background shadow-xl">
-          <div className="flex h-full flex-col">
-            <div className="flex items-center justify-between border-b border-border/30 p-4">
-              <div
-                className="group relative cursor-pointer"
-                onClick={() => {
-                  setIsOpen(false);
-                  navigate("/");
-                }}
-              >
-                {/* Mobile logo wrapper */}
-                <div className="relative overflow-hidden rounded-full bg-black p-2 border border-brand-coral/20">
-                  <img
-                    src="/luxa.png"
-                    alt="LUXA"
-                    className="relative z-10 h-7 w-auto filter transition-all duration-500 group-hover:scale-110 sm:h-8"
-                  />
-                </div>
-              </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setIsOpen(false)}
-                className="p-1 text-foreground transition-colors hover:text-brand-coral"
-              >
-                <X className="h-6 w-6" />
-              </Button>
+        <div>
+          {/* Header inside Drawer */}
+          <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-6">
+            <div
+              className="flex items-center gap-1.5 cursor-pointer select-none"
+              onClick={() => {
+                setIsOpen(false);
+                navigate("/");
+              }}
+            >
+              <span className="text-xl font-black uppercase tracking-wider text-gradient-teal-gold">
+                luxa
+              </span>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-coral opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-coral"></span>
+              </span>
             </div>
-            <div className="flex-1 overflow-y-auto py-4">
-              <div className="flex flex-col space-y-2 px-4">
-                {navItems.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(item);
-                    }}
-                    className="rounded-lg px-4 py-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-                  >
-                    {item.name}
-                  </a>
-                ))}
-                <div className="mt-4 border-t border-border/30 pt-4">
-                  <div className="mb-4 flex justify-center">
-                    <ThemeToggle />
-                  </div>
-                  <Button
-                    onClick={() => {
-                      setIsOpen(false);
-                      navigate("/pricing");
-                    }}
-                    className="text-brand-teal-foreground w-full rounded-full bg-brand-teal px-6 py-2.5 text-sm font-semibold hover:bg-brand-teal/90 shadow-md shadow-brand-teal/20 transition-transform hover:scale-[1.02]"
-                  >
-                    Book a Consultation
-                  </Button>
-                </div>
-              </div>
-            </div>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="p-1 text-gray-400 hover:text-white"
+            >
+              <X className="h-5 w-5" />
+            </button>
           </div>
-        </nav>
+
+          {/* Links List */}
+          <div className="flex flex-col gap-2">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick(item);
+                }}
+                className="rounded-full px-5 py-3 text-sm font-bold uppercase tracking-wider text-gray-400 hover:bg-white/5 hover:text-brand-teal transition-all duration-300"
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Footer inside Drawer */}
+        <div className="border-t border-white/5 pt-6 mt-6">
+          <Button
+            onClick={() => {
+              setIsOpen(false);
+              navigate("/pricing");
+            }}
+            className="text-brand-teal-foreground w-full rounded-full bg-brand-teal py-3 text-xs uppercase tracking-widest font-black hover:bg-brand-teal/90 shadow-md"
+          >
+            Get Quote
+          </Button>
+        </div>
       </div>
     </>
   );

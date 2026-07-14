@@ -17,6 +17,7 @@ import Portfolio from "./pages/Portfolio";
 import Pricing from "./pages/Pricing";
 import ProjectDetail from "./pages/ProjectDetail";
 import ScheduleConsultation from "./pages/ScheduleConsultation";
+import Testimonials from "./pages/Testimonials";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/all-projects" element={<AllProjects />} />
+            <Route path="/testimonials" element={<Testimonials />} />
             <Route
               path="/schedule-consultation"
               element={<ScheduleConsultation />}
