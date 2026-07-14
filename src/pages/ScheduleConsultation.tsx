@@ -25,8 +25,6 @@ import {
   Calendar as CalendarIcon,
   Clock,
   CheckCircle,
-  Star,
-  MessageSquare,
   Video,
   Phone,
   MapPin,
@@ -70,6 +68,7 @@ const ScheduleConsultation = () => {
       icon: Video,
       duration: "30 minutes",
       benefits: ["Screen sharing", "Personal interaction", "Recorded session"],
+      accentColor: "#12bbbb", // Brand Teal
     },
     {
       type: "phone",
@@ -78,6 +77,7 @@ const ScheduleConsultation = () => {
       icon: Phone,
       duration: "20 minutes",
       benefits: ["Quick setup", "No technical requirements", "Flexible timing"],
+      accentColor: "#e6b14b", // Brand Gold
     },
     {
       type: "in-person",
@@ -86,28 +86,29 @@ const ScheduleConsultation = () => {
       icon: MapPin,
       duration: "45 minutes",
       benefits: ["Full attention", "Document review", "Team introduction"],
+      accentColor: "#bb1212", // Brand Coral
     },
   ];
 
   const benefits = [
     "Free 30-minute consultation",
     "No obligation to proceed",
-    "Expert advice from our team",
-    "Custom project roadmap",
-    "Pricing estimate",
-    "Timeline planning",
+    "Direct expert engineering advice",
+    "Custom project system roadmap",
+    "Preliminary scope estimate",
+    "Timeline milestone planning",
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-brand-dark text-white dark:bg-black">
       <Navigation />
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="py-24 px-6 bg-gradient-dark relative overflow-hidden">
+        <section className="py-24 px-6 bg-brand-dark dark:bg-black relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-20 right-20 w-40 h-40 bg-primary/5 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-20 left-20 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+            <div className="absolute top-20 right-20 w-40 h-40 bg-brand-teal/5 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-20 left-20 w-32 h-32 bg-brand-coral/5 rounded-full blur-3xl"></div>
           </div>
 
           <div className="container mx-auto relative z-10">
@@ -115,9 +116,9 @@ const ScheduleConsultation = () => {
               <Button
                 variant="ghost"
                 onClick={() => navigate("/")}
-                className="text-muted-foreground hover:text-primary mb-6 group transition-all-spring hover-lift"
+                className="text-gray-400 hover:text-white mb-6 transition-all duration-300 hover:bg-white/5"
               >
-                <ArrowLeft className="mr-3 w-5 h-5 group-hover:-translate-x-1 transition-transform duration-300" />
+                <ArrowLeft className="mr-3 w-5 h-5" />
                 Back to Home
               </Button>
             </div>
@@ -125,30 +126,27 @@ const ScheduleConsultation = () => {
             <div className="text-center max-w-4xl mx-auto">
               <Badge
                 variant="secondary"
-                className="bg-primary/10 text-primary border-primary/20 mb-6 px-4 py-2 text-sm font-semibold"
+                className="bg-brand-teal/10 text-brand-teal border-brand-teal/20 mb-6 px-4 py-2 text-sm font-semibold"
               >
-                Free Consultation
+                FREE CONSULTATION
               </Badge>
 
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                Schedule Your{" "}
-                <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                  Free Consultation
-                </span>
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 uppercase tracking-tight leading-tight">
+                SCHEDULE YOUR
+                <span className="block text-gradient-teal-gold mt-2">FREE CONSULTATION</span>
               </h1>
 
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Book a free consultation with our experts to discuss your
-                project requirements and get personalized advice.
+              <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto leading-relaxed">
+                Book a free 30-minute system diagnosis consultation with our engineers to discuss your operational bottlenecks and get custom advice.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <div className="flex items-center text-muted-foreground">
-                  <Clock className="w-5 h-5 mr-2" />
+              <div className="flex flex-wrap gap-6 justify-center items-center text-xs font-mono uppercase tracking-widest text-gray-500">
+                <div className="flex items-center">
+                  <Clock className="w-4 h-4 mr-2 text-brand-teal" />
                   <span>30 minutes free</span>
                 </div>
-                <div className="flex items-center text-muted-foreground">
-                  <CheckCircle className="w-5 h-5 mr-2" />
+                <div className="flex items-center">
+                  <CheckCircle className="w-4 h-4 mr-2 text-brand-gold" />
                   <span>No obligation</span>
                 </div>
               </div>
@@ -157,104 +155,99 @@ const ScheduleConsultation = () => {
         </section>
 
         {/* Consultation Types */}
-        <section className="py-24 px-6 bg-background">
-          <div className="container mx-auto">
+        <section className="py-24 px-6 bg-brand-dark dark:bg-black border-t border-white/5">
+          <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-6">
-                Choose Your{" "}
-                <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                  Consultation Type
-                </span>
+              <h2 className="text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+                Choose Your
+                <span className="text-gradient-teal-gold"> Consultation Type</span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Select the consultation method that works best for you and your
-                schedule.
+              <p className="text-sm text-gray-400 max-w-md mx-auto mt-4 leading-relaxed">
+                Select the diagnostic communication method that works best for your schedule.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {consultationTypes.map((type) => (
-                <Card
-                  key={type.type}
-                  className={`p-8 relative overflow-hidden group hover-lift transition-all-spring cursor-pointer ${
-                    consultationType === type.type
-                      ? "border-primary/40 bg-gradient-accent"
-                      : "border-border/30 bg-card/30 hover:border-primary/40"
-                  }`}
-                  onClick={() => setConsultationType(type.type)}
-                >
-                  <div className="text-center">
-                    <div
-                      className={`w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 transition-all-spring ${
-                        consultationType === type.type
-                          ? "bg-primary/20"
-                          : "bg-gradient-accent group-hover:animate-glow"
-                      }`}
-                    >
-                      <type.icon className="w-10 h-10 text-primary" />
+              {consultationTypes.map((type) => {
+                const Icon = type.icon;
+                const isSelected = consultationType === type.type;
+                return (
+                  <Card
+                    key={type.type}
+                    className={`p-8 relative overflow-hidden group cursor-pointer rounded-[30px] border transition-all duration-300 ${
+                      isSelected
+                        ? "border-brand-teal bg-white/[0.04]"
+                        : "border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent hover:border-white/10"
+                    }`}
+                    onClick={() => setConsultationType(type.type)}
+                  >
+                    <div className="text-center flex flex-col justify-between h-full">
+                      <div>
+                        <div
+                          className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 border"
+                          style={{
+                            borderColor: `${type.accentColor}30`,
+                            backgroundColor: `${type.accentColor}10`,
+                          }}
+                        >
+                          <Icon className="w-8 h-8" style={{ color: type.accentColor }} />
+                        </div>
+
+                        <h3 className="text-xl font-bold mb-3 text-white uppercase tracking-tight">{type.title}</h3>
+                        <p className="text-xs text-gray-400 mb-4 leading-relaxed">
+                          {type.description}
+                        </p>
+                        <div className="text-base font-bold mb-6" style={{ color: type.accentColor }}>
+                          {type.duration}
+                        </div>
+
+                        <ul className="space-y-3 text-left mb-8 border-t border-white/5 pt-6">
+                          {type.benefits.map((benefit, index) => (
+                            <li key={index} className="flex items-start text-xs text-gray-300">
+                              <CheckCircle className="w-4 h-4 mr-2 flex-shrink-0 text-brand-teal mt-0.5" />
+                              <span className="leading-relaxed">{benefit}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <Button
+                        className={`w-full rounded-full transition-all duration-300 font-semibold ${
+                          isSelected
+                            ? "bg-brand-teal text-black hover:bg-brand-teal/95"
+                            : "border-white/15 bg-white/5 text-white hover:bg-white/10"
+                        }`}
+                      >
+                        {isSelected ? "Selected" : "Choose Option"}
+                      </Button>
                     </div>
-
-                    <h3 className="text-2xl font-bold mb-4">{type.title}</h3>
-                    <p className="text-muted-foreground mb-4">
-                      {type.description}
-                    </p>
-                    <div className="text-lg font-semibold text-primary mb-6">
-                      {type.duration}
-                    </div>
-
-                    <ul className="space-y-2 text-left mb-6">
-                      {type.benefits.map((benefit, index) => (
-                        <li key={index} className="flex items-center text-sm">
-                          <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
-                          <span>{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Button
-                      variant={
-                        consultationType === type.type ? "default" : "outline"
-                      }
-                      className={`w-full ${
-                        consultationType === type.type
-                          ? "bg-primary text-black"
-                          : "border-primary/30 text-primary hover:bg-primary/10"
-                      } transition-all-spring hover-lift`}
-                    >
-                      {consultationType === type.type
-                        ? "Selected"
-                        : "Choose This"}
-                    </Button>
-                  </div>
-                </Card>
-              ))}
+                  </Card>
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* Benefits Section */}
-        <section className="py-24 px-6 bg-gradient-to-b from-background to-card/20">
-          <div className="container mx-auto">
+        <section className="py-24 px-6 bg-brand-dark dark:bg-black border-t border-white/5">
+          <div className="container mx-auto max-w-5xl">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-6">
-                What You'll{" "}
-                <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                  Get
-                </span>
+              <h2 className="text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+                What You&apos;ll
+                <span className="text-gradient-teal-gold"> Get</span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Our free consultation provides real value and actionable
-                insights for your project.
+              <p className="text-sm text-gray-400 max-w-md mx-auto mt-4 leading-relaxed">
+                Our free diagnostic call provides concrete technical value and actionable roadmap insights.
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {benefits.map((benefit, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-accent flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle className="w-8 h-8 text-primary" />
+                <div key={index} className="rounded-2xl border border-white/5 bg-white/[0.01] p-6 text-center shadow-lg">
+                  <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-5 h-5 text-brand-teal" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-3">{benefit}</h3>
+                  <h3 className="text-sm font-semibold text-white uppercase tracking-tight">{benefit}</h3>
                 </div>
               ))}
             </div>
@@ -262,60 +255,49 @@ const ScheduleConsultation = () => {
         </section>
 
         {/* Scheduling Form */}
-        <section className="py-24 px-6 bg-background">
+        <section className="py-24 px-6 bg-brand-dark dark:bg-black border-t border-white/5">
           <div className="container mx-auto">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold mb-6">
-                  Pick Your{" "}
-                  <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                    Perfect Time
-                  </span>
+                <h2 className="text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+                  Pick Your
+                  <span className="text-gradient-teal-gold"> Perfect Time</span>
                 </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Select a date and time that works best for your schedule.
+                <p className="text-sm text-gray-400 max-w-md mx-auto mt-4 leading-relaxed">
+                  Select a date and time slot that fits your operational availability.
                 </p>
               </div>
 
-              <Card className="p-8 lg:p-12 bg-card/30 border-border/30 backdrop-blur-sm">
-                <form className="space-y-8">
+              <Card className="rounded-[30px] border border-white/5 bg-gradient-to-b from-white/[0.01] to-transparent p-8 md:p-12 shadow-2xl backdrop-blur-md">
+                <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label
-                        htmlFor="firstName"
-                        className="text-sm font-medium text-foreground"
-                      >
+                      <Label htmlFor="firstName" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                         First Name *
                       </Label>
                       <Input
                         id="firstName"
                         placeholder="John"
                         required
-                        className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring"
+                        className="h-12 border-white/10 bg-white/5 text-white placeholder-gray-500 rounded-full focus:border-brand-teal focus:ring-brand-teal/15"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label
-                        htmlFor="lastName"
-                        className="text-sm font-medium text-foreground"
-                      >
+                      <Label htmlFor="lastName" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                         Last Name *
                       </Label>
                       <Input
                         id="lastName"
                         placeholder="Doe"
                         required
-                        className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring"
+                        className="h-12 border-white/10 bg-white/5 text-white placeholder-gray-500 rounded-full focus:border-brand-teal focus:ring-brand-teal/15"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label
-                        htmlFor="email"
-                        className="text-sm font-medium text-foreground"
-                      >
+                      <Label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                         Email Address *
                       </Label>
                       <Input
@@ -323,52 +305,46 @@ const ScheduleConsultation = () => {
                         type="email"
                         placeholder="john@example.com"
                         required
-                        className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring"
+                        className="h-12 border-white/10 bg-white/5 text-white placeholder-gray-500 rounded-full focus:border-brand-teal focus:ring-brand-teal/15"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label
-                        htmlFor="phone"
-                        className="text-sm font-medium text-foreground"
-                      >
+                      <Label htmlFor="phone" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                         Phone Number
                       </Label>
                       <Input
                         id="phone"
-                        placeholder="+2347047494586"
-                        className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring"
+                        placeholder="+1 (555) 000-0000"
+                        className="h-12 border-white/10 bg-white/5 text-white placeholder-gray-500 rounded-full focus:border-brand-teal focus:ring-brand-teal/15"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label
-                      htmlFor="company"
-                      className="text-sm font-medium text-foreground"
-                    >
+                    <Label htmlFor="company" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                       Company
                     </Label>
                     <Input
                       id="company"
-                      placeholder="Your Company"
-                      className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring"
+                      placeholder="Your Company Name"
+                      className="h-12 border-white/10 bg-white/5 text-white placeholder-gray-500 rounded-full focus:border-brand-teal focus:ring-brand-teal/15"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <Label className="text-sm font-medium text-foreground">
+                      <Label className="text-xs font-bold uppercase tracking-wider text-gray-300">
                         Preferred Date *
                       </Label>
                       <Popover>
                         <PopoverTrigger asChild>
                           <Button
                             variant="outline"
-                            className={`w-full h-12 justify-start text-left font-normal border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring ${
-                              !date && "text-muted-foreground"
+                            className={`w-full h-12 justify-start text-left font-normal border-white/10 bg-white/5 rounded-full text-white hover:bg-white/10 ${
+                              !date && "text-gray-500"
                             }`}
                           >
-                            <CalendarIcon className="mr-2 h-4 w-4" />
+                            <CalendarIcon className="mr-2 h-4 w-4 text-brand-teal" />
                             {date ? (
                               format(date, "PPP")
                             ) : (
@@ -376,7 +352,7 @@ const ScheduleConsultation = () => {
                             )}
                           </Button>
                         </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0" align="start">
+                        <PopoverContent className="w-auto p-0 border-white/10 bg-brand-charcoal text-white" align="start">
                           <Calendar
                             mode="single"
                             selected={date}
@@ -388,17 +364,17 @@ const ScheduleConsultation = () => {
                       </Popover>
                     </div>
                     <div className="space-y-2">
-                      <Label className="text-sm font-medium text-foreground">
+                      <Label className="text-xs font-bold uppercase tracking-wider text-gray-300">
                         Preferred Time *
                       </Label>
                       <Select
                         value={selectedTime}
                         onValueChange={setSelectedTime}
                       >
-                        <SelectTrigger className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring">
+                        <SelectTrigger className="h-12 border-white/10 bg-white/5 text-white rounded-full focus:border-brand-teal focus:ring-brand-teal/15">
                           <SelectValue placeholder="Select time" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="border-white/10 bg-brand-charcoal text-white">
                           {timeSlots.map((time) => (
                             <SelectItem key={time} value={time}>
                               {time}
@@ -410,59 +386,42 @@ const ScheduleConsultation = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label
-                      htmlFor="projectType"
-                      className="text-sm font-medium text-foreground"
-                    >
+                    <Label htmlFor="projectType" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                       Project Type
                     </Label>
                     <Select>
-                      <SelectTrigger className="h-12 border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring">
+                      <SelectTrigger className="h-12 border-white/10 bg-white/5 text-white rounded-full focus:border-brand-teal focus:ring-brand-teal/15">
                         <SelectValue placeholder="Select project type" />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="web-development">
-                          Web Development
-                        </SelectItem>
-                        <SelectItem value="mobile-apps">
-                          Mobile Applications
-                        </SelectItem>
-                        <SelectItem value="ui-ux-design">
-                          UI/UX Design
-                        </SelectItem>
-                        <SelectItem value="consulting">
-                          Digital Consulting
-                        </SelectItem>
+                      <SelectContent className="border-white/10 bg-brand-charcoal text-white">
+                        <SelectItem value="web-development">Web Development</SelectItem>
+                        <SelectItem value="mobile-apps">Mobile Applications</SelectItem>
+                        <SelectItem value="ui-ux-design">UI/UX Design</SelectItem>
+                        <SelectItem value="consulting">Digital Consulting</SelectItem>
                         <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div className="space-y-2">
-                    <Label
-                      htmlFor="description"
-                      className="text-sm font-medium text-foreground"
-                    >
-                      Project Description
+                    <Label htmlFor="description" className="text-xs font-bold uppercase tracking-wider text-gray-300">
+                      Project Details
                     </Label>
                     <Textarea
                       id="description"
-                      placeholder="Briefly describe your project or what you'd like to discuss..."
+                      placeholder="Briefly describe your requirements or what you'd like to discuss during the diagnostic call..."
                       rows={4}
-                      className="border-border/50 hover:border-primary/40 focus:border-primary transition-all-spring resize-none"
+                      className="resize-none rounded-[20px] border-white/10 bg-white/5 text-white placeholder-gray-500 focus:border-brand-teal focus:ring-brand-teal/15"
                     />
                   </div>
 
                   <Button
                     type="submit"
                     disabled={!date || !selectedTime || !consultationType}
-                    className="w-full bg-gradient-primary hover:shadow-cyan transition-all-spring hover-lift py-6 text-xl font-semibold group relative overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="text-brand-teal-foreground pulse-glow w-full rounded-full bg-brand-teal py-6 text-lg font-semibold hover:bg-brand-teal/90 shadow-xl shadow-brand-teal/20 transition-transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    <span className="relative z-10 flex items-center justify-center">
-                      Schedule Consultation
-                      <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
-                    </span>
+                    Schedule Diagnostic Call
+                    <ArrowRight className="ml-3 h-5 w-5" />
                   </Button>
                 </form>
               </Card>
@@ -470,53 +429,47 @@ const ScheduleConsultation = () => {
           </div>
         </section>
 
-        {/* Why Choose Us */}
-        <section className="py-24 px-6 bg-background">
-          <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold mb-6">
-                Why Choose{" "}
-                <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                  LUXA?
-                </span>
+        {/* Diagnostic Call Core Values */}
+        <section className="bg-brand-dark py-24 text-white dark:bg-black border-t border-white/5">
+          <div className="container mx-auto px-6">
+            <div className="mb-16 text-center">
+              <h2 className="mb-4 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+                Diagnostic
+                <span className="text-gradient-teal-gold"> Standards</span>
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                We deliver exceptional results with transparent communication
-                and unmatched expertise.
+              <p className="mx-auto max-w-xl text-sm leading-relaxed text-gray-400">
+                All consultations are direct sessions focused entirely on mapping actionable technical outcomes.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-accent flex items-center justify-center mx-auto mb-6">
-                  <Users className="w-8 h-8 text-primary" />
+            <div className="grid grid-cols-1 md:grid-cols-3 max-w-5xl mx-auto gap-8">
+              <div className="rounded-2xl border border-white/5 bg-white/[0.01] p-8 text-center backdrop-blur-md shadow-xl">
+                <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-white/5 border border-white/10">
+                  <Users className="h-6 w-6 text-brand-teal" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Expert Team</h3>
-                <p className="text-muted-foreground">
-                  Our experienced professionals provide valuable insights and
-                  practical solutions.
+                <h3 className="mb-3 text-lg font-bold text-white uppercase tracking-tight">Expert Engineers</h3>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  Speak directly with lead technical developers who shape architectural blueprints every day.
                 </p>
               </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-accent flex items-center justify-center mx-auto mb-6">
-                  <Target className="w-8 h-8 text-primary" />
+              <div className="rounded-2xl border border-white/5 bg-white/[0.01] p-8 text-center backdrop-blur-md shadow-xl">
+                <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-white/5 border border-white/10">
+                  <Target className="h-6 w-6 text-brand-gold" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Focused Approach</h3>
-                <p className="text-muted-foreground">
-                  We focus on understanding your specific needs and providing
-                  tailored solutions.
+                <h3 className="mb-3 text-lg font-bold text-white uppercase tracking-tight">Focused Scope</h3>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  We don't sell templates. We diagnose operational blockages and suggest specialized code modifications.
                 </p>
               </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-accent flex items-center justify-center mx-auto mb-6">
-                  <Award className="w-8 h-8 text-primary" />
+              <div className="rounded-2xl border border-white/5 bg-white/[0.01] p-8 text-center backdrop-blur-md shadow-xl">
+                <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-white/5 border border-white/10">
+                  <Award className="h-6 w-6 text-brand-coral" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">Proven Results</h3>
-                <p className="text-muted-foreground">
-                  Our track record speaks for itself with successful projects
-                  and satisfied clients.
+                <h3 className="mb-3 text-lg font-bold text-white uppercase tracking-tight">Predictable Results</h3>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  At the end of our call, you'll receive a conceptual wireframe scope outlining your workflow solution.
                 </p>
               </div>
             </div>

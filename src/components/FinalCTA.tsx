@@ -1,50 +1,58 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const FinalCTA = () => {
+  const navigate = useNavigate();
+
   return (
-    <section className="py-20">
+    <section className="py-20 bg-brand-dark/50 dark:bg-black/20">
       <div className="container mx-auto px-6">
-        <div className="relative overflow-hidden rounded-3xl bg-[#071a29] p-20 text-white">
-          <h2 className="mx-auto max-w-4xl text-center text-4xl font-extrabold leading-tight md:text-6xl">
-            READY TO TURN YOUR OPERATIONS INTO A STRONGER DIGITAL SYSTEM?
-          </h2>
+        <div className="relative overflow-hidden rounded-[40px] border border-white/5 bg-gradient-to-br from-brand-charcoal via-brand-dark to-brand-charcoal p-12 text-white shadow-2xl md:p-20">
+          {/* Decorative background light */}
+          <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-brand-teal/5 blur-3xl"></div>
+          <div className="pointer-events-none absolute -left-20 -bottom-20 h-96 w-96 rounded-full bg-brand-coral/5 blur-3xl"></div>
 
-          {/* decorative pills / stickers */}
-          <span className="absolute left-12 top-12 inline-block rotate-6 transform rounded-full bg-lime-300 px-4 py-2 text-sm font-semibold text-[#071a29] shadow-lg">
-            Performance Metrics
-          </span>
+          <div className="relative z-10 mx-auto max-w-4xl text-center">
+            <h2 className="text-3xl font-extrabold leading-tight uppercase tracking-tight md:text-5xl lg:text-6xl">
+              Ready to turn your operations into a
+              <span className="block text-gradient-teal-gold mt-2">Stronger Digital System?</span>
+            </h2>
 
-          <span className="absolute left-36 top-44 inline-block -rotate-6 transform rounded-full bg-[#ff5a5a] px-4 py-2 text-sm font-semibold text-white shadow-lg">
-            Brand Strategy
-          </span>
+            <p className="mx-auto mt-6 max-w-2xl text-base text-gray-400 sm:text-lg">
+              Let's build a platform designed specifically for how your business operates. We'll help you streamline tasks, centralize data, and scale your operations.
+            </p>
 
-          <span className="absolute right-36 top-56 inline-block transform rounded-full bg-[#ffd54f] px-4 py-2 text-sm font-semibold text-[#071a29] shadow-lg">
-            Sticker Mockups
-          </span>
+            {/* Custom tags instead of stickers */}
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <span className="rounded-full bg-white/5 border border-white/10 px-4.5 py-1.5 text-xs font-semibold text-brand-teal backdrop-blur-md">
+                ✓ Custom Workflows
+              </span>
+              <span className="rounded-full bg-white/5 border border-white/10 px-4.5 py-1.5 text-xs font-semibold text-brand-gold backdrop-blur-md">
+                ✓ Real-time Dashboards
+              </span>
+              <span className="rounded-full bg-white/5 border border-white/10 px-4.5 py-1.5 text-xs font-semibold text-brand-coral backdrop-blur-md">
+                ✓ Resilient Scaling
+              </span>
+            </div>
 
-          <div className="mt-12 flex justify-center">
-            <Button className="rounded-full bg-white px-12 py-4 text-[#071a29]">
-              Book a Consultation
-            </Button>
-          </div>
+            <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button
+                onClick={() => navigate("/pricing")}
+                className="text-brand-teal-foreground pulse-glow group rounded-full bg-brand-teal px-8 py-6 text-base font-semibold transition-all hover:scale-105 hover:bg-brand-teal/90 shadow-xl shadow-brand-teal/20"
+              >
+                Book a Consultation
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Button>
 
-          {/* decorative rounded cutout on right */}
-          <div className="pointer-events-none absolute -bottom-6 left-0 right-0 overflow-hidden">
-            <svg
-              viewBox="0 0 1200 80"
-              preserveAspectRatio="none"
-              className="block h-20 w-full"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M0,0 L0,60 Q300,120 600,60 Q900,0 1200,60 L1200,0 Z"
-                fill="#071a29"
-              />
-              <path
-                d="M0,60 C300,0 900,0 1200,60 L1200,80 L0,80 Z"
-                fill="#ffffff"
-              />
-            </svg>
+              <Button
+                variant="outline"
+                onClick={() => navigate("/contact")}
+                className="rounded-full border-white/15 hover:border-brand-teal/50 hover:bg-brand-teal/5 px-8 py-6 text-base font-semibold text-white transition-all hover:scale-105"
+              >
+                Request a Review
+              </Button>
+            </div>
           </div>
         </div>
       </div>

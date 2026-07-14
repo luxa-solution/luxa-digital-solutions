@@ -20,9 +20,6 @@ import {
   Clock,
   CheckCircle,
   Star,
-  DollarSign,
-  Calendar,
-  MessageSquare,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -40,6 +37,7 @@ const GetQuote = () => {
         "Clear user experience",
         "Practical launch plan",
       ],
+      accentColor: "#12bbbb", // Brand Teal
       popular: false,
     },
     {
@@ -53,6 +51,7 @@ const GetQuote = () => {
         "Structured admin experience",
         "Ongoing support planning",
       ],
+      accentColor: "#e6b14b", // Brand Gold
       popular: true,
     },
     {
@@ -65,6 +64,7 @@ const GetQuote = () => {
         "Multi-user workflows",
         "Longer-term product support",
       ],
+      accentColor: "#bb1212", // Brand Coral
       popular: false,
     },
   ];
@@ -79,15 +79,15 @@ const GetQuote = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-brand-dark text-white dark:bg-black">
       <Navigation />
 
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="bg-gradient-dark relative overflow-hidden px-6 py-24">
+        <section className="relative overflow-hidden px-6 py-24 bg-brand-dark dark:bg-black">
           <div className="absolute inset-0">
-            <div className="absolute right-20 top-20 h-40 w-40 rounded-full bg-primary/5 blur-3xl"></div>
-            <div className="absolute bottom-20 left-20 h-32 w-32 rounded-full bg-primary/5 blur-3xl"></div>
+            <div className="absolute right-20 top-20 h-40 w-40 rounded-full bg-brand-teal/5 blur-3xl"></div>
+            <div className="absolute bottom-20 left-20 h-32 w-32 rounded-full bg-brand-coral/5 blur-3xl"></div>
           </div>
 
           <div className="container relative z-10 mx-auto">
@@ -95,9 +95,9 @@ const GetQuote = () => {
               <Button
                 variant="ghost"
                 onClick={() => navigate("/")}
-                className="transition-all-spring hover-lift group mb-6 text-muted-foreground hover:text-primary"
+                className="transition-all duration-300 hover:bg-white/5 text-gray-400 hover:text-white"
               >
-                <ArrowLeft className="mr-3 h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" />
+                <ArrowLeft className="mr-3 h-5 w-5" />
                 Back to Home
               </Button>
             </div>
@@ -105,34 +105,28 @@ const GetQuote = () => {
             <div className="mx-auto max-w-4xl text-center">
               <Badge
                 variant="secondary"
-                className="mb-6 border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary"
+                className="mb-6 border-brand-teal/20 bg-brand-teal/10 px-4 py-2 text-sm font-semibold text-brand-teal"
               >
-                Get Your Quote
+                GET YOUR QUOTE
               </Badge>
 
-              <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-                Let's Design a
-                <span className="relative inline-block">
-                  <span className="relative z-10 px-4 py-2 font-bold text-white">
-                    Better System
-                  </span>
-                  <div className="absolute inset-0 -skew-x-12 transform rounded-lg bg-brand-teal"></div>
-                </span>
+              <h1 className="mb-6 text-4xl font-extrabold md:text-6xl uppercase tracking-tight leading-tight">
+                LET&apos;S DESIGN A
+                <span className="block text-gradient-teal-gold">BETTER SYSTEM</span>
               </h1>
 
-              <p className="mb-8 text-xl leading-relaxed text-muted-foreground">
-                Tell us about your current setup, the challenge you are solving,
-                and the kind of platform you need. We will help you shape a
-                clear path forward.
+              <p className="mb-8 text-base text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                Tell us about your current setup, the bottlenecks you are solving,
+                and the kind of platform you need. We will help you shape a clear path forward.
               </p>
 
-              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <div className="flex items-center text-muted-foreground">
-                  <Clock className="mr-2 h-5 w-5" />
+              <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 uppercase tracking-widest font-mono">
+                <div className="flex items-center">
+                  <Clock className="mr-2 h-4 w-4 text-brand-teal" />
                   <span>Response within 24 hours</span>
                 </div>
-                <div className="flex items-center text-muted-foreground">
-                  <CheckCircle className="mr-2 h-5 w-5" />
+                <div className="flex items-center">
+                  <CheckCircle className="mr-2 h-4 w-4 text-brand-gold" />
                   <span>Free consultation included</span>
                 </div>
               </div>
@@ -140,68 +134,68 @@ const GetQuote = () => {
           </div>
         </section>
 
-        {/* Pricing Tiers */}
-        <section className="bg-background px-6 py-24">
-          <div className="container mx-auto">
+        {/* Pricing Tiers Ranges */}
+        <section className="bg-brand-dark py-24 dark:bg-black border-t border-white/5">
+          <div className="container mx-auto px-6">
             <div className="mb-16 text-center">
-              <h2 className="mb-6 text-4xl font-bold">
-                Clear
-                <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                  Project Ranges
-                </span>
+              <h2 className="mb-4 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+                Clear Project
+                <span className="text-gradient-teal-gold"> Ranges</span>
               </h2>
-              <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
-                We price based on scope, complexity, integrations, and the
-                business outcome you want to achieve.
+              <p className="mx-auto max-w-xl text-sm leading-relaxed text-gray-400">
+                We price based on operational milestones, complexity, integrations, and the business outcome you want to achieve.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              {pricingTiers.map((tier, index) => (
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3 max-w-6xl mx-auto">
+              {pricingTiers.map((tier) => (
                 <Card
                   key={tier.name}
-                  className={`hover-lift transition-all-spring group relative overflow-hidden p-8 ${
-                    tier.popular
-                      ? "bg-gradient-accent border-primary/40"
-                      : "border-border/30 bg-card/30"
-                  }`}
+                  className="group relative flex flex-col justify-between overflow-hidden rounded-[30px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent p-8 shadow-2xl backdrop-blur-md glow-card hover:-translate-y-1 transition-all duration-300"
                 >
                   {tier.popular && (
-                    <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 transform">
-                      <Badge className="bg-primary px-4 py-2 font-semibold text-black">
-                        Most Popular
-                      </Badge>
+                    <div className="absolute right-6 top-6">
+                      <span className="rounded-full bg-brand-gold/10 border border-brand-gold/20 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-gold">
+                        Popular
+                      </span>
                     </div>
                   )}
 
-                  <div className="text-center">
-                    <h3 className="mb-4 text-2xl font-bold">{tier.name}</h3>
-                    <div className="mb-2 text-3xl font-bold text-primary">
+                  <div>
+                    <div className="mb-4 flex items-center gap-2">
+                      <span className="h-2 w-2 rounded-full" style={{ backgroundColor: tier.accentColor, boxShadow: `0 0 8px ${tier.accentColor}` }} />
+                      <h3 className="text-xl font-bold uppercase tracking-tight text-white">{tier.name}</h3>
+                    </div>
+
+                    <div className="mb-6 text-3xl font-black text-white">
                       {tier.price}
                     </div>
-                    <p className="mb-6 text-muted-foreground">
+
+                    <p className="mb-6 text-xs leading-relaxed text-gray-400">
                       {tier.description}
                     </p>
 
-                    <ul className="mb-8 space-y-3 text-left">
+                    <ul className="mb-8 space-y-3.5 border-t border-white/5 pt-6">
                       {tier.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center">
-                          <CheckCircle className="mr-3 h-5 w-5 flex-shrink-0 text-primary" />
-                          <span className="text-sm">{feature}</span>
+                        <li key={featureIndex} className="flex items-start">
+                          <CheckCircle className="mr-3 h-4 w-4 flex-shrink-0 text-brand-teal mt-0.5" />
+                          <span className="text-xs text-gray-300 leading-relaxed">{feature}</span>
                         </li>
                       ))}
                     </ul>
-
-                    <Button
-                      className={`w-full ${
-                        tier.popular
-                          ? "bg-gradient-primary hover:shadow-cyan"
-                          : "border-primary/30 bg-primary/10 text-primary hover:bg-primary/20"
-                      } transition-all-spring hover-lift`}
-                    >
-                      Choose {tier.name}
-                    </Button>
                   </div>
+
+                  <Button
+                    onClick={() => {
+                      const formSection = document.getElementById("quote-form-section");
+                      if (formSection) {
+                        formSection.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                    className="w-full rounded-full border border-white/10 hover:border-brand-teal text-white bg-white/5 hover:bg-brand-teal hover:text-black font-semibold transition-all duration-300"
+                  >
+                    Select {tier.name}
+                  </Button>
                 </Card>
               ))}
             </div>
@@ -209,61 +203,49 @@ const GetQuote = () => {
         </section>
 
         {/* Quote Form */}
-        <section className="bg-gradient-to-b from-background to-card/20 px-6 py-24">
-          <div className="container mx-auto">
+        <section id="quote-form-section" className="bg-brand-dark py-24 dark:bg-black border-t border-white/5">
+          <div className="container mx-auto px-6">
             <div className="mx-auto max-w-4xl">
               <div className="mb-16 text-center">
-                <h2 className="mb-6 text-4xl font-bold">
-                  Get Your{" "}
-                  <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                    Custom Quote
-                  </span>
+                <h2 className="mb-4 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+                  Get Your
+                  <span className="text-gradient-teal-gold"> Custom Estimate</span>
                 </h2>
-                <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
-                  Fill out the form below and we'll provide you with a detailed
-                  quote for your project.
+                <p className="mx-auto max-w-xl text-sm leading-relaxed text-gray-400">
+                  Fill out the structural form details below and we&apos;ll configure a system breakdown roadmap.
                 </p>
               </div>
 
-              <Card className="border-border/30 bg-card/30 p-8 backdrop-blur-sm lg:p-12">
-                <form className="space-y-8">
+              <Card className="rounded-[30px] border border-white/5 bg-gradient-to-b from-white/[0.01] to-transparent p-8 md:p-12 shadow-2xl backdrop-blur-md">
+                <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div className="space-y-2">
-                      <Label
-                        htmlFor="firstName"
-                        className="text-sm font-medium text-foreground"
-                      >
+                      <Label htmlFor="firstName" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                         First Name *
                       </Label>
                       <Input
                         id="firstName"
                         placeholder="John"
                         required
-                        className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary"
+                        className="h-12 border-white/10 bg-white/5 text-white placeholder-gray-500 rounded-full focus:border-brand-teal focus:ring-brand-teal/15"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label
-                        htmlFor="lastName"
-                        className="text-sm font-medium text-foreground"
-                      >
+                      <Label htmlFor="lastName" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                         Last Name *
                       </Label>
                       <Input
                         id="lastName"
                         placeholder="Doe"
                         required
-                        className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary"
+                        className="h-12 border-white/10 bg-white/5 text-white placeholder-gray-500 rounded-full focus:border-brand-teal focus:ring-brand-teal/15"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div className="space-y-2">
-                      <Label
-                        htmlFor="email"
-                        className="text-sm font-medium text-foreground"
-                      >
+                      <Label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                         Email Address *
                       </Label>
                       <Input
@@ -271,51 +253,42 @@ const GetQuote = () => {
                         type="email"
                         placeholder="john@example.com"
                         required
-                        className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary"
+                        className="h-12 border-white/10 bg-white/5 text-white placeholder-gray-500 rounded-full focus:border-brand-teal focus:ring-brand-teal/15"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label
-                        htmlFor="phone"
-                        className="text-sm font-medium text-foreground"
-                      >
+                      <Label htmlFor="phone" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                         Phone Number
                       </Label>
                       <Input
                         id="phone"
-                        placeholder="+2347047494586"
-                        className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary"
+                        placeholder="+1 (555) 000-0000"
+                        className="h-12 border-white/10 bg-white/5 text-white placeholder-gray-500 rounded-full focus:border-brand-teal focus:ring-brand-teal/15"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label
-                      htmlFor="company"
-                      className="text-sm font-medium text-foreground"
-                    >
+                    <Label htmlFor="company" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                       Company
                     </Label>
                     <Input
                       id="company"
-                      placeholder="Your Company"
-                      className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary"
+                      placeholder="Your Company Name"
+                      className="h-12 border-white/10 bg-white/5 text-white placeholder-gray-500 rounded-full focus:border-brand-teal focus:ring-brand-teal/15"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div className="space-y-2">
-                      <Label
-                        htmlFor="service"
-                        className="text-sm font-medium text-foreground"
-                      >
-                        Primary Service *
+                      <Label htmlFor="service" className="text-xs font-bold uppercase tracking-wider text-gray-300">
+                        Primary Service Needed *
                       </Label>
                       <Select>
-                        <SelectTrigger className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary">
+                        <SelectTrigger className="h-12 border-white/10 bg-white/5 text-white rounded-full focus:border-brand-teal focus:ring-brand-teal/15">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
-                        <SelectContent>
+                        <SelectContent className="border-white/10 bg-brand-charcoal text-white">
                           {services.map((service) => (
                             <SelectItem
                               key={service}
@@ -328,47 +301,33 @@ const GetQuote = () => {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <Label
-                        htmlFor="budget"
-                        className="text-sm font-medium text-foreground"
-                      >
+                      <Label htmlFor="budget" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                         Budget Range *
                       </Label>
                       <Select>
-                        <SelectTrigger className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary">
+                        <SelectTrigger className="h-12 border-white/10 bg-white/5 text-white rounded-full focus:border-brand-teal focus:ring-brand-teal/15">
                           <SelectValue placeholder="Select budget range" />
                         </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="5k-15k">
-                            $5,000 - $15,000
-                          </SelectItem>
-                          <SelectItem value="15k-50k">
-                            $15,000 - $50,000
-                          </SelectItem>
-                          <SelectItem value="50k-100k">
-                            $50,000 - $100,000
-                          </SelectItem>
-                          <SelectItem value="100k+">$100,000+</SelectItem>
+                        <SelectContent className="border-white/10 bg-brand-charcoal text-white">
+                          <SelectItem value="3k-8k">$3,000 - $8,000</SelectItem>
+                          <SelectItem value="8k-20k">$8,000 - $20,000</SelectItem>
+                          <SelectItem value="20k-50k">$20,000 - $50,000</SelectItem>
+                          <SelectItem value="50k+">$50,000+</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label
-                      htmlFor="timeline"
-                      className="text-sm font-medium text-foreground"
-                    >
+                    <Label htmlFor="timeline" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                       Project Timeline
                     </Label>
                     <Select>
-                      <SelectTrigger className="transition-all-spring h-12 border-border/50 hover:border-primary/40 focus:border-primary">
+                      <SelectTrigger className="h-12 border-white/10 bg-white/5 text-white rounded-full focus:border-brand-teal focus:ring-brand-teal/15">
                         <SelectValue placeholder="Select timeline" />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="asap">
-                          As soon as possible
-                        </SelectItem>
+                      <SelectContent className="border-white/10 bg-brand-charcoal text-white">
+                        <SelectItem value="asap">As soon as possible</SelectItem>
                         <SelectItem value="1-2-months">1-2 months</SelectItem>
                         <SelectItem value="3-6-months">3-6 months</SelectItem>
                         <SelectItem value="6-months+">6+ months</SelectItem>
@@ -377,45 +336,24 @@ const GetQuote = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label
-                      htmlFor="description"
-                      className="text-sm font-medium text-foreground"
-                    >
+                    <Label htmlFor="description" className="text-xs font-bold uppercase tracking-wider text-gray-300">
                       Project Description *
                     </Label>
                     <Textarea
                       id="description"
-                      placeholder="Describe your project requirements, goals, and any specific features you need..."
+                      placeholder="Describe your operational requirements, user roles, database needs, and key dashboard features..."
                       rows={6}
                       required
-                      className="transition-all-spring resize-none border-border/50 hover:border-primary/40 focus:border-primary"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label
-                      htmlFor="additional"
-                      className="text-sm font-medium text-foreground"
-                    >
-                      Additional Requirements
-                    </Label>
-                    <Textarea
-                      id="additional"
-                      placeholder="Any additional information, questions, or special requirements..."
-                      rows={4}
-                      className="transition-all-spring resize-none border-border/50 hover:border-primary/40 focus:border-primary"
+                      className="resize-none rounded-[20px] border-white/10 bg-white/5 text-white placeholder-gray-500 focus:border-brand-teal focus:ring-brand-teal/15"
                     />
                   </div>
 
                   <Button
                     type="submit"
-                    className="bg-gradient-primary hover:shadow-cyan transition-all-spring hover-lift group relative w-full overflow-hidden py-6 text-xl font-semibold"
+                    className="text-brand-teal-foreground pulse-glow w-full rounded-full bg-brand-teal py-6 text-lg font-semibold hover:bg-brand-teal/90 shadow-xl shadow-brand-teal/20 transition-transform hover:scale-105"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-                    <span className="relative z-10 flex items-center justify-center">
-                      Get My Quote
-                      <ArrowRight className="ml-3 h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
-                    </span>
+                    Submit Estimate Request
+                    <ArrowRight className="ml-3 h-5 w-5" />
                   </Button>
                 </form>
               </Card>
@@ -424,52 +362,46 @@ const GetQuote = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="bg-background px-6 py-24">
-          <div className="container mx-auto">
+        <section className="bg-brand-dark py-24 text-white dark:bg-black border-t border-white/5">
+          <div className="container mx-auto px-6">
             <div className="mb-16 text-center">
-              <h2 className="mb-6 text-4xl font-bold">
-                Why Choose{" "}
-                <span className="bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                  LUXA?
-                </span>
+              <h2 className="mb-4 text-3xl font-extrabold uppercase tracking-tight sm:text-4xl">
+                Why Choose
+                <span className="text-gradient-teal-gold"> LUXA?</span>
               </h2>
-              <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
-                We deliver exceptional results with transparent pricing and
-                unmatched quality.
+              <p className="mx-auto max-w-xl text-sm leading-relaxed text-gray-400">
+                We deliver custom technical engineering with transparent milestone deliverables and long-term scaling roadmap support.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              <div className="text-center">
-                <div className="bg-gradient-accent mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl">
-                  <Calculator className="h-8 w-8 text-primary" />
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3 max-w-5xl mx-auto">
+              <div className="rounded-2xl border border-white/5 bg-white/[0.01] p-8 text-center backdrop-blur-md shadow-xl">
+                <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-white/5 border border-white/10">
+                  <Calculator className="h-6 w-6 text-brand-teal" />
                 </div>
-                <h3 className="mb-4 text-xl font-bold">Transparent Pricing</h3>
-                <p className="text-muted-foreground">
-                  No hidden costs. Get a detailed breakdown of your project
-                  costs upfront.
+                <h3 className="mb-3 text-lg font-bold text-white uppercase tracking-tight">Transparent Scope</h3>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  Get a complete visual flow roadmap and milestone sprint pricing breakdown before development begins.
                 </p>
               </div>
 
-              <div className="text-center">
-                <div className="bg-gradient-accent mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl">
-                  <Clock className="h-8 w-8 text-primary" />
+              <div className="rounded-2xl border border-white/5 bg-white/[0.01] p-8 text-center backdrop-blur-md shadow-xl">
+                <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-white/5 border border-white/10">
+                  <Clock className="h-6 w-6 text-brand-gold" />
                 </div>
-                <h3 className="mb-4 text-xl font-bold">Fast Response</h3>
-                <p className="text-muted-foreground">
-                  Receive your custom quote within 24 hours of submitting your
-                  request.
+                <h3 className="mb-3 text-lg font-bold text-white uppercase tracking-tight">Responsive Feedback</h3>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  We review your submission details and return a diagnosed technical proposal breakdown within 24 hours.
                 </p>
               </div>
 
-              <div className="text-center">
-                <div className="bg-gradient-accent mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl">
-                  <Star className="h-8 w-8 text-primary" />
+              <div className="rounded-2xl border border-white/5 bg-white/[0.01] p-8 text-center backdrop-blur-md shadow-xl">
+                <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full bg-white/5 border border-white/10">
+                  <Star className="h-6 w-6 text-brand-coral" />
                 </div>
-                <h3 className="mb-4 text-xl font-bold">Quality Guarantee</h3>
-                <p className="text-muted-foreground">
-                  We stand behind our work with quality guarantees and ongoing
-                  support.
+                <h3 className="mb-3 text-lg font-bold text-white uppercase tracking-tight">Architectural Standard</h3>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  We build scalable code bases with optimal speeds, resilient security layers, and responsive structures.
                 </p>
               </div>
             </div>

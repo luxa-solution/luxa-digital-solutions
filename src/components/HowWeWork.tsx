@@ -1,15 +1,14 @@
-import { ChevronDown, ChevronUp } from "lucide-react";
-import React, { useState } from "react";
+import React from "react";
+import { CheckCircle2, Calendar, ClipboardCheck } from "lucide-react";
 
 const steps = [
   {
-    id: 1,
+    id: "01",
     title: "Discovery & Diagnosis",
     description:
-      "We begin by understanding your operations, your bottlenecks, and your goals so we can diagnose the real problem before we design a solution.",
+      "We begin by understanding your operations, bottlenecks, and goals so we can diagnose structural operational gaps before proposing code.",
     duration: "1-2 Weeks",
-    bgGradient: "linear-gradient(135deg, #ff6b61 0%, #ff5449 100%)",
-    bgSolid: "#ff6b61",
+    accentColor: "#12bbbb", // Brand Teal
     cards: [
       {
         title: "Business Review",
@@ -22,46 +21,44 @@ const steps = [
         tags: ["Process Review", "Data Flow", "Users", "Constraints"],
       },
       {
-        title: "Roadmap",
+        title: "Roadmap Proposal",
         duration: "Week 2",
         tags: ["Scope", "Priority", "Timeline", "Success Metrics"],
       },
     ],
   },
   {
-    id: 2,
+    id: "02",
     title: "System Design & Build",
     description:
-      "We turn the findings into a thoughtful product structure, interface, and technical build that fits how your team actually works.",
+      "We turn diagnosis findings into modular product structures, interactive user interfaces, and robust codebase structures tailored to your team.",
     duration: "4-8 Weeks",
-    bgGradient: "linear-gradient(135deg, #c4ff0d 0%, #b5eb00 100%)",
-    bgSolid: "#c4ff0d",
+    accentColor: "#e6b14b", // Brand Gold
     cards: [
       {
         title: "Flow & UX Design",
-        duration: "Week 1-2",
+        duration: "Weeks 1-2",
         tags: ["Wireframes", "User Journey", "Interfaces", "Design System"],
       },
       {
-        title: "Development",
-        duration: "Week 3-6",
+        title: "Platform Development",
+        duration: "Weeks 3-6",
         tags: ["Frontend", "Backend", "Integrations", "Automation"],
       },
       {
-        title: "Testing",
-        duration: "Week 7-8",
+        title: "Quality Validation",
+        duration: "Weeks 7-8",
         tags: ["Validation", "Performance", "Security", "Refinement"],
       },
     ],
   },
   {
-    id: 3,
-    title: "Launch & Ongoing Support",
+    id: "03",
+    title: "Launch & Support",
     description:
-      "We support your launch, train your team, and stay involved to ensure the system keeps improving as your business grows.",
+      "We support production deployment, run onboarding sessions for your staff, and continuously optimize the performance of the system.",
     duration: "Ongoing",
-    bgGradient: "linear-gradient(135deg, #FF8A3C 0%, #FF7420 100%)",
-    bgSolid: "#FF8A3C",
+    accentColor: "#bb1212", // Brand Coral
     cards: [
       {
         title: "Deployment",
@@ -69,12 +66,12 @@ const steps = [
         tags: ["Go Live", "Setup", "Training", "Documentation"],
       },
       {
-        title: "Adoption",
+        title: "Team Adoption",
         duration: "Week 2",
-        tags: ["Team Handover", "Feedback", "Optimization", "Support"],
+        tags: ["Handover", "Feedback", "Optimization", "Support"],
       },
       {
-        title: "Growth Support",
+        title: "Scaling Support",
         duration: "Ongoing",
         tags: ["Updates", "Enhancements", "Monitoring", "Scaling"],
       },
@@ -83,225 +80,118 @@ const steps = [
 ];
 
 const HowWeWork: React.FC = () => {
-  const [active, setActive] = useState<number | null>(null);
-
   return (
     <section
       id="how-we-work"
-      className="relative overflow-hidden bg-background py-20 sm:px-6 lg:px-8"
+      className="relative overflow-hidden bg-brand-dark py-24 text-white dark:bg-black sm:py-28 lg:py-36"
     >
-      {/* Decorative Cutouts */}
-      <div className="pointer-events-none absolute left-0 top-20 h-48 w-48 opacity-10 md:h-64 md:w-64">
-        <img
-          src="/cutout-1.svg"
-          alt=""
-          className="h-full w-full object-contain"
-        />
-      </div>
-      <div className="pointer-events-none absolute right-0 top-1/3 h-48 w-48 opacity-10 md:h-64 md:w-64">
-        <img
-          src="/cutout-2.svg"
-          alt=""
-          className="h-full w-full object-contain"
-        />
-      </div>
-      <div className="pointer-events-none absolute bottom-20 left-1/4 h-48 w-48 opacity-10 md:h-64 md:w-64">
-        <img
-          src="/cutout-3.svg"
-          alt=""
-          className="h-full w-full object-contain"
-        />
-      </div>
-      <div className="pointer-events-none absolute bottom-0 right-0 h-48 w-48 opacity-10 md:h-64 md:w-64">
-        <img
-          src="/cutout-4.svg"
-          alt=""
-          className="h-full w-full object-contain"
-        />
-      </div>
+      {/* Decorative gradients */}
+      <div className="pointer-events-none absolute left-0 top-1/3 h-96 w-96 rounded-full bg-brand-coral/5 blur-3xl"></div>
+      <div className="pointer-events-none absolute right-1/4 bottom-10 h-96 w-96 rounded-full bg-brand-teal/5 blur-3xl"></div>
 
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto max-w-7xl">
-          <p className="mb-4 text-sm font-bold uppercase tracking-wider text-brand-coral">
-            HOW WE WORK
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="mb-20 max-w-3xl">
+          <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-teal sm:text-sm">
+            OUR PROCESS
           </p>
-          <h2 className="mb-16 text-4xl font-extrabold tracking-tight text-brand-charcoal dark:text-foreground sm:text-5xl md:text-6xl">
-            OUR WORKING METHOD
+          <h2 className="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+            HOW WE
+            <span className="block text-gradient-teal-gold">BUILD SYSTEMS</span>
           </h2>
+          <p className="mt-6 text-base text-gray-400 sm:text-lg">
+            We follow a structured roadmap designed to remove ambiguity, validate requirements, and deliver predictable outcomes.
+          </p>
+        </div>
 
-          <div className="space-y-8">
-            {steps.map((step) => {
-              const isOpen = active === step.id;
-              return (
-                <div key={step.id} className="border-b border-gray-300 pb-8">
-                  {/* Top row: Number, Title, Description, Toggle */}
-                  <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-12">
-                    {/* Left: Number and Title */}
-                    <div className="flex items-start gap-4 lg:w-1/2">
-                      <div className="text-6xl font-extrabold leading-none text-brand-charcoal dark:text-foreground sm:text-7xl lg:text-8xl">
-                        {step.id}.
-                      </div>
-                      <div className="flex-1 pt-2">
-                        <h3 className="text-2xl font-bold uppercase leading-tight text-brand-charcoal dark:text-foreground sm:text-3xl lg:text-4xl">
-                          {step.title}
-                        </h3>
-                      </div>
-                    </div>
+        {/* Timeline container */}
+        <div className="relative">
+          {/* Central Line for larger screens */}
+          <div className="absolute left-8 top-2 bottom-2 hidden w-0.5 bg-gradient-to-b from-brand-teal via-brand-gold to-brand-coral opacity-25 lg:left-12 lg:block"></div>
 
-                    {/* Right: Description and Toggle Button */}
-                    <div className="flex flex-1 items-start justify-between gap-6">
-                      <p className="max-w-xl text-base text-muted-foreground lg:text-lg">
-                        {step.description}
-                      </p>
-                      <button
-                        aria-expanded={isOpen}
-                        aria-label={
-                          isOpen ? "Collapse section" : "Expand section"
-                        }
-                        onClick={() => setActive(isOpen ? null : step.id)}
-                        className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-brand-charcoal text-white transition-all duration-300 hover:scale-110 hover:bg-brand-teal dark:bg-brand-teal dark:hover:bg-brand-gold dark:hover:text-brand-charcoal"
-                      >
-                        {isOpen ? (
-                          <ChevronUp className="h-5 w-5" />
-                        ) : (
-                          <ChevronDown className="h-5 w-5" />
-                        )}
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Expandable Cards Section */}
+          {/* Steps List */}
+          <div className="space-y-24">
+            {steps.map((step) => (
+              <div
+                key={step.id}
+                className="relative grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-16"
+              >
+                {/* Timeline node */}
+                <div className="relative z-10 col-span-1 flex items-center lg:col-span-1 lg:justify-center">
                   <div
-                    className={`overflow-hidden transition-all duration-500 ${
-                      isOpen
-                        ? "mt-8 max-h-[2000px] opacity-100"
-                        : "max-h-0 opacity-0"
-                    }`}
+                    className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-charcoal text-xl font-bold border-2 shadow-xl lg:h-24 lg:w-24 lg:text-3xl"
+                    style={{
+                      borderColor: step.accentColor,
+                      boxShadow: `0 0 20px ${step.accentColor}20`,
+                      color: step.accentColor,
+                    }}
                   >
-                    <div
-                      className={`relative rounded-[2.5rem] p-8 transition-colors duration-300 md:p-12`}
-                      style={{
-                        backgroundImage: isOpen ? step.bgGradient : "none",
-                      }}
-                    >
-                      {/* Speech Bubble Cutout - Left */}
-                      {isOpen && (
-                        <>
-                          <div className="pointer-events-none absolute -left-6 top-1/2 h-32 w-32 -translate-y-1/2">
-                            <div className="h-full w-full rounded-full bg-background"></div>
-                            <div
-                              className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full"
-                              style={{
-                                background: step.bgGradient,
-                              }}
-                            ></div>
-                          </div>
-
-                          {/* Speech Bubble Cutout - Right */}
-                          <div className="pointer-events-none absolute -right-6 top-1/4 hidden h-32 w-32 md:block">
-                            <div className="h-full w-full rounded-full bg-background"></div>
-                            <div
-                              className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full"
-                              style={{
-                                background: step.bgGradient,
-                              }}
-                            ></div>
-                          </div>
-
-                          {/* Toggle Button in Cutout - Top Right */}
-                          <div className="absolute -right-4 -top-4 flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-lg">
-                            <ChevronUp className="h-6 w-6 text-brand-charcoal" />
-                          </div>
-                        </>
-                      )}
-
-                      {/* Header Text - Inside Colored Box */}
-                      {isOpen && (
-                        <div
-                          className={`mb-8 ${step.id === 2 ? "text-brand-charcoal" : "text-white"}`}
-                        >
-                          <h4 className="mb-4 text-2xl font-bold md:text-3xl">
-                            {step.id === 1 && "DISCOVERY AND STRATEGY"}
-                            {step.id === 2 && "DESIGN AND DEVELOPMENT"}
-                            {step.id === 3 && "LAUNCH AND OPTIMIZATION"}
-                          </h4>
-                          <p
-                            className={`max-w-xl text-base leading-relaxed md:text-lg ${step.id === 2 ? "opacity-80" : "opacity-95"}`}
-                          >
-                            {step.description}
-                          </p>
-                        </div>
-                      )}
-
-                      <div className="relative grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        {step.cards.map((card, i) => (
-                          <div
-                            key={i}
-                            className="group rounded-2xl bg-white p-6 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl"
-                          >
-                            {/* Sprint Badge */}
-                            <div className="mb-4 flex items-center gap-3">
-                              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-400">
-                                <svg
-                                  className="h-6 w-6 text-white"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M5 13l4 4L19 7"
-                                  />
-                                </svg>
-                              </div>
-                              <div>
-                                <div className="text-sm font-bold text-brand-charcoal">
-                                  {i === 0 && "1-3 Sprints"}
-                                  {i === 1 && "2-4 Sprints"}
-                                  {i === 2 && "3-5 Sprints"}
-                                </div>
-                                <div className="text-xs text-brand-muted">
-                                  {card.duration}
-                                </div>
-                              </div>
-                            </div>
-
-                            <h5 className="mb-2 text-lg font-bold text-brand-charcoal">
-                              {card.title}
-                            </h5>
-                            <p className="mb-4 text-sm text-muted-foreground">
-                              {card.tags.slice(0, 2).join(" and ")}. Develop a
-                              comprehensive strategy.
-                            </p>
-
-                            <div className="flex flex-wrap gap-2">
-                              {card.tags.map((tag, k) => (
-                                <span
-                                  key={k}
-                                  className="rounded-md px-2 py-1 text-xs font-medium text-brand-charcoal"
-                                  style={{
-                                    backgroundColor:
-                                      k % 3 === 0
-                                        ? "#FF9B66"
-                                        : k % 3 === 1
-                                          ? "#6DD4C4"
-                                          : "#E6E66D",
-                                  }}
-                                >
-                                  {tag}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                    {step.id}
                   </div>
                 </div>
-              );
-            })}
+
+                {/* Step Content */}
+                <div className="col-span-1 lg:col-span-11">
+                  <div className="mb-8 flex flex-wrap items-center gap-4">
+                    <h3 className="text-2xl font-bold uppercase tracking-tight sm:text-3xl lg:text-4xl">
+                      {step.title}
+                    </h3>
+                    <span
+                      className="inline-flex items-center rounded-full px-4 py-1.5 text-xs font-semibold tracking-wider uppercase border"
+                      style={{
+                        borderColor: `${step.accentColor}30`,
+                        backgroundColor: `${step.accentColor}10`,
+                        color: step.accentColor,
+                      }}
+                    >
+                      <Calendar className="mr-1.5 h-3.5 w-3.5" />
+                      {step.duration}
+                    </span>
+                  </div>
+
+                  <p className="mb-10 max-w-3xl text-sm leading-relaxed text-gray-400 sm:text-base lg:text-lg">
+                    {step.description}
+                  </p>
+
+                  {/* Substeps Grid */}
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                    {step.cards.map((card, idx) => (
+                      <div
+                        key={idx}
+                        className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/5 bg-white/[0.01] p-6 shadow-xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.03] hover:border-white/10"
+                      >
+                        <div>
+                          <div className="mb-4 flex items-center justify-between">
+                            <span className="text-xs font-mono text-gray-500 uppercase">
+                              Phase 0{idx + 1}
+                            </span>
+                            <span className="text-xs font-semibold text-brand-teal">
+                              {card.duration}
+                            </span>
+                          </div>
+
+                          <h4 className="mb-3 text-lg font-bold text-white transition-colors duration-300 group-hover:text-brand-teal">
+                            {card.title}
+                          </h4>
+                        </div>
+
+                        {/* Badges */}
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {card.tags.map((tag, tagIdx) => (
+                            <span
+                              key={tagIdx}
+                              className="rounded-full bg-white/[0.04] px-2.5 py-1 text-xs font-medium text-gray-300 border border-white/5"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

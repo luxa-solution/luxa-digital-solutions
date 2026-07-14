@@ -218,7 +218,7 @@ All colors MUST be HSL.
   }
 
   .hover-scale:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
 
   /* Gradient backgrounds */
@@ -270,6 +270,63 @@ All colors MUST be HSL.
 
   .hover-text-glow:hover {
     text-shadow: 0 0 20px hsl(172 90% 53% / 0.5);
+  }
+
+  /* Premium Glassmorphism */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-card-dark {
+    background: rgba(10, 15, 24, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  /* Premium Glowing Outlines */
+  .glow-card {
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glow-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: linear-gradient(135deg, rgba(18, 187, 187, 0.15), transparent, rgba(230, 177, 75, 0.1));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .glow-card:hover::before {
+    background: linear-gradient(135deg, rgba(18, 187, 187, 0.6), transparent, rgba(187, 18, 18, 0.6));
+  }
+
+  /* Text Gradients */
+  .text-gradient-teal-gold {
+    background: linear-gradient(135deg, #12bbbb 0%, #e6b14b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-teal-coral {
+    background: linear-gradient(135deg, #12bbbb 0%, #bb1212 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Button subtle pulse animations */
+  .pulse-glow {
+    animation: buttonPulse 3s infinite;
   }
 }
 
@@ -366,4 +423,16 @@ html {
 .parallax-reverse {
   transform: translateY(var(--parallax-reverse, 0px));
   will-change: transform;
+}
+
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(18, 187, 187, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(18, 187, 187, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(18, 187, 187, 0);
+  }
 }

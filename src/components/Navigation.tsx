@@ -86,15 +86,15 @@ const Navigation = () => {
 
   // Dynamic class helpers
   const navBgClass = scrolled
-    ? "border-b border-border/30 bg-background text-foreground"
+    ? "border-b border-border/10 bg-background/85 backdrop-blur-md text-foreground shadow-sm"
     : isHeroRoute
-      ? "bg-[#071a29] text-white"
+      ? "bg-[#071a29]/95 backdrop-blur-md text-white shadow-md shadow-black/10"
       : "bg-transparent";
 
   const linkTextClass =
     scrolled || !isHeroRoute
       ? "text-muted-foreground hover:text-foreground"
-      : "text-white hover:text-white/90";
+      : "text-white/90 hover:text-white hover:scale-105 transition-transform";
 
   const iconButtonText =
     scrolled || !isHeroRoute ? "text-foreground" : "text-white";
@@ -153,7 +153,7 @@ const Navigation = () => {
               {/* <ThemeToggle /> */}
               <Button
                 onClick={() => navigate("/pricing")}
-                className="text-brand-teal-foreground rounded-full bg-brand-teal px-6 py-2 text-sm font-medium hover:bg-brand-teal/90"
+                className="text-brand-teal-foreground pulse-glow rounded-full bg-brand-teal px-6 py-2.5 text-sm font-semibold transition-all hover:scale-105 hover:bg-brand-teal/90 shadow-md shadow-brand-teal/20"
               >
                 Book a Consultation
               </Button>
@@ -198,12 +198,12 @@ const Navigation = () => {
                   navigate("/");
                 }}
               >
-                {/* Mobile logo placeholder - kept intentionally small */}
-                <div className="relative overflow-hidden rounded-xl p-2">
+                {/* Mobile logo wrapper */}
+                <div className="relative overflow-hidden rounded-full bg-black p-2 border border-brand-coral/20">
                   <img
-                    src="/lovable-uploads/ba542bb9-91f7-434d-bdec-fc554c9339ac.png"
+                    src="/luxa.png"
                     alt="LUXA"
-                    className="relative z-10 h-7 w-auto drop-shadow-sm filter transition-all duration-500 group-hover:scale-110 sm:h-8"
+                    className="relative z-10 h-7 w-auto filter transition-all duration-500 group-hover:scale-110 sm:h-8"
                   />
                 </div>
               </div>
@@ -240,7 +240,7 @@ const Navigation = () => {
                       setIsOpen(false);
                       navigate("/pricing");
                     }}
-                    className="text-brand-teal-foreground w-full rounded-full bg-brand-teal px-6 py-2 text-sm font-medium hover:bg-brand-teal/90"
+                    className="text-brand-teal-foreground w-full rounded-full bg-brand-teal px-6 py-2.5 text-sm font-semibold hover:bg-brand-teal/90 shadow-md shadow-brand-teal/20 transition-transform hover:scale-[1.02]"
                   >
                     Book a Consultation
                   </Button>

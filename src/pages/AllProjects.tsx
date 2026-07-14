@@ -15,7 +15,6 @@ import {
   Grid3X3,
   List,
   Search,
-  Star,
   Target,
   TrendingUp,
   Users,
@@ -31,13 +30,14 @@ const AllProjects = () => {
 
   const categories = [
     "All",
-    "Web Development",
-    "Mobile Apps",
-    "UI/UX Design",
-    "E-commerce",
-    "SaaS",
-    "Enterprise",
-    "Startup",
+    "Business Dashboard",
+    "Educational Platform",
+    "E-Commerce Platform",
+    "Islamic Education",
+    "Online Education",
+    "Creative Portfolio",
+    "Environmental Tech",
+    "Brand Identity"
   ];
 
   const filteredProjects = useMemo(() => {
@@ -57,15 +57,15 @@ const AllProjects = () => {
   }, [searchTerm, selectedCategory]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-brand-dark text-white dark:bg-black">
       <Navigation />
 
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="bg-gradient-dark relative overflow-hidden px-2 py-10 md:px-6 md:py-16">
+        <section className="relative overflow-hidden px-4 py-16 md:px-6 md:py-24">
           <div className="absolute inset-0">
-            <div className="absolute right-20 top-20 h-40 w-40 rounded-full bg-primary/5 blur-3xl"></div>
-            <div className="absolute bottom-20 left-20 h-32 w-32 rounded-full bg-primary/5 blur-3xl"></div>
+            <div className="absolute right-20 top-20 h-50 w-50 rounded-full bg-brand-teal/5 blur-[120px]"></div>
+            <div className="absolute bottom-20 left-20 h-40 w-40 rounded-full bg-brand-coral/5 blur-[120px]"></div>
           </div>
 
           <div className="container relative z-10 mx-auto">
@@ -73,9 +73,9 @@ const AllProjects = () => {
               <Button
                 variant="ghost"
                 onClick={() => navigate("/")}
-                className="transition-all-spring hover-lift group mb-6 text-muted-foreground hover:text-primary"
+                className="transition-all duration-300 hover:bg-white/5 text-gray-400 hover:text-white"
               >
-                <ArrowLeft className="mr-3 h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" />
+                <ArrowLeft className="mr-3 h-5 w-5" />
                 Back to Home
               </Button>
             </div>
@@ -83,34 +83,27 @@ const AllProjects = () => {
             <div className="mx-auto max-w-4xl text-center">
               <Badge
                 variant="secondary"
-                className="mb-6 border-primary/20 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary"
+                className="mb-6 border-brand-teal/20 bg-brand-teal/10 px-4 py-2 text-sm font-semibold text-brand-teal"
               >
-                Portfolio
+                PORTFOLIO DIRECTORY
               </Badge>
 
-              <h1 className="mb-6 text-4xl font-bold md:text-6xl">
-                Our{" "}
-                <span className="relative inline-block">
-                  <span className="relative z-10 px-4 py-2 font-bold text-white">
-                    Projects
-                  </span>
-                  <div className="absolute inset-0 -skew-x-12 transform rounded-lg bg-brand-teal"></div>
-                </span>
+              <h1 className="mb-6 text-4xl font-extrabold md:text-6xl uppercase leading-tight tracking-tight">
+                OUR <span className="text-gradient-teal-gold">PROJECTS</span>
               </h1>
 
-              <p className="mb-8 text-xl leading-relaxed text-muted-foreground">
-                Explore our comprehensive portfolio of successful projects
-                across various industries and technologies.
+              <p className="mb-8 text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                Explore our comprehensive finder directory of operational systems, business dashboards, and educational platforms built for growth.
               </p>
 
-              <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <div className="flex items-center text-muted-foreground">
-                  <TrendingUp className="mr-2 h-5 w-5" />
-                  <span>{projects.length}+ projects completed</span>
+              <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-400">
+                <div className="flex items-center">
+                  <TrendingUp className="mr-2 h-4 w-4 text-brand-teal" />
+                  <span>{projects.length}+ Projects Completed</span>
                 </div>
-                <div className="flex items-center text-muted-foreground">
-                  <Award className="mr-2 h-5 w-5" />
-                  <span>Multiple industries served</span>
+                <div className="flex items-center">
+                  <Award className="mr-2 h-4 w-4 text-brand-gold" />
+                  <span>Resilient Architecture Standards</span>
                 </div>
               </div>
             </div>
@@ -118,90 +111,82 @@ const AllProjects = () => {
         </section>
 
         {/* Search and Filter Section */}
-        <section className="border-b border-border/30 bg-background px-6 py-16">
-          <div className="container mx-auto">
+        <section className="border-y border-white/5 bg-brand-dark/30 py-12 backdrop-blur-md">
+          <div className="container mx-auto px-6">
             <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
               {/* Search Bar */}
-              <div className="relative max-w-md flex-1">
-                <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 transform text-muted-foreground" />
+              <div className="relative max-w-md w-full">
+                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 transform text-gray-500" />
                 <Input
-                  placeholder="Search projects..."
+                  placeholder="Search by keyword or technology..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="transition-all-spring h-12 border-border/50 pl-10 hover:border-primary/40 focus:border-primary"
+                  className="h-12 border-white/10 bg-white/5 pl-12 text-white placeholder-gray-500 rounded-full focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/15 focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
               </div>
 
               {/* Category Filters */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2 justify-center">
                 {categories.map((category) => (
-                  <Badge
+                  <button
                     key={category}
-                    variant={
-                      selectedCategory === category ? "default" : "outline"
-                    }
-                    className={`transition-all-spring hover-scale cursor-pointer px-4 py-2 text-sm font-medium ${
-                      selectedCategory === category
-                        ? "bg-primary text-black"
-                        : "border-primary/30 bg-primary/10 text-primary hover:border-primary/50 hover:bg-primary/20"
-                    }`}
                     onClick={() => setSelectedCategory(category)}
+                    className={`rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ${
+                      selectedCategory === category
+                        ? "bg-brand-teal text-black shadow-lg shadow-brand-teal/20"
+                        : "bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
+                    }`}
                   >
                     {category}
-                  </Badge>
+                  </button>
                 ))}
               </div>
 
               {/* View Mode Toggle */}
-              <div className="flex items-center gap-2">
-                <Button
-                  variant={viewMode === "grid" ? "default" : "outline"}
-                  size="sm"
+              <div className="flex items-center gap-2 border border-white/10 rounded-full p-1 bg-white/5">
+                <button
                   onClick={() => setViewMode("grid")}
-                  className="p-2"
+                  className={`p-2 rounded-full transition-all ${viewMode === "grid" ? "bg-brand-teal text-black" : "text-gray-400 hover:text-white"}`}
+                  aria-label="Grid view"
                 >
                   <Grid3X3 className="h-4 w-4" />
-                </Button>
-                <Button
-                  variant={viewMode === "list" ? "default" : "outline"}
-                  size="sm"
+                </button>
+                <button
                   onClick={() => setViewMode("list")}
-                  className="p-2"
+                  className={`p-2 rounded-full transition-all ${viewMode === "list" ? "bg-brand-teal text-black" : "text-gray-400 hover:text-white"}`}
+                  aria-label="List view"
                 >
                   <List className="h-4 w-4" />
-                </Button>
+                </button>
               </div>
             </div>
 
             {/* Results Count */}
-            <div className="mt-6 text-center">
-              <p className="text-muted-foreground">
-                Showing {filteredProjects.length} of {projects.length} projects
-                {selectedCategory !== "All" && ` in ${selectedCategory}`}
-              </p>
+            <div className="mt-8 text-center text-xs font-mono uppercase tracking-widest text-gray-500">
+              Showing {filteredProjects.length} of {projects.length} projects
+              {selectedCategory !== "All" && ` in ${selectedCategory}`}
             </div>
           </div>
         </section>
 
         {/* Projects Grid/List */}
-        <section className="bg-background px-6 py-24">
-          <div className="container mx-auto">
+        <section className="bg-brand-dark py-20 dark:bg-black">
+          <div className="container mx-auto px-6">
             {filteredProjects.length === 0 ? (
               <div className="py-20 text-center">
-                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-primary/10">
-                  <Search className="h-10 w-10 text-primary" />
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-white/5 border border-white/10">
+                  <Search className="h-8 w-8 text-gray-400" />
                 </div>
                 <h3 className="mb-4 text-2xl font-bold">No projects found</h3>
-                <p className="mb-6 text-muted-foreground">
-                  Try adjusting your search terms or category filters.
+                <p className="mb-8 text-gray-400 max-w-sm mx-auto">
+                  Try adjusting your search terms or selecting a different category filter.
                 </p>
                 <Button
                   onClick={() => {
                     setSearchTerm("");
                     setSelectedCategory("All");
                   }}
-                  variant="outline"
-                  className="border-primary/40 text-primary hover:bg-primary/10"
+                  className="rounded-full bg-brand-teal text-black px-6 py-2 hover:bg-brand-teal/90"
                 >
                   Clear Filters
                 </Button>
@@ -217,134 +202,124 @@ const AllProjects = () => {
                 {filteredProjects.map((project, index) => (
                   <Card
                     key={project.id}
-                    className={`transition-all-spring hover-lift group relative overflow-hidden border-border/30 bg-card/30 backdrop-blur-sm hover:border-primary/40 ${
-                      viewMode === "list" ? "flex" : ""
+                    className={`group relative overflow-hidden rounded-[30px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent shadow-xl transition-all duration-500 hover:border-white/10 hover:shadow-2xl ${
+                      viewMode === "list" ? "flex flex-col md:flex-row items-stretch" : "flex flex-col justify-between"
                     }`}
-                    style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     {/* Image Container */}
                     <div
-                      className={`relative overflow-hidden ${
-                        viewMode === "list" ? "h-48 w-80 flex-shrink-0" : "h-64"
+                      className={`relative overflow-hidden bg-white/[0.01] ${
+                        viewMode === "list" ? "h-64 w-full md:h-auto md:w-80 flex-shrink-0" : "aspect-[4/3] w-full"
                       }`}
                     >
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="transition-all-spring h-full w-full object-cover group-hover:scale-110"
+                        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       />
 
                       {/* Hover Overlay */}
-                      <div className="transition-all-spring absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-90"></div>
 
-                      {/* Category Badge */}
-                      <div className="transition-all-spring absolute left-4 top-4 -translate-y-2 transform opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                      {/* Category Badge overlay */}
+                      <div className="absolute left-6 top-6 z-10">
                         <Badge
                           variant="secondary"
-                          className="border-primary/30 bg-primary/20 text-xs font-medium text-primary"
+                          className="border-white/10 bg-black/60 px-3.5 py-1 text-xs font-semibold text-white backdrop-blur-md"
                         >
                           {project.category}
                         </Badge>
                       </div>
 
                       {/* Action Button */}
-                      <div className="transition-all-spring absolute bottom-4 right-4 translate-y-2 transform opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                        <Button
-                          size="sm"
-                          className="transition-all-spring h-10 w-10 rounded-full bg-primary/90 p-0 font-semibold text-black hover:scale-110 hover:bg-primary"
-                        >
-                          <Eye className="h-4 w-4" />
-                        </Button>
+                      <div className="absolute bottom-6 right-6 z-10 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-teal text-black shadow-lg">
+                          <Eye className="h-5 w-5" />
+                        </div>
                       </div>
                     </div>
 
                     {/* Content Area */}
-                    <div
-                      className={`p-6 ${viewMode === "list" ? "flex-1" : ""}`}
-                    >
-                      {/* Project Header */}
-                      <div className="mb-4 flex items-start justify-between">
-                        <h3 className="mr-4 flex-1 text-xl font-bold leading-tight transition-colors duration-300 group-hover:text-primary">
-                          {project.title}
-                        </h3>
-                        <ExternalLink className="h-5 w-5 flex-shrink-0 text-muted-foreground transition-colors duration-300 group-hover:text-primary" />
-                      </div>
-
-                      {/* Project Description */}
-                      <p className="mb-6 leading-relaxed text-muted-foreground transition-colors duration-300 group-hover:text-foreground/90">
-                        {project.description}
-                      </p>
-
-                      {/* Project Meta */}
-                      <div className="mb-6 flex items-center gap-4 text-sm text-muted-foreground">
-                        <div className="flex items-center">
-                          <Calendar className="mr-2 h-4 w-4" />
-                          <span>{project.duration}</span>
+                    <div className="flex-1 p-8 flex flex-col justify-between">
+                      <div>
+                        {/* Project Header */}
+                        <div className="mb-4 flex items-start justify-between">
+                          <h3 className="mr-4 text-xl font-bold leading-snug text-white transition-colors duration-300 group-hover:text-brand-teal sm:text-2xl">
+                            {project.title}
+                          </h3>
+                          <ExternalLink className="h-5 w-5 flex-shrink-0 text-gray-500 group-hover:text-brand-teal transition-colors" />
                         </div>
-                        <div className="flex items-center">
-                          <Users className="mr-2 h-4 w-4" />
-                          <span>{project.teamSize} people</span>
-                        </div>
-                      </div>
 
-                      {/* Results Preview */}
-                      {project.results && project.results.length > 0 && (
-                        <div className="mb-6">
-                          <h4 className="mb-3 text-sm font-semibold text-foreground">
-                            Key Results:
-                          </h4>
-                          <div className="grid grid-cols-2 gap-3">
-                            {project.results
-                              .slice(0, 2)
-                              .map((result, resultIndex) => (
-                                <div
-                                  key={resultIndex}
-                                  className="rounded-lg bg-primary/5 p-3 text-center"
-                                >
-                                  <div className="text-lg font-bold text-primary">
-                                    {result.value}
-                                  </div>
-                                  <div className="text-xs text-muted-foreground">
-                                    {result.metric}
-                                  </div>
-                                </div>
-                              ))}
+                        {/* Project Description */}
+                        <p className="mb-6 text-sm leading-relaxed text-gray-400 group-hover:text-gray-300 transition-colors">
+                          {project.description}
+                        </p>
+
+                        {/* Project Meta */}
+                        <div className="mb-6 flex flex-wrap gap-4 text-xs font-mono text-gray-500 uppercase tracking-widest">
+                          <div className="flex items-center">
+                            <Calendar className="mr-2 h-4 w-4 text-brand-teal" />
+                            <span>{project.duration}</span>
+                          </div>
+                          <div className="flex items-center">
+                            <Users className="mr-2 h-4 w-4 text-brand-gold" />
+                            <span>{project.teamSize} developers</span>
                           </div>
                         </div>
-                      )}
 
-                      {/* Tech Stack */}
-                      <div className="mb-6 flex flex-wrap gap-2">
-                        {project.tech.slice(0, 4).map((tech, techIndex) => (
-                          <Badge
-                            key={techIndex}
-                            variant="outline"
-                            className="transition-all-spring hover-scale border-primary/30 bg-primary/10 text-xs font-medium text-primary hover:border-primary/50 hover:bg-primary/20"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                        {project.tech.length > 4 && (
-                          <Badge
-                            variant="outline"
-                            className="border-border/50 text-xs text-muted-foreground"
-                          >
-                            +{project.tech.length - 4} more
-                          </Badge>
+                        {/* Key Results Grid */}
+                        {project.results && project.results.length > 0 && (
+                          <div className="mb-6 border-t border-white/5 pt-6">
+                            <h4 className="mb-3 text-xs font-bold uppercase tracking-widest text-gray-400">
+                              Validated Results:
+                            </h4>
+                            <div className="grid grid-cols-2 gap-3">
+                              {project.results
+                                .slice(0, 2)
+                                .map((result, resultIndex) => (
+                                  <div
+                                    key={resultIndex}
+                                    className="rounded-xl border border-white/5 bg-white/[0.01] p-3 text-center"
+                                  >
+                                    <div className="text-base font-black text-brand-teal">
+                                      {result.value}
+                                    </div>
+                                    <div className="text-[10px] text-gray-500 uppercase tracking-wider mt-1">
+                                      {result.metric}
+                                    </div>
+                                  </div>
+                                ))}
+                            </div>
+                          </div>
                         )}
                       </div>
 
-                      {/* CTA Button */}
-                      <Button
-                        onClick={() => navigate(`/project/${project.id}`)}
-                        className="bg-gradient-primary hover:shadow-cyan transition-all-spring hover-lift group relative w-full overflow-hidden font-semibold"
-                      >
-                        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-                        <span className="relative z-10 flex items-center justify-center">
-                          View Project Details
-                          <ArrowUpRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-                        </span>
-                      </Button>
+                      {/* Tech Stack and Button */}
+                      <div>
+                        <div className="mb-6 flex flex-wrap gap-2">
+                          {project.tech.slice(0, 4).map((tech, techIndex) => (
+                            <span
+                              key={techIndex}
+                              className="rounded-full bg-white/5 border border-white/10 px-3.5 py-1 text-xs font-semibold text-gray-300"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                          {project.tech.length > 4 && (
+                            <span className="rounded-full bg-white/5 border border-white/10 px-3.5 py-1 text-xs font-semibold text-gray-500">
+                              +{project.tech.length - 4} more
+                            </span>
+                          )}
+                        </div>
+
+                        <Button
+                          onClick={() => navigate(`/project/${project.id}`)}
+                          className="w-full rounded-full bg-white/5 hover:bg-brand-teal hover:text-black border border-white/10 hover:border-brand-teal text-white font-semibold transition-all duration-300"
+                        >
+                          View Case Study Details
+                          <ArrowUpRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </div>
                     </div>
                   </Card>
                 ))}
@@ -354,113 +329,69 @@ const AllProjects = () => {
         </section>
 
         {/* Stats Section */}
-        <section className="bg-gradient-to-b from-background to-card/20 px-6 py-24">
-          <div className="container mx-auto">
+        <section className="bg-brand-dark py-24 text-white dark:bg-black border-t border-white/5">
+          <div className="container mx-auto px-6">
             <div className="mb-16 text-center">
-              <h2 className="mb-6 text-4xl font-bold">
-                Our{" "}
-                <span className="relative inline-block">
-                  <span className="relative z-10 px-4 py-2 font-bold text-white">
-                    Portfolio
-                  </span>
-                  <div className="absolute inset-0 -skew-x-12 transform rounded-lg bg-brand-teal"></div>
-                </span>{" "}
-                Impact
+              <h2 className="text-4xl font-extrabold uppercase sm:text-5xl tracking-tight">
+                OUR PLATFORM <span className="text-gradient-teal-gold">IMPACT</span>
               </h2>
-              <p className="mx-auto max-w-2xl text-xl text-muted-foreground">
-                Numbers that speak for themselves - the results we've delivered
-                for our clients.
+              <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg text-gray-400 leading-relaxed">
+                Empirical metrics detailing how our system engineering drives conversion, adoption, and scalability.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-              <div className="text-center">
-                <div className="bg-gradient-accent mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl">
-                  <TrendingUp className="h-10 w-10 text-primary" />
-                </div>
-                <div className="mb-2 text-4xl font-bold text-primary">
+            <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
+              <div className="rounded-3xl border border-white/5 bg-white/[0.01] p-8 text-center backdrop-blur-md shadow-xl">
+                <div className="mb-2 text-4xl font-black text-brand-teal sm:text-5xl">
                   {projects.length}+
                 </div>
-                <div className="mb-2 font-semibold">Projects Delivered</div>
-                <div className="text-sm text-muted-foreground">
-                  Successful launches across industries
-                </div>
+                <div className="font-semibold text-sm uppercase tracking-wider text-white">Projects Delivered</div>
+                <p className="text-xs text-gray-500 mt-2">Custom business platforms deployed</p>
               </div>
 
-              <div className="text-center">
-                <div className="bg-gradient-accent mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl">
-                  <Target className="h-10 w-10 text-primary" />
-                </div>
-                <div className="mb-2 text-4xl font-bold text-primary">98%</div>
-                <div className="mb-2 font-semibold">Client Satisfaction</div>
-                <div className="text-sm text-muted-foreground">
-                  Exceeding expectations consistently
-                </div>
+              <div className="rounded-3xl border border-white/5 bg-white/[0.01] p-8 text-center backdrop-blur-md shadow-xl">
+                <div className="mb-2 text-4xl font-black text-brand-gold sm:text-5xl">98%</div>
+                <div className="font-semibold text-sm uppercase tracking-wider text-white">Client Retention</div>
+                <p className="text-xs text-gray-500 mt-2">Continuous growth iterations</p>
               </div>
 
-              <div className="text-center">
-                <div className="bg-gradient-accent mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl">
-                  <Award className="h-10 w-10 text-primary" />
-                </div>
-                <div className="mb-2 text-4xl font-bold text-primary">25+</div>
-                <div className="mb-2 font-semibold">Awards Won</div>
-                <div className="text-sm text-muted-foreground">
-                  Industry recognition & excellence
-                </div>
+              <div className="rounded-3xl border border-white/5 bg-white/[0.01] p-8 text-center backdrop-blur-md shadow-xl">
+                <div className="mb-2 text-4xl font-black text-brand-coral sm:text-5xl">99.9%</div>
+                <div className="font-semibold text-sm uppercase tracking-wider text-white">Platform Uptime</div>
+                <p className="text-xs text-gray-500 mt-2">Zero downtime architecture</p>
               </div>
 
-              <div className="text-center">
-                <div className="bg-gradient-accent mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl">
-                  <Star className="h-10 w-10 text-primary" />
-                </div>
-                <div className="mb-2 text-4xl font-bold text-primary">300%</div>
-                <div className="mb-2 font-semibold">Average ROI</div>
-                <div className="text-sm text-muted-foreground">
-                  Client growth & success
-                </div>
+              <div className="rounded-3xl border border-white/5 bg-white/[0.01] p-8 text-center backdrop-blur-md shadow-xl">
+                <div className="mb-2 text-4xl font-black text-brand-teal sm:text-5xl">3.5x</div>
+                <div className="font-semibold text-sm uppercase tracking-wider text-white">Client ROI</div>
+                <p className="text-xs text-gray-500 mt-2">Operational throughput growth</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gradient-dark px-6 py-24">
-          <div className="container mx-auto text-center">
-            <h2 className="mb-6 text-4xl font-bold">
-              Ready to Join Our{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10 px-4 py-2 font-bold text-white">
-                  Success Stories?
-                </span>
-                <div className="absolute inset-0 -skew-x-12 transform rounded-lg bg-brand-teal"></div>
-              </span>
+        <section className="bg-brand-dark py-24 text-white dark:bg-black border-t border-white/5">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-3xl font-extrabold uppercase sm:text-5xl leading-tight">
+              Ready to Join Our
+              <span className="block text-gradient-teal-gold mt-2">Success Stories?</span>
             </h2>
-            <p className="mx-auto mb-8 max-w-2xl text-xl text-muted-foreground">
-              Let's discuss how we can help you achieve similar results for your
-              business.
+            <p className="mx-auto mt-6 mb-10 max-w-xl text-base text-gray-400 sm:text-lg leading-relaxed">
+              Let's map out how we can engineer a similar high-performance digital system for your business operations.
             </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <div className="flex flex-col justify-center items-center gap-4 sm:flex-row">
               <Button
-                size="lg"
                 onClick={() => navigate("/pricing")}
-                className="bg-gradient-primary hover:shadow-cyan transition-all-spring hover-lift group relative overflow-hidden px-10 py-5 text-xl font-semibold"
+                className="text-brand-teal-foreground pulse-glow rounded-full bg-brand-teal px-8 py-6 text-base font-semibold transition-all hover:scale-105 hover:bg-brand-teal/90 shadow-xl shadow-brand-teal/20 w-full sm:w-auto"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
-                <span className="relative z-10">Start Your Project</span>
+                Start Your Project
+                <ArrowUpRight className="ml-2 h-5 w-5" />
               </Button>
               <Button
                 variant="outline"
-                size="lg"
-                onClick={() => {
-                  navigate("/");
-                  setTimeout(() => {
-                    const contactSection = document.getElementById("contact");
-                    if (contactSection) {
-                      contactSection.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }, 100);
-                }}
-                className="transition-all-spring hover-lift w-full border-primary/40 px-8 py-4 text-lg font-semibold text-foreground hover:border-primary/60 hover:bg-primary/10 sm:w-auto sm:px-10 sm:py-5 sm:text-xl lg:px-12 lg:py-6 lg:text-2xl"
+                onClick={() => navigate("/contact")}
+                className="rounded-full border-white/15 hover:border-brand-teal/50 hover:bg-brand-teal/5 px-8 py-6 text-base font-semibold text-white transition-all hover:scale-105 w-full sm:w-auto"
               >
                 Contact Us
               </Button>

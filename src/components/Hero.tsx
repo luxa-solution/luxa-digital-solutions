@@ -86,27 +86,27 @@ const Hero = () => {
             {/* LEFT CONTENT */}
             <div className="flex items-end pb-24 lg:pb-32">
               <div className="animate-slide-up space-y-6 lg:space-y-8">
-                <h1 className="text-3xl font-bold leading-[1.1] tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
-                  <span className="text-white dark:text-white">We build </span>
-                  <span className="relative text-brand-gold dark:text-yellow-400">
+                <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+                  <span className="text-white">We build </span>
+                  <span className="block text-gradient-teal-gold drop-shadow-sm">
                     digital systems
                   </span>
-                  <span className="mt-2 block text-white dark:text-white">
-                    that help businesses operate with clarity, control, and
-                    scale.
+                  <span className="mt-4 block text-lg font-normal leading-relaxed text-gray-300 sm:text-xl md:text-2xl max-w-xl">
+                    that help businesses operate with clarity, control, and scale.
                   </span>
                 </h1>
               </div>
             </div>
 
             {/* RIGHT CONTENT */}
-            <div className="flex items-start pt-8 lg:pt-16">
-              <div className="animate-slide-up-delayed parallax-reverse relative w-full">
-                <div className="mb-8 ml-auto max-w-sm lg:mb-12">
-                  <p className="text-right text-sm leading-relaxed text-gray-400 dark:text-gray-300 lg:text-base">
+            <div className="flex items-start pt-8 lg:pt-16 lg:justify-end">
+              <div className="animate-slide-up-delayed parallax-reverse relative w-full max-w-md">
+                <div className="mb-8 ml-auto lg:mb-12 glass-card-dark p-8 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-md">
+                  <div className="h-1.5 w-12 bg-gradient-to-r from-brand-teal to-brand-gold mb-6 rounded-full"></div>
+                  <p className="text-sm leading-relaxed text-gray-300 lg:text-base">
                     From custom dashboards and LMS platforms to internal tools
                     and mobile apps, we design solutions around how your
-                    business actually works.
+                    business actually works. We turn manual spreadsheets and complex workflows into clear, scalable operating environments.
                   </p>
                 </div>
               </div>

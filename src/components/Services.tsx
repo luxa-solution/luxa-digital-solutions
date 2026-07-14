@@ -7,144 +7,109 @@ const Services = () => {
       title: "CUSTOM DASHBOARDS & INTERNAL SYSTEMS",
       description:
         "We build dashboards, admin tools, and operational systems that centralize data, reduce manual work, and give teams clearer control over daily performance.",
-      bgColorClass: "bg-gradient-to-br from-cyan-400 to-teal-500",
-      arrowColor: "text-teal-600",
-      topCutout: "cutout-1.svg",
-      bottomCutout: "cutout-3.svg",
+      accentColor: "#12bbbb", // Brand Teal
     },
     {
       title: "LMS & LEARNING PLATFORMS",
       description:
         "From student portals to course delivery and progress tracking, we design learning platforms that are simple for learners and powerful for administrators.",
-      bgColorClass: "bg-gradient-to-br from-indigo-400 to-indigo-500",
-      arrowColor: "text-indigo-600",
-      bottomCutout: "cutout-3.svg",
-      topRightCutout: "cutout-2.svg",
+      accentColor: "#8b5cf6", // Violet/Purple
     },
     {
       title: "MOBILE APP DEVELOPMENT",
       description:
         "We create mobile experiences for customers, internal teams, and service businesses that are practical, fast, and built to scale.",
-      bgColorClass: "bg-gradient-to-br from-rose-500 to-red-600",
-      arrowColor: "text-rose-500",
-      topCutout: "cutout-1.svg",
-      bottomCutout: "cutout-3.svg",
-      topRightCutout: "cutout-2.svg",
+      accentColor: "#bb1212", // Brand Coral
     },
     {
       title: "WEB PLATFORMS & BUSINESS TOOLS",
       description:
         "We design custom web platforms, portals, and SaaS-style systems that bring workflows, users, and data into one reliable experience.",
-      bgColorClass: "bg-gradient-to-br from-emerald-400 to-green-500",
-      arrowColor: "text-emerald-600",
-      topCutout: "cutout-1.svg",
-      bottomCutout: "cutout-3.svg",
-      topRightCutout: "cutout-2.svg",
+      accentColor: "#10b981", // Emerald
     },
     {
       title: "BRANDING & UI/UX DESIGN",
       description:
         "We shape interfaces and brand experiences that make complex systems feel clear, confident, and easy to use from the first interaction.",
-      bgColorClass: "bg-gradient-to-br from-orange-400 to-orange-500",
-      arrowColor: "text-orange-500",
-      topCutout: "cutout-1.svg",
-      bottomCutout: "cutout-3.svg",
+      accentColor: "#f59e0b", // Amber
     },
     {
       title: "PRODUCT STRATEGY & SYSTEM DESIGN",
       description:
         "We help businesses turn scattered tools into structured digital systems through discovery, workflow mapping, and thoughtful product architecture.",
-      bgColorClass: "bg-gradient-to-br from-purple-400 to-purple-500",
-      arrowColor: "text-purple-500",
-      topCutout: "cutout-1.svg",
-      bottomCutout: "cutout-3.svg",
-      topRightCutout: "cutout-2.svg",
+      accentColor: "#e6b14b", // Brand Gold
     },
   ];
 
   return (
     <section
       id="services"
-      className="relative overflow-x-hidden bg-white pt-20 dark:bg-background sm:pt-24 lg:pt-32"
+      className="relative overflow-x-hidden bg-brand-dark py-24 text-white dark:bg-black sm:py-28 lg:py-36"
     >
-      <div className="container relative z-10 mx-auto max-w-full overflow-x-hidden px-4 sm:px-6 lg:px-8">
-        {/* Header aligned like the reference: left title, right paragraph */}
-        <div className="animate-slide-up mb-12 grid grid-cols-1 items-end gap-8 sm:mb-16 lg:mb-20 lg:grid-cols-3 lg:gap-12">
-          <div className="col-span-1 lg:col-span-2">
-            <p className="mb-3 text-sm font-bold uppercase tracking-wider text-red-500 dark:text-brand-coral sm:text-base">
-              OUR SERVICES
-            </p>
-            <h2 className="break-words text-3xl font-black leading-[1.05] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
-              <span className="text-gray-900 dark:text-foreground">
-                DIGITAL SYSTEMS FOR
-              </span>
+      {/* Decorative gradient light overlays */}
+      <div className="pointer-events-none absolute left-0 top-1/4 h-96 w-96 rounded-full bg-brand-teal/5 blur-3xl"></div>
+      <div className="pointer-events-none absolute right-0 bottom-1/4 h-96 w-96 rounded-full bg-brand-gold/5 blur-3xl"></div>
 
-              <span className="text-gray-900 dark:text-foreground">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header: Left title, right description */}
+        <div className="animate-slide-up mb-16 grid grid-cols-1 items-end gap-8 lg:mb-24 lg:grid-cols-3 lg:gap-12">
+          <div className="col-span-1 lg:col-span-2">
+            <p className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-teal sm:text-sm">
+              OUR CAPABILITIES
+            </p>
+            <h2 className="break-words text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+              DIGITAL SYSTEMS FOR
+              <span className="block text-gradient-teal-gold">
                 GROWING BUSINESSES
               </span>
             </h2>
           </div>
-          <div className="col-span-1 hidden lg:col-span-1 lg:block">
-            <p className="ml-auto max-w-md text-lg leading-relaxed text-gray-700 dark:text-muted-foreground xl:text-xl">
-              We design and build platforms that bring structure to operations,
-              simplify day-to-day work, and support long-term growth.
+          <div className="col-span-1 lg:col-span-1">
+            <p className="text-base leading-relaxed text-gray-400 lg:text-lg">
+              We design and build custom systems that bring organization to operations, simplify complex workflows, and support scalable growth.
             </p>
           </div>
         </div>
 
-        {/* Cards: equal height and alignment with decorative cutouts */}
-        <div className="mb-16 grid max-w-full grid-cols-1 items-stretch gap-6 sm:mb-20 md:grid-cols-2 lg:mb-24 lg:grid-cols-3 lg:gap-8">
+        {/* Cards Grid */}
+        <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <Card
               key={service.title}
-              className={`group relative h-full min-h-[420px] p-6 sm:p-8 md:min-h-[460px] lg:p-10 xl:min-h-[500px] ${service.bgColorClass} w-full overflow-hidden rounded-[40px] border-0 sm:rounded-[50px]`}
+              className="group relative flex flex-col justify-between overflow-hidden rounded-[30px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent p-8 shadow-2xl backdrop-blur-md glow-card hover:translate-y-[-8px] transition-all duration-500 min-h-[385px]"
             >
-              {/* SVG Cutouts */}
-              <div className="pointer-events-none absolute inset-0 z-[1] overflow-hidden">
-                {/* Top center scalloped cutout */}
-                {service.topCutout && (
-                  <img
-                    src={`/${service.topCutout}`}
-                    alt=""
-                    className="absolute left-1/2 top-0 h-[30px] w-auto -translate-x-1/2 rotate-180 select-none opacity-100 sm:h-[35px] lg:h-[40px]"
-                    style={{ filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.1))" }}
-                  />
-                )}
-                {/* Top-right angular cutout (optional decorative element) */}
-                {service.topRightCutout && (
-                  <img
-                    src={`/${service.topRightCutout}`}
-                    alt=""
-                    className="absolute right-0 top-0 h-[35px] w-auto select-none opacity-100 sm:h-[40px] lg:h-[45px]"
-                    style={{ filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.1))" }}
-                  />
-                )}
-                {/* Bottom-left angular cutout */}
-                {service.bottomCutout && (
-                  <img
-                    src={`/${service.bottomCutout}`}
-                    alt=""
-                    className="absolute bottom-0 left-0 h-[35px] w-auto select-none opacity-100 sm:h-[40px] lg:h-[45px]"
-                    style={{ filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.1))" }}
-                  />
-                )}
-              </div>
+              {/* Header inside Card */}
+              <div>
+                <div className="mb-6 flex items-center justify-between">
+                  <span className="text-xs font-mono tracking-widest text-gray-500">
+                    CAPABILITY // 0{index + 1}
+                  </span>
+                  {/* Indicator Dot */}
+                  <div
+                    className="h-2 w-2 rounded-full animate-pulse"
+                    style={{
+                      backgroundColor: service.accentColor,
+                      boxShadow: `0 0 10px ${service.accentColor}`,
+                    }}
+                  ></div>
+                </div>
 
-              {/* Content */}
-              <div className="relative z-[3] flex h-full w-full flex-col justify-center gap-4 sm:gap-5 lg:gap-6">
-                <h3 className="break-words text-2xl font-black uppercase leading-[1.05] tracking-tight text-white sm:text-3xl lg:text-4xl">
+                <h3 className="break-words text-xl font-bold uppercase leading-snug tracking-tight text-white mb-4 sm:text-2xl transition-colors duration-300 group-hover:text-brand-teal">
                   {service.title}
                 </h3>
-                <p className="max-w-[90%] break-words text-sm leading-relaxed text-white/90 sm:text-base lg:text-lg">
+                <p className="break-words text-sm leading-relaxed text-gray-400 sm:text-base">
                   {service.description}
                 </p>
               </div>
 
-              {/* Arrow button */}
-              <div className="absolute bottom-6 right-6 z-[4] flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-lg transition-transform duration-300 group-hover:rotate-45 group-hover:scale-125 sm:bottom-8 sm:right-8 sm:h-16 sm:w-16 lg:bottom-10 lg:right-10">
-                <ArrowUpRight
-                  className={`h-6 w-6 sm:h-7 sm:w-7 ${service.arrowColor}`}
-                />
+              {/* Footer action inside Card */}
+              <div className="mt-8 flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-brand-teal group-hover:text-white transition-colors duration-300">
+                  Explore System
+                </span>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/5 text-white ring-1 ring-white/10 transition-all duration-500 group-hover:rotate-45 group-hover:bg-brand-teal group-hover:text-black group-hover:ring-brand-teal group-hover:shadow-lg group-hover:shadow-brand-teal/20">
+                  <ArrowUpRight className="h-5 w-5" />
+                </div>
               </div>
             </Card>
           ))}
