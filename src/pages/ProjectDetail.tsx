@@ -282,7 +282,19 @@ const ProjectDetail = () => {
             {/* Testimonial Quote redesign */}
             {project.testimonial && (
               <div className="border-t border-white/5 pt-12">
-                <div className="relative rounded-[40px] border border-white/5 bg-gradient-to-r from-white/[0.01] to-transparent p-10 md:p-12 shadow-2xl backdrop-blur-md overflow-hidden">
+                <div
+                  className="relative rounded-[40px] border border-white/5 bg-gradient-to-r from-white/[0.01] to-transparent p-10 md:p-12 shadow-2xl backdrop-blur-md overflow-hidden transition-all duration-500 hover:-translate-y-1.5"
+                  style={{
+                    borderLeft: `4px solid ${
+                      project.category.includes("Dashboard") || project.category.includes("Business")
+                        ? "#e6b14b" // Gold
+                        : project.category.includes("Platform") || project.category.includes("Educational")
+                        ? "#bb1212" // Coral
+                        : "#12bbbb" // Teal
+                    }`,
+                    borderColor: "rgba(255, 255, 255, 0.05)",
+                  }}
+                >
                   <div className="absolute top-10 left-10 text-9xl font-serif text-white/5 pointer-events-none select-none">“</div>
                   <div className="relative z-10 flex flex-col items-center gap-8 md:flex-row md:items-start">
                     <img
@@ -290,14 +302,26 @@ const ProjectDetail = () => {
                       alt={project.testimonial.author}
                       className="h-20 w-20 rounded-full object-cover border border-white/10 flex-shrink-0 shadow-md"
                     />
-                    <div>
-                      <div className="mb-1 text-lg font-bold text-white">
-                        {project.testimonial.author}
+                    <div className="flex-1">
+                      <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+                        <div>
+                          <div className="text-lg font-bold text-white">
+                            {project.testimonial.author}
+                          </div>
+                          <div className="text-xs text-brand-teal uppercase tracking-widest font-mono">
+                            {project.testimonial.position} — {project.testimonial.company}
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-1 text-brand-gold">
+                          {[...Array(5)].map((_, starIndex) => (
+                            <Star
+                              key={starIndex}
+                              className="h-4 w-4 fill-brand-gold text-brand-gold"
+                            />
+                          ))}
+                        </div>
                       </div>
-                      <div className="mb-6 text-xs text-brand-teal uppercase tracking-widest font-mono">
-                        {project.testimonial.position} — {project.testimonial.company}
-                      </div>
-                      <blockquote className="text-lg leading-relaxed text-gray-300 font-sans tracking-wide">
+                      <blockquote className="text-base sm:text-lg leading-relaxed text-gray-300 font-sans tracking-wide">
                         &quot;{project.testimonial.quote}&quot;
                       </blockquote>
                     </div>

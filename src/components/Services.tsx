@@ -1,7 +1,10 @@
 import { Card } from "@/components/ui/card";
 import { ArrowUpRight, LayoutDashboard, GraduationCap, Smartphone, Globe, Palette, Compass } from "lucide-react";
+import { useState } from "react";
 
 const Services = () => {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   const services = [
     {
       title: "CUSTOM DASHBOARDS & INTERNAL SYSTEMS",
@@ -14,7 +17,7 @@ const Services = () => {
       title: "LMS & LEARNING PLATFORMS",
       description:
         "From student portals to course delivery and progress tracking, we design learning platforms that are simple for learners and powerful for administrators.",
-      accentColor: "#8b5cf6", // Violet/Purple
+      accentColor: "#e6b14b", // Brand Gold
       icon: GraduationCap,
     },
     {
@@ -28,21 +31,21 @@ const Services = () => {
       title: "WEB PLATFORMS & BUSINESS TOOLS",
       description:
         "We design custom web platforms, portals, and SaaS-style systems that bring workflows, users, and data into one reliable experience.",
-      accentColor: "#10b981", // Emerald
+      accentColor: "#12bbbb", // Brand Teal
       icon: Globe,
     },
     {
       title: "BRANDING & UI/UX DESIGN",
       description:
         "We shape interfaces and brand experiences that make complex systems feel clear, confident, and easy to use from the first interaction.",
-      accentColor: "#f59e0b", // Amber
+      accentColor: "#e6b14b", // Brand Gold
       icon: Palette,
     },
     {
       title: "PRODUCT STRATEGY & SYSTEM DESIGN",
       description:
         "We help businesses turn scattered tools into structured digital systems through discovery, workflow mapping, and thoughtful product architecture.",
-      accentColor: "#e6b14b", // Brand Gold
+      accentColor: "#bb1212", // Brand Coral
       icon: Compass,
     },
   ];
@@ -77,16 +80,23 @@ const Services = () => {
           </div>
         </div>
 
-        {/* Redesigned Premium Cards Grid */}
+        {/* Capabilities Grid */}
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => {
             const Icon = service.icon;
+            const isHovered = hoveredIndex === index;
+
             return (
               <Card
                 key={service.title}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-[40px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent p-8 md:p-10 shadow-2xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 hover:border-white/10"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className="group relative flex flex-col justify-between overflow-hidden rounded-[40px] border bg-gradient-to-b from-white/[0.02] to-transparent p-8 md:p-10 shadow-2xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2"
                 style={{
-                  boxShadow: `0 10px 30px -10px rgba(0,0,0,0.5)`,
+                  borderColor: isHovered ? `${service.accentColor}40` : "rgba(255, 255, 255, 0.05)",
+                  boxShadow: isHovered
+                    ? `0 15px 40px -15px ${service.accentColor}30`
+                    : "0 10px 30px -10px rgba(0,0,0,0.5)",
                 }}
               >
                 {/* Accent Background Glow (Visible on Card Hover) */}
@@ -102,7 +112,7 @@ const Services = () => {
                     <div
                       className="flex h-12 w-12 items-center justify-center rounded-2xl border transition-all duration-300"
                       style={{
-                        borderColor: `${service.accentColor}30`,
+                        borderColor: isHovered ? `${service.accentColor}60` : `${service.accentColor}20`,
                         backgroundColor: `${service.accentColor}10`,
                       }}
                     >
@@ -114,7 +124,7 @@ const Services = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold uppercase leading-snug tracking-tight text-white mb-4 sm:text-2xl transition-colors duration-300 group-hover:text-brand-teal">
+                  <h3 className="text-xl cursor-pointer font-bold uppercase leading-snug tracking-tight text-black hover:text-white mb-4 sm:text-2xl transition-colors duration-300 group-hover:text-brand-teal">
                     {service.title}
                   </h3>
                   <p className="text-xs sm:text-sm leading-relaxed text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
@@ -130,7 +140,9 @@ const Services = () => {
                   <div
                     className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-white border border-white/10 transition-all duration-500 group-hover:rotate-45"
                     style={{
-                      borderColor: `rgba(255,255,255,0.1)`,
+                      borderColor: isHovered ? `${service.accentColor}50` : "rgba(255,255,255,0.1)",
+                      backgroundColor: isHovered ? service.accentColor : "rgba(255,255,255,0.05)",
+                      color: isHovered ? "#000" : "#fff",
                     }}
                   >
                     <ArrowUpRight className="h-4 w-4" />

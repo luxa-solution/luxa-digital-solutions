@@ -2,8 +2,8 @@ import Footer from "@/components/Footer";
 import Navigation from "@/components/Navigation";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
-import { Quote, Phone, Globe, Star, MessageSquare } from "lucide-react";
-import { useEffect } from "react";
+import { Phone, Globe, Star, MessageSquare } from "lucide-react";
+import { useEffect, useState } from "react";
 
 interface TestimonialItem {
   quote: string;
@@ -17,8 +17,41 @@ interface TestimonialItem {
 }
 
 const Testimonials = () => {
+  const [visibleCards, setVisibleCards] = useState<Set<number>>(new Set());
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(
+              entry.target.getAttribute("data-index") || "0",
+            );
+            setVisibleCards((prev) => {
+              const next = new Set(prev);
+              next.add(index);
+              return next;
+            });
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+    );
+
+    const timer = setTimeout(() => {
+      const cards = document.querySelectorAll(".testimonial-card");
+      cards.forEach((card) => observer.observe(card));
+    }, 50);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, []);
 
   const testimonialsList: TestimonialItem[] = [
@@ -26,40 +59,40 @@ const Testimonials = () => {
       quote:
         "It has been phenomenal working with LUXA Digital Solutions. As a graphic designer brand, it was decided that a landing page is needed to communicate my creative identity in the modern and professional lens. And of course, considering trust, effective communication and technical expertise, LUXA Digital Solutions stood next to none in my choose. And the team listened carefully to what I wanted, gave helpful suggestions, and delivered everything without hassle. The page looks clean, loads fast, and truly represents my work.\n\nI truly appreciate their commitment to excellence and highly recommend LUXA Digital Solutions to anyone looking for reliable and top-quality web development services.",
       author: "AL-MUWAHHID CONCEPT",
-      position: "Graphic Designer",
+      position: "CEO",
       company: "Al-Muwahhid Concept",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face",
+      avatar: "/images/muwahid_testimonial.png",
       phone: "+234 703 757 4762",
       website: "almuwahhidconcept.com.ng",
-      accentColor: "#12bbbb", // Teal Accent
+      accentColor: "#12bbbb", // Teal
     },
-    {
-      quote:
-        "LUXA's custom dashboard has completely transformed our business operations. We can now monitor inventory, transaction processing speeds, and customer sales metrics in real-time. It allowed us to make data-driven decisions that have significantly improved our scalability and daily profitability.",
-      author: "Abdulrahim",
-      position: "CEO",
-      company: "360Data Solutions",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
-      accentColor: "#e6b14b", // Gold Accent
-    },
-    {
-      quote:
-        "LUXA transformed our educational platform beyond our expectations. The new website has made it incredibly easy for students to register for our Islamic courses, and we've seen a remarkable increase in enrollment. The design perfectly reflects our institution's values while providing modern functionality.",
-      author: "Sheikh Abdullah Rahman",
-      position: "Academic Director",
-      company: "Markazul Bayaan",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
-      accentColor: "#bb1212", // Coral Accent
-    },
-    {
-      quote:
-        "Our new website has become our most powerful marketing tool. The design perfectly captures our corporate brand essence, handles millions of page requests smoothly, and has significantly improved our sales lead generation qualities. Truly an industry-leading partner.",
-      author: "David Rodriguez",
-      position: "Managing Partner",
-      company: "TechVentures Global",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
-      accentColor: "#10b981", // Emerald Accent
-    },
+    // {
+    //   quote:
+    //     "LUXA's custom dashboard has completely transformed our business operations. We can now monitor inventory, transaction processing speeds, and customer sales metrics in real-time. It allowed us to make data-driven decisions that have significantly improved our scalability and daily profitability.",
+    //   author: "Abdulrahim",
+    //   position: "CEO",
+    //   company: "360Data Solutions",
+    //   avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+    //   accentColor: "#e6b14b", // Gold
+    // },
+    // {
+    //   quote:
+    //     "LUXA transformed our educational platform beyond our expectations. The new website has made it incredibly easy for students to register for our Islamic courses, and we've seen a remarkable increase in enrollment. The design perfectly reflects our institution's values while providing modern functionality.",
+    //   author: "Sheikh Abdullah Rahman",
+    //   position: "Academic Director",
+    //   company: "Markazul Bayaan",
+    //   avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+    //   accentColor: "#bb1212", // Coral
+    // },
+    // {
+    //   quote:
+    //     "Our new website has become our most powerful marketing tool. The design perfectly captures our corporate brand essence, handles millions of page requests smoothly, and has significantly improved our sales lead generation qualities. Truly an industry-leading partner.",
+    //   author: "David Rodriguez",
+    //   position: "Managing Partner",
+    //   company: "TechVentures Global",
+    //   avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+    //   accentColor: "#12bbbb", // Teal
+    // },
   ];
 
   return (
@@ -92,88 +125,108 @@ const Testimonials = () => {
         </div>
       </section>
 
-      {/* Testimonials List/Grid Section */}
+      {/* Testimonials Grid Section */}
       <section className="bg-brand-dark py-20 dark:bg-black border-t border-white/5">
         <div className="container mx-auto px-6 max-w-5xl space-y-12">
-          {testimonialsList.map((test, index) => (
-            <Card
-              key={index}
-              className="group relative overflow-hidden rounded-[30px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent shadow-2xl backdrop-blur-md transition-all duration-300"
-            >
-              {/* Giant quote sign background */}
-              <div className="absolute top-10 left-10 text-9xl font-serif text-white/5 pointer-events-none select-none">
-                “
-              </div>
+          {testimonialsList.map((test, index) => {
+            const isVisible = visibleCards.has(index);
+            const isHovered = hoveredIndex === index;
 
-              <div className="relative z-10 p-8 sm:p-12">
-                <div className="flex flex-col items-center gap-8 md:flex-row md:items-start">
-                  {/* User Profile Avatar */}
-                  <img
-                    src={test.avatar}
-                    alt={test.author}
-                    className="h-20 w-20 rounded-full object-cover border border-white/10 flex-shrink-0 shadow-lg"
-                  />
-
-                  {/* Feedback Text */}
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
-                      <div>
-                        <h3 className="text-xl font-bold text-white uppercase tracking-tight">
-                          {test.author}
-                        </h3>
-                        <p
-                          className="text-xs font-mono uppercase tracking-widest mt-1"
-                          style={{ color: test.accentColor }}
-                        >
-                          {test.position} — {test.company}
-                        </p>
-                      </div>
-
-                      {/* 5 Star Rating Indicator */}
-                      <div className="flex items-center gap-1 text-brand-gold">
-                        {[...Array(5)].map((_, starIndex) => (
-                          <Star
-                            key={starIndex}
-                            className="h-4 w-4 fill-brand-gold text-brand-gold"
-                          />
-                        ))}
-                      </div>
-                    </div>
-
-                    <blockquote className="text-base sm:text-lg leading-relaxed text-gray-300 whitespace-pre-line">
-                      &quot;{test.quote}&quot;
-                    </blockquote>
-                  </div>
+            return (
+              <Card
+                key={index}
+                data-index={index}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className={`testimonial-card group relative overflow-hidden rounded-[30px] border bg-gradient-to-b from-white/[0.02] to-transparent shadow-2xl backdrop-blur-md transition-all duration-700 hover:-translate-y-1.5 ${
+                  isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+                }`}
+                style={{
+                  borderLeft: `4px solid ${test.accentColor}`,
+                  borderColor: isHovered ? `${test.accentColor}30` : "rgba(255,255,255,0.05)",
+                  boxShadow: isHovered
+                    ? `0 15px 40px -15px ${test.accentColor}25`
+                    : "0 10px 30px -10px rgba(0,0,0,0.5)",
+                }}
+              >
+                {/* Giant quote sign background */}
+                <div className="absolute top-10 left-10 text-9xl font-serif text-white/5 pointer-events-none select-none">
+                  “
                 </div>
 
-                {/* Specific Contact Footer Strip (If present, e.g. for Al-Muwahhid) */}
-                {(test.phone || test.website) && (
-                  <div className="mt-10 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center gap-6 justify-center text-xs font-mono tracking-wider text-gray-400">
-                    {test.phone && (
-                      <a
-                        href={`tel:${test.phone}`}
-                        className="flex items-center gap-2 hover:text-brand-teal transition-colors"
-                      >
-                        <Phone className="h-4 w-4 text-brand-teal" />
-                        <span>{test.phone}</span>
-                      </a>
-                    )}
-                    {test.website && (
-                      <a
-                        href={`https://${test.website}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="flex items-center gap-2 hover:text-brand-teal transition-colors"
-                      >
-                        <Globe className="h-4 w-4 text-brand-teal" />
-                        <span className="underline">{test.website}</span>
-                      </a>
-                    )}
+                <div className="relative z-10 p-8 sm:p-12">
+                  <div className="flex flex-col items-center gap-8 md:flex-row md:items-start">
+                    {/* User Profile Avatar */}
+                    <img
+                      src={test.avatar}
+                      alt={test.author}
+                      className="h-20 w-20 rounded-full object-contain border border-white/10 flex-shrink-0 shadow-lg"
+                    />
+
+                    {/* Feedback Text */}
+                    <div className="flex-1">
+                      <div className="flex flex-wrap text-black items-center justify-between gap-4 mb-4">
+                        <div>
+                          <h3 className="text-xl font-bold text-white uppercase tracking-tight">
+                            {test.author}
+                          </h3>
+                          <p
+                            className="text-xs font-mono uppercase tracking-widest mt-1"
+                            style={{ color: test.accentColor }}
+                          >
+                            {test.position} — {test.company}
+                          </p>
+                        </div>
+
+                        {/* 5 Star Rating Indicator */}
+                        <div className="flex items-center gap-1">
+                          {[...Array(5)].map((_, starIndex) => (
+                            <Star
+                              key={starIndex}
+                              className={`h-4 w-4 fill-brand-gold text-brand-gold transition-transform duration-300 ${
+                                isHovered ? "scale-110" : ""
+                              }`}
+                              style={{ animationDelay: `${starIndex * 0.1}s` }}
+                            />
+                          ))}
+                        </div>
+                      </div>
+
+                      <blockquote className="text-base sm:text-lg leading-relaxed text-black whitespace-pre-line">
+                        &quot;{test.quote}&quot;
+                      </blockquote>
+                    </div>
                   </div>
-                )}
-              </div>
-            </Card>
-          ))}
+
+                  {/* Contact Footer Strip */}
+                  {(test.phone || test.website) && (
+                    <div className="mt-10 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center gap-6 justify-center text-xs font-mono tracking-wider text-gray-400">
+                      {test.phone && (
+                        <a
+                          href={`tel:${test.phone}`}
+                          className="flex items-center gap-2 hover:text-brand-teal transition-colors"
+                        >
+                          <Phone className="h-4 w-4 text-brand-teal" />
+                          <span>{test.phone}</span>
+                        </a>
+                      )}
+                      {test.website && (
+                        <a
+                          href={`https://${test.website}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex items-center gap-2 hover:text-brand-teal transition-colors"
+                        >
+                          <Globe className="h-4 w-4 text-brand-teal" />
+                          <span className="underline">{test.website}</span>
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </Card>
+            );
+          })}
         </div>
       </section>
 

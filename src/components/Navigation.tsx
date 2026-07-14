@@ -104,7 +104,7 @@ const Navigation = () => {
             </div>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden items-center justify-center gap-1 lg:flex">
+            <div className="hidden items-center justify-center gap-4 lg:flex">
               {navItems.map((item) => (
                 <a
                   key={item.name}

@@ -89,7 +89,7 @@ const Footer = () => {
                 <Button
                   variant="outline"
                   onClick={() => navigate("/all-projects")}
-                  className="rounded-full border-white/15 px-8 py-6 text-white hover:bg-white/10 transition-transform hover:scale-105 w-full sm:w-auto"
+                  className="rounded-full border-white/15 px-8 py-6 text-black hover:text-white hover:bg-white/10 transition-transform hover:scale-105 w-full sm:w-auto"
                 >
                   View Our Work
                 </Button>
