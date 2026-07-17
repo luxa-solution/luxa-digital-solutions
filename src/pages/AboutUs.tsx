@@ -10,7 +10,7 @@ const AboutUs = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      <main className="pt-20">
+      <main className="">
         {/* About Content */}
         <About />
       </main>

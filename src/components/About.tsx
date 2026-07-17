@@ -1,6 +1,12 @@
 import FAQSection from "@/components/FAQSection";
 import FinalCTA from "@/components/FinalCTA";
-import { CheckCircle2, Lightbulb, Star, Users, ArrowUpRight } from "lucide-react";
+import {
+  CheckCircle2,
+  Lightbulb,
+  Star,
+  Users,
+  ArrowUpRight,
+} from "lucide-react";
 
 const About = () => {
   const faqItems = [
@@ -14,7 +20,7 @@ const About = () => {
     },
     {
       q: "Do you offer ongoing support after launch?",
-      a: "Yes — we offer ongoing monitoring, updates, optimization, and system support packages to ensure your digital platform scales as your operations grow.",
+      a: "Yes - we offer ongoing monitoring, updates, optimization, and system support packages to ensure your digital platform scales as your operations grow.",
     },
     {
       q: "How do you price projects?",
@@ -29,7 +35,7 @@ const About = () => {
         {/* Background decorative lights */}
         <div className="pointer-events-none absolute inset-0 opacity-10">
           <div className="absolute left-10 top-10 h-72 w-72 rounded-full bg-brand-teal/30 blur-3xl"></div>
-          <div className="absolute right-10 bottom-10 h-72 w-72 rounded-full bg-brand-gold/30 blur-3xl"></div>
+          <div className="absolute bottom-10 right-10 h-72 w-72 rounded-full bg-brand-gold/30 blur-3xl"></div>
         </div>
 
         <div className="container relative z-10 mx-auto px-4 text-center sm:px-6 lg:px-8">
@@ -41,7 +47,7 @@ const About = () => {
             WE&apos;RE <span className="text-gradient-teal-gold">LUXA</span>
           </h1>
 
-          <p className="mx-auto mt-8 max-w-2xl text-base text-gray-300 sm:text-lg lg:text-xl leading-relaxed">
+          <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-gray-300 sm:text-lg lg:text-xl">
             Luxa Digital Solutions builds custom digital systems for businesses
             that need more than templates, more than disconnected tools, and
             more than quick fixes.
@@ -56,9 +62,7 @@ const About = () => {
             className="block h-12 w-full fill-brand-dark dark:fill-black"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z"
-            />
+            <path d="M0,0 C300,60 900,60 1200,0 L1200,60 L0,60 Z" />
           </svg>
         </div>
       </header>
@@ -70,7 +74,7 @@ const About = () => {
             At LUXA, WE BELIEVE THAT EVERY
             <br /> BRAND HAS THE POTENTIAL
             <br />
-            <span className="text-gradient-teal-gold block mt-2">
+            <span className="text-gradient-teal-gold mt-2 block">
               TO ACHIEVE EXTRAORDINARY RESULTS
             </span>
           </h2>
@@ -82,8 +86,8 @@ const About = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid gap-16 lg:grid-cols-12 lg:items-start">
             {/* Left sidebar: details dashboard */}
-            <aside className="lg:col-span-4 space-y-8 lg:sticky lg:top-24">
-              <div className="rounded-3xl border border-white/5 bg-white/[0.02] p-8 backdrop-blur-md shadow-xl">
+            <aside className="space-y-8 lg:sticky lg:top-24 lg:col-span-4">
+              <div className="rounded-3xl border border-white/5 bg-white/[0.02] p-8 shadow-xl backdrop-blur-md">
                 <h3 className="mb-6 text-sm font-bold uppercase tracking-widest text-brand-teal">
                   THE AGENCY IN NUMBERS
                 </h3>
@@ -109,7 +113,7 @@ const About = () => {
                 </div>
               </div>
 
-              <div className="rounded-3xl border border-white/5 bg-white/[0.02] p-8 backdrop-blur-md shadow-xl">
+              <div className="rounded-3xl border border-white/5 bg-white/[0.02] p-8 shadow-xl backdrop-blur-md">
                 <h3 className="mb-6 text-sm font-bold uppercase tracking-widest text-brand-teal">
                   CORE EXPERTISE
                 </h3>
@@ -125,7 +129,7 @@ const About = () => {
                       className="flex items-center justify-between py-2 text-sm text-gray-300"
                     >
                       <span>{s}</span>
-                      <span className="text-brand-teal font-bold">✓</span>
+                      <span className="font-bold text-brand-teal">✓</span>
                     </div>
                   ))}
                 </div>
@@ -133,7 +137,7 @@ const About = () => {
             </aside>
 
             {/* Right content */}
-            <div className="lg:col-span-8 space-y-10">
+            <div className="space-y-10 lg:col-span-8">
               <h2 className="text-3xl font-extrabold leading-snug tracking-tight text-white sm:text-4xl md:text-5xl">
                 We work with businesses that have outgrown scattered tools and
                 need a clearer way to operate.
@@ -148,10 +152,10 @@ const About = () => {
                 </p>
 
                 <p>
-                  Our team works closely on product structure, workflow
-                  design, and system architecture, making sure every solution is
-                  shaped around the realities of the business rather than a
-                  generic template.
+                  Our team works closely on product structure, workflow design,
+                  and system architecture, making sure every solution is shaped
+                  around the realities of the business rather than a generic
+                  template.
                 </p>
 
                 <p>
@@ -164,20 +168,26 @@ const About = () => {
               {/* Quick stats row */}
               <div className="grid grid-cols-3 gap-6 border-t border-white/5 pt-12 text-center sm:text-left">
                 <div>
-                  <div className="text-4xl font-black text-brand-teal sm:text-5xl">5+</div>
-                  <div className="mt-2 text-xs text-gray-400 uppercase tracking-widest">
+                  <div className="text-4xl font-black text-brand-teal sm:text-5xl">
+                    5+
+                  </div>
+                  <div className="mt-2 text-xs uppercase tracking-widest text-gray-400">
                     Years of Experience
                   </div>
                 </div>
                 <div>
-                  <div className="text-4xl font-black text-brand-gold sm:text-5xl">15+</div>
-                  <div className="mt-2 text-xs text-gray-400 uppercase tracking-widest">
+                  <div className="text-4xl font-black text-brand-gold sm:text-5xl">
+                    15+
+                  </div>
+                  <div className="mt-2 text-xs uppercase tracking-widest text-gray-400">
                     Projects Delivered
                   </div>
                 </div>
                 <div>
-                  <div className="text-4xl font-black text-brand-coral sm:text-5xl">98%</div>
-                  <div className="mt-2 text-xs text-gray-400 uppercase tracking-widest">
+                  <div className="text-4xl font-black text-brand-coral sm:text-5xl">
+                    98%
+                  </div>
+                  <div className="mt-2 text-xs uppercase tracking-widest text-gray-400">
                     Client Satisfaction
                   </div>
                 </div>
@@ -193,56 +203,61 @@ const About = () => {
           <h2 className="mb-12 text-center text-3xl font-extrabold uppercase leading-tight tracking-tight sm:text-4xl lg:text-5xl">
             BUILT WITH A TRACK RECORD OF
             <br />
-            <span className="text-gradient-teal-gold">DELIVERING OPERATIONAL IMPACT</span>
+            <span className="text-gradient-teal-gold">
+              DELIVERING OPERATIONAL IMPACT
+            </span>
           </h2>
 
           <div className="grid gap-8 md:grid-cols-3">
             {/* Card 1 */}
-            <div className="group relative flex flex-col justify-between overflow-hidden rounded-[30px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent p-10 shadow-2xl backdrop-blur-md glow-card hover:-translate-y-1 transition-all duration-300">
+            <div className="glow-card group relative flex flex-col justify-between overflow-hidden rounded-[30px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent p-10 shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1">
               <div>
-                <div className="text-brand-teal mb-6 text-6xl font-black leading-none">
+                <div className="mb-6 text-6xl font-black leading-none text-brand-teal">
                   15+
                 </div>
-                <h3 className="mb-3 text-lg font-bold text-white uppercase tracking-tight">
+                <h3 className="mb-3 text-lg font-bold uppercase tracking-tight text-white">
                   Custom Systems Delivered
                 </h3>
                 <p className="text-sm leading-relaxed text-gray-400">
-                  Resilient, user-friendly digital architectures deployed to streamline core operational activities.
+                  Resilient, user-friendly digital architectures deployed to
+                  streamline core operational activities.
                 </p>
               </div>
-              <div className="mt-8 h-1 w-12 bg-brand-teal rounded-full"></div>
+              <div className="mt-8 h-1 w-12 rounded-full bg-brand-teal"></div>
             </div>
 
             {/* Card 2 */}
-            <div className="group relative flex flex-col justify-between overflow-hidden rounded-[30px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent p-10 shadow-2xl backdrop-blur-md glow-card hover:-translate-y-1 transition-all duration-300">
+            <div className="glow-card group relative flex flex-col justify-between overflow-hidden rounded-[30px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent p-10 shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1">
               <div>
-                <div className="text-brand-gold mb-6 text-6xl font-black leading-none">
+                <div className="mb-6 text-6xl font-black leading-none text-brand-gold">
                   40%
                 </div>
-                <h3 className="mb-3 text-lg font-bold text-white uppercase tracking-tight">
+                <h3 className="mb-3 text-lg font-bold uppercase tracking-tight text-white">
                   Average Operations ROI
                 </h3>
                 <p className="text-sm leading-relaxed text-gray-400">
-                  Substantial improvement in operational cycles through intelligent workflow automation.
+                  Substantial improvement in operational cycles through
+                  intelligent workflow automation.
                 </p>
               </div>
-              <div className="mt-8 h-1 w-12 bg-brand-gold rounded-full"></div>
+              <div className="mt-8 h-1 w-12 rounded-full bg-brand-gold"></div>
             </div>
 
             {/* Card 3 */}
-            <div className="group relative flex flex-col justify-between overflow-hidden rounded-[30px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent p-10 shadow-2xl backdrop-blur-md glow-card hover:-translate-y-1 transition-all duration-300">
+            <div className="glow-card group relative flex flex-col justify-between overflow-hidden rounded-[30px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent p-10 shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1">
               <div>
-                <div className="text-brand-coral mb-6 text-6xl font-black leading-none">
+                <div className="mb-6 text-6xl font-black leading-none text-brand-coral">
                   99.9%
                 </div>
-                <h3 className="mb-3 text-lg font-bold text-white uppercase tracking-tight">
+                <h3 className="mb-3 text-lg font-bold uppercase tracking-tight text-white">
                   Platform Reliability
                 </h3>
                 <p className="text-sm leading-relaxed text-gray-400">
-                  Resilient technical foundations designed for scale, keeping transaction layers fully reliable.
+                  Resilient technical foundations designed for scale, keeping
+                  transaction layers fully reliable.
                 </p>
               </div>
-              <div className="mt-8 h-1 w-12 bg-brand-coral rounded-full"></div>
+              <div className="mt-8 h-1 w-12 rounded-full bg-brand-coral"></div>
             </div>
           </div>
         </div>
@@ -256,15 +271,15 @@ const About = () => {
               <div className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-teal">
                 OUR PHILOSOPHY
               </div>
-              <h2 className="text-4xl font-extrabold leading-tight text-white uppercase sm:text-5xl lg:text-6xl">
+              <h2 className="text-4xl font-extrabold uppercase leading-tight text-white sm:text-5xl lg:text-6xl">
                 OUR VALUES
               </h2>
             </div>
 
             <div className="lg:col-span-5">
-              <p className="text-base text-gray-400 sm:text-lg leading-relaxed">
-                Our approach is grounded in clarity, operational practicality, and long-term
-                value for the growing businesses we support.
+              <p className="text-base leading-relaxed text-gray-400 sm:text-lg">
+                Our approach is grounded in clarity, operational practicality,
+                and long-term value for the growing businesses we support.
               </p>
             </div>
           </div>
@@ -300,12 +315,12 @@ const About = () => {
               return (
                 <div
                   key={i}
-                  className="rounded-2xl border border-white/5 bg-white/[0.01] p-6 shadow-xl hover:bg-white/[0.03] transition-colors"
+                  className="rounded-2xl border border-white/5 bg-white/[0.01] p-6 shadow-xl transition-colors hover:bg-white/[0.03]"
                 >
-                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full bg-white/5 border border-white/10">
+                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5">
                     <Icon className={`h-5 w-5 ${value.accent}`} />
                   </div>
-                  <h4 className="mb-3 text-lg font-bold tracking-tight text-white uppercase">
+                  <h4 className="mb-3 text-lg font-bold uppercase tracking-tight text-white">
                     {value.title}
                   </h4>
                   <p className="text-sm leading-relaxed text-gray-400">
@@ -319,7 +334,7 @@ const About = () => {
       </section>
 
       {/* Reusable FAQ Section and Final CTA Section */}
-      <section className="bg-brand-dark dark:bg-black text-white py-12">
+      <section className="bg-brand-dark py-12 text-white dark:bg-black">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <FAQSection items={faqItems} />
           <div className="mt-12">
