@@ -43,19 +43,21 @@ const Portfolio = () => {
     >
       {/* Decorative gradient lights */}
       <div className="pointer-events-none absolute right-0 top-1/4 h-[500px] w-[500px] rounded-full bg-brand-teal/5 blur-[120px]"></div>
-      <div className="pointer-events-none absolute left-0 bottom-1/4 h-[500px] w-[500px] rounded-full bg-brand-coral/5 blur-[120px]"></div>
+      <div className="pointer-events-none absolute bottom-1/4 left-0 h-[500px] w-[500px] rounded-full bg-brand-coral/5 blur-[120px]"></div>
 
       {/* Header Section */}
       <div className="container relative z-10 mx-auto px-4 pb-16 sm:px-6 lg:px-8">
         <div className="max-w-4xl text-left">
-          <p className="mb-4 text-xs font-mono tracking-widest text-brand-teal uppercase">
+          <p className="mb-4 font-mono text-xs uppercase tracking-widest text-brand-teal">
             // SELECTED CASE STUDIES
           </p>
           <h2 className="mb-6 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             OUR <span className="text-gradient-teal-gold">PORTFOLIO</span>
           </h2>
           <p className="max-w-2xl text-base text-gray-400 sm:text-lg">
-            We partner with growing teams to replace complex manual processes with custom digital architectures. Explore some of our selected work.
+            We partner with growing teams to replace complex manual processes
+            with custom digital architectures. Explore some of our selected
+            work.
           </p>
         </div>
       </div>
@@ -93,7 +95,9 @@ const Portfolio = () => {
                 key={project.id}
                 data-index={index}
                 className={`portfolio-card group relative cursor-pointer overflow-hidden rounded-[40px] border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent shadow-xl transition-all duration-1000 ease-out hover:border-white/10 hover:shadow-2xl ${gridSpan} ${verticalOffset} ${
-                  isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-16 opacity-0"
                 }`}
                 onClick={() => navigate(`/project/${project.id}`)}
               >
@@ -107,7 +111,7 @@ const Portfolio = () => {
 
                   {/* Category overlay */}
                   <div className="absolute left-6 top-6 z-20">
-                    <span className="rounded-full bg-black/60 border border-white/10 px-4 py-1.5 text-xs font-semibold text-white backdrop-blur-md uppercase tracking-wider">
+                    <span className="rounded-full border border-white/10 bg-black/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-md">
                       {project.category}
                     </span>
                   </div>
@@ -116,7 +120,7 @@ const Portfolio = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-60 transition-opacity duration-700 group-hover:opacity-90"></div>
 
                   {/* Hover Action Circle */}
-                  <div className="absolute right-6 bottom-6 z-20 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="absolute bottom-6 right-6 z-20 translate-y-3 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-teal text-black shadow-lg hover:scale-110">
                       <ArrowUpRight className="h-5 w-5" />
                     </div>
@@ -125,7 +129,7 @@ const Portfolio = () => {
 
                 {/* Details Bottom Content */}
                 <div className="p-8 sm:p-10">
-                  <div className="mb-4 flex items-center gap-3 text-xs font-mono tracking-widest text-brand-teal uppercase">
+                  <div className="mb-4 flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-brand-teal">
                     <span>{project.client}</span>
                     <span>•</span>
                     <span>{project.duration}</span>
@@ -148,9 +152,9 @@ const Portfolio = () => {
         <div className="flex justify-center">
           <button
             onClick={() => navigate("/portfolio")}
-            className="group relative overflow-hidden rounded-full bg-brand-teal px-10 py-4.5 text-base font-semibold text-black transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-brand-teal/20"
+            className="group relative overflow-hidden rounded-full bg-brand-teal px-10 py-4 text-base font-semibold text-black transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-brand-teal/20"
           >
-            <span className="relative z-10 flex items-center gap-3">
+            <span className="relative z-10 flex items-center gap-3 hover:text-white">
               View All Projects
               <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1" />
             </span>

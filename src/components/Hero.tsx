@@ -88,25 +88,28 @@ const Hero = () => {
               <div className="animate-slide-up space-y-6 lg:space-y-8">
                 <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
                   <span className="text-white">We build </span>
-                  <span className="block text-gradient-teal-gold drop-shadow-sm">
+                  <span className="text-gradient-teal-gold block drop-shadow-sm">
                     digital systems
                   </span>
-                  <span className="mt-4 block text-lg font-normal leading-relaxed text-gray-300 sm:text-xl md:text-2xl max-w-xl">
-                    that help businesses operate with clarity, control, and scale.
+                  <span className="mt-4 block max-w-xl text-lg font-normal leading-relaxed text-gray-300 sm:text-xl md:text-2xl">
+                    that help businesses operate with clarity, control, and
+                    scale.
                   </span>
                 </h1>
               </div>
             </div>
 
             {/* RIGHT CONTENT */}
-            <div className="flex items-start pt-8 lg:pt-16 lg:justify-end">
+            <div className="flex items-start pt-8 lg:justify-end lg:pt-16">
               <div className="animate-slide-up-delayed parallax-reverse relative w-full max-w-md">
-                <div className="mb-8 ml-auto lg:mb-12 glass-card-dark p-8 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-md">
-                  <div className="h-1.5 w-12 bg-gradient-to-r from-brand-teal to-brand-gold mb-6 rounded-full"></div>
+                <div className="glass-card-dark mb-8 ml-auto rounded-3xl border border-white/10 p-8 shadow-2xl backdrop-blur-md lg:mb-12">
+                  <div className="mb-6 h-1.5 w-12 rounded-full bg-gradient-to-r from-brand-teal to-brand-gold"></div>
                   <p className="text-sm leading-relaxed text-gray-300 lg:text-base">
                     From custom dashboards and LMS platforms to internal tools
                     and mobile apps, we design solutions around how your
-                    business actually works. We turn manual spreadsheets and complex workflows into clear, scalable operating environments.
+                    business actually works. We turn manual spreadsheets and
+                    complex workflows into clear, scalable operating
+                    environments.
                   </p>
                 </div>
               </div>
@@ -115,7 +118,7 @@ const Hero = () => {
         </div>
 
         {/* SCROLL INDICATOR */}
-        <div className="animate-fade-in absolute bottom-32 right-8 z-20 flex flex-col items-center gap-3 text-gray-400 dark:text-gray-500 lg:bottom-40 lg:right-16">
+        {/* <div className="animate-fade-in absolute bottom-32 right-8 z-20 flex flex-col items-center gap-3 text-gray-400 dark:text-gray-500 lg:bottom-40 lg:right-16">
           <div className="flex items-center gap-2">
             <div className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-gray-500 pt-2 dark:border-gray-600 lg:h-12 lg:w-7">
               <div className="h-2 w-1 animate-bounce rounded-full bg-gray-500 dark:bg-gray-600 lg:h-3 lg:w-1.5"></div>
@@ -127,7 +130,7 @@ const Hero = () => {
             </p>
             <p className="text-gray-500 dark:text-gray-500">to explore</p>
           </div>
-        </div>
+        </div> */}
       </section>
     </div>
   );

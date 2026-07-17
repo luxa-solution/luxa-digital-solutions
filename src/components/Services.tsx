@@ -61,7 +61,7 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="relative overflow-x-hidden bg-brand-dark py-24 text-white dark:bg-black sm:py-28 lg:py-36"
+      className="relative overflow-x-hidden bg-brand-dark py-16 text-white dark:bg-black sm:py-10 lg:py-36"
     >
       {/* Decorative gradient light overlays */}
       <div className="pointer-events-none absolute left-0 top-1/4 h-96 w-96 rounded-full bg-brand-teal/5 blur-3xl"></div>
