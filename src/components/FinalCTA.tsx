@@ -6,9 +6,9 @@ const FinalCTA = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="bg-brand-dark/50 py-20 dark:bg-black/20">
-      <div className="container mx-auto px-6">
-        <div className="relative overflow-hidden rounded-[40px] border border-white/5 bg-gradient-to-br from-brand-charcoal via-brand-dark to-brand-charcoal p-12 text-white shadow-2xl md:p-20">
+    <section className="bg-brand-dark/50 py-12 dark:bg-black/20">
+      <div className="container mx-auto px-2">
+        <div className="relative overflow-hidden rounded-[40px] border border-white/5 bg-gradient-to-br from-brand-charcoal via-brand-dark to-brand-charcoal p-6 text-white shadow-2xl md:p-20">
           {/* Decorative background light */}
           <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-brand-teal/5 blur-3xl"></div>
           <div className="pointer-events-none absolute -bottom-20 -left-20 h-96 w-96 rounded-full bg-brand-coral/5 blur-3xl"></div>
