@@ -26,17 +26,21 @@ const FAQSection = ({
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
   return (
-    <section className={`py-20 bg-brand-dark/50 dark:bg-black/40 text-white ${className}`}>
-      <div className="container mx-auto px-6">
+    <section
+      className={`bg-brand-dark/50 py-12 text-white dark:bg-black/40 ${className}`}
+    >
+      <div className="container mx-auto px-1">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12">
           {/* Left info column */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24">
+          <div className="lg:sticky lg:top-24 lg:col-span-5">
             <div className="mb-4 text-xs font-bold uppercase tracking-widest text-brand-teal">
               {title}
             </div>
-            <h2 className="text-4xl font-extrabold leading-tight text-white uppercase sm:text-5xl">
+            <h2 className="text-4xl font-extrabold uppercase leading-tight text-white sm:text-5xl">
               Frequently
-              <span className="block text-gradient-teal-gold">Asked Questions</span>
+              <span className="text-gradient-teal-gold block">
+                Asked Questions
+              </span>
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-gray-400 sm:text-lg">
               {subtitle}
@@ -44,7 +48,7 @@ const FAQSection = ({
           </div>
 
           {/* Right accordion column */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="space-y-6 lg:col-span-7">
             {items.map((item, i) => {
               const isOpen = openIndex === i;
               return (
@@ -61,7 +65,7 @@ const FAQSection = ({
                     <h4 className="text-lg font-bold tracking-tight text-white sm:text-xl">
                       {item.q}
                     </h4>
-                    <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 text-white transition-colors hover:bg-brand-teal hover:text-black">
+                    <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition-colors hover:bg-brand-teal hover:text-black">
                       {isOpen ? (
                         <Minus className="h-4 w-4" />
                       ) : (
@@ -73,10 +77,12 @@ const FAQSection = ({
                   <div
                     id={`faq-${i}`}
                     className={`overflow-hidden transition-all duration-300 ${
-                      isOpen ? "mt-4 max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+                      isOpen
+                        ? "mt-4 max-h-[500px] opacity-100"
+                        : "max-h-0 opacity-0"
                     }`}
                   >
-                    <p className="text-sm leading-relaxed text-gray-400 sm:text-base border-t border-white/5 pt-4">
+                    <p className="border-t border-white/5 pt-4 text-sm leading-relaxed text-gray-400 sm:text-base">
                       {item.a}
                     </p>
                   </div>
